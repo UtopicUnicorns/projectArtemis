@@ -44,10 +44,10 @@ fetch('https://api.github.com/users/UtopicUnicorns/events')
 
 				let target_name = '';
 
-				if (repo.name.includes('DJBSF')) target_name += './images/assets/project_bow_background.png';
-				if (repo.name.includes('Artemis')) target_name += './images/assets/project_arrow_background.png';
+				if (repo.name.includes('Project_Bow')) target_name += './images/assets/project_bow_background.png';
+				if (repo.name.includes('Project_Arrow')) target_name += './images/assets/project_arrow_background.png';
 				if (repo.name.includes('mint')) target_name += './images/assets/Server_Invite.png';
-				if (repo.head.includes('site')) target_name = './images/assets/project_artemis_background.png';
+				if (repo.name.includes('Project_Artemis')) target_name += './images/assets/project_artemis_background.png';
 
 				let combine_info = `
 				<table style="width: 100%; height: 30%; overflow: hidden; background-color: rgba(255, 255, 255, 0.8); border-radius: 5px; box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);">
