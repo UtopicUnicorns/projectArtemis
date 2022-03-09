@@ -1,0 +1,366 @@
+/*FONTS*/
+@font-face {
+	font-family: 'regular';
+	src: url('../fonts/quicksand-regular-webfont.woff2') format('woff2'),
+		url('../fonts/quicksand-regular-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'italic-light';
+	src: url('../fonts/quicksand-lightitalic-webfont.woff2') format('woff2'),
+		url('../fonts/quicksand-lightitalic-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'light';
+	src: url('../fonts/quicksand-light-webfont.woff2') format('woff2'),
+		url('../fonts/quicksand-light-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'italic';
+	src: url('../fonts/quicksand-italic-webfont.woff2') format('woff2'),
+		url('../fonts/quicksand-italic-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'dash';
+	src: url('../fonts/quicksand_dash-webfont.woff2') format('woff2'),
+		url('../fonts/quicksand_dash-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'bold-italic';
+	src: url('../fonts/quicksand-bolditalic-webfont.woff2') format('woff2'),
+		url('../fonts/quicksand-bolditalic-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'bold';
+	src: url('../fonts/quicksand-bold-webfont.woff2') format('woff2'),
+		url('../fonts/quicksand-bold-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/*SCROLLBAR*/
+::-webkit-scrollbar {
+	width: 5px;
+}
+
+::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #555;
+}
+
+/*BUTTONS*/
+.menu_button {
+	padding: 10px;
+	border: none;
+	background-color: rgba(255, 255, 255, 0.8);
+	box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.5);
+	font-family: 'regular';
+}
+
+.menu_button:hover,
+.menu_button:active,
+.menu_button:focus {
+	padding: 10px;
+	border: none;
+	background-color: rgba(0, 255, 0, 0.5);
+	box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.5);
+	font-family: 'regular';
+}
+
+/*CONTAINERS*/
+.inline {
+	display: inline-block;
+	width: 25%;
+	float: left;
+}
+
+.logo {
+	padding: 5%;
+	display: grid;
+	place-items: center;
+	border-radius: 1500px;
+	background-color: rgba(255, 255, 255, 0.8);
+	box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5);
+	animation: entrance 2s;
+}
+
+.float_menu {
+	width: 100%;
+	height: 5%;
+	left: 0px;
+	bottom: 5%;
+	position: fixed;
+	opacity: 0;
+	text-align: center;
+	z-index: 10;
+}
+
+.menu_box {
+	width: 100%;
+	height: 10%;
+	left: 0px;
+	bottom: 20%;
+	text-align: center;
+	position: absolute;
+	animation: entrance 3s;
+}
+
+.bg_box {
+	height: 100%;
+	width: 100%;
+	left: 0px;
+	bottom: 0px;
+	position: fixed;
+	background-image: url('../images/backgrounds/prism.svg');
+	background-attachment: fixed;
+	background-size: cover;
+}
+
+.a_box {
+	height: 100%;
+	width: 100%;
+	top: 0px;
+	left: 0px;
+	display: grid;
+	place-items: center;
+	position: absolute;
+	background-image: url('../images/backgrounds/1.png');
+	background-attachment: fixed;
+	background-size: cover;
+	overflow: hidden;
+}
+
+.b_box {
+	height: 100%;
+	width: 100%;
+	top: 100%;
+	left: 0px;
+	display: grid;
+	place-items: center;
+	position: absolute;
+	background-image: url('../images/backgrounds/2.png');
+	background-attachment: fixed;
+	background-size: cover;
+	overflow: hidden;
+}
+
+.c_box {
+	height: 100%;
+	width: 100%;
+	top: 200%;
+	left: 0px;
+	display: grid;
+	place-items: center;
+	position: absolute;
+	background-image: url('../images/backgrounds/3.png');
+	background-attachment: fixed;
+	background-size: cover;
+	overflow: hidden;
+}
+
+.d_box {
+	height: 100%;
+	width: 100%;
+	top: 300%;
+	left: 0px;
+	display: grid;
+	place-items: center;
+	position: absolute;
+	background-image: url('../images/backgrounds/4.png');
+	background-attachment: fixed;
+	background-size: cover;
+	overflow: hidden;
+}
+
+.e_box {
+	height: 100%;
+	width: 100%;
+	top: 400%;
+	left: 0px;
+	display: grid;
+	place-items: center;
+	position: absolute;
+	background-image: url('../images/backgrounds/5.png');
+	background-attachment: fixed;
+	background-size: cover;
+	overflow: hidden;
+}
+
+.f_box {
+	height: 100%;
+	width: 100%;
+	top: 500%;
+	left: 0px;
+	display: grid;
+	place-items: center;
+	position: absolute;
+	background-image: url('../images/backgrounds/1.png');
+	background-attachment: fixed;
+	background-size: cover;
+	overflow: hidden;
+}
+
+.g_box {
+	height: 100%;
+	width: 100%;
+	top: 600%;
+	left: 0px;
+	display: grid;
+	place-items: center;
+	position: absolute;
+	background-image: url('../images/backgrounds/2.png');
+	background-attachment: fixed;
+	background-size: cover;
+	overflow: hidden;
+}
+
+.extend_box {
+	height: 90%;
+	width: 90%;
+	border-redius: 25px;
+	background-color: rgba(255, 255, 255, 0.8);
+	overflow: auto;
+	padding: 5%;
+}
+
+/*PULSE EFFECT*/
+.pulse:hover,
+.pulse:focus {
+	-webkit-animation: pulse 1s;
+	animation: pulse 1s;
+	box-shadow: 0 0 0 2em rgba(255, 255, 255, 0);
+}
+
+@-webkit-keyframes pulse {
+	0% {
+		box-shadow: 0 0 0 0 rgba(0, 255, 0, 0.5);
+	}
+}
+
+@keyframes pulse {
+	0% {
+		box-shadow: 0 0 0 0 rgba(0, 255, 0, 0.5);
+	}
+}
+
+/*logo*/
+@keyframes entrance {
+	0% {
+		transform: scale(0);
+		opacity: 0;
+	}
+
+	100% {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+/*WAVE*/
+@keyframes move_wave {
+	0% {
+		transform: translateX(0) translateZ(0) scaleY(1)
+	}
+
+	50% {
+		transform: translateX(-25%) translateZ(0) scaleY(0.55)
+	}
+
+	100% {
+		transform: translateX(-50%) translateZ(0) scaleY(1)
+	}
+}
+
+.i_box {
+	overflow: hidden;
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
+	width: 100%;
+	height: 100%;
+}
+
+.bgTop {
+	opacity: 1;
+}
+
+.bgMiddle {
+	opacity: 0.7;
+}
+
+.bgBottom {
+	opacity: 0.5;
+}
+
+.wave {
+	position: absolute;
+	left: 0;
+	width: 200%;
+	height: 100%;
+	background-repeat: repeat no-repeat;
+	background-position: 0 bottom;
+	transform-origin: center bottom;
+}
+
+.waveTop {
+	background-size: 50%;
+	background-repeat: repeat no-repeat;
+}
+
+.waveAnimation .waveTop {
+	animation: move-wave 3s;
+	-webkit-animation: move-wave 3s;
+	-webkit-animation-delay: 1s;
+	animation-delay: 1s;
+}
+
+.waveMiddle {
+	background-size: 50%;
+	background-repeat: repeat no-repeat;
+}
+
+.waveAnimation .waveMiddle {
+	animation: move_wave 10s linear infinite;
+}
+
+.waveBottom {
+	background-size: 50%;
+}
+
+.waveAnimation .waveBottom {
+	animation: move_wave 15s linear infinite;
+}
+
+/*GLOBALS*/
+* {
+	color: black;
+	scroll-behavior: smooth;
+	font-size: 20px;
+	font-family: 'regular';
+	-webkit-font-smoothing: antialiased;
+	transition: 500ms;
+}
