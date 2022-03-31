@@ -53,6 +53,7 @@
 			<button class="menu_button pulse" onclick="location.href='#C'">GITHUB</button>
 			<button class="menu_button pulse" onclick="location.href='#D'">DONATE</button>
 			<button class="menu_button pulse" onclick="location.href='#E'">CONTACT</button>
+			<button class="menu_button pulse" onclick="location.href='#H'">STATS</button>
 		</div>
 
 		<div class="bg_box waveAnimation">
@@ -76,7 +77,8 @@
 				<button class="menu_button pulse" onclick="location.href='#B'">INVITE</button>
 				<button class="menu_button pulse" onclick="location.href='#C'">GITHUB</button>
 				<button class="menu_button pulse" onclick="location.href='#D'">DONATE</button>
-				<button class="menu_button pulse" onclick="location.href='#E'">CONTACT</button><br /><br />
+				<button class="menu_button pulse" onclick="location.href='#E'">CONTACT</button>
+				<button class="menu_button pulse" onclick="location.href='#H'">STATS</button><br /><br />
 				<button class="menu_button pulse" onclick="location.href='#F'">Terms of Service</button>
 				<button class="menu_button pulse" onclick="location.href='#G'">Privacy Policy</button>
 			</div>
@@ -165,6 +167,32 @@
 				<button class="menu_button pulse" onclick="window.open('mailto:dorrestijn.r@gmail.com', '_blank')" target="_blank">Email me</button>
 				<button class="menu_button pulse" onclick="window.open('https://github.com/UtopicUnicorns/', '_blank')" target="_blank">Visit my GitHub</button>
 			</div>
+		</div>
+
+		<div class="h_box" id="H">
+			<table style="width: 100%; height: 30%; overflow: hidden; background-color: rgba(255, 255, 255, 0.8); border-radius: 5px; box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);">
+				<tbody>
+					<tr>
+						<td style="height: 80px;text-align: center;">
+							<h1>stats</h1>
+						</td>
+					</tr>
+					<tr>
+						<td style="text-align: center;">
+							<table style="width: 60%; margin-left: auto;  margin-right: auto;">
+								<tbody>
+									<tr>
+										<td><canvas id="stat_hold" width="250" height="250"></canvas></td>
+										<td id="cpu" style="text-align: left;">&nbsp;</td>
+										<td><canvas id="stat_hold2" width="250" height="250"></canvas></td>
+										<td id="bot" style="text-align: left;"></td>
+									</tr>
+								</tbody>
+							</table>
+						</td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
 
 		<div class="f_box" id="F">
@@ -259,6 +287,62 @@
 		<!--Scripts-->
 		<script src="./scripts/float_menu.js"></script>
 		<script src="./scripts/git.js"></script>
+		<script src="./scripts/perc.js"></script>
+		<script src="./data.js"></script>
+		<script>
+			let script = document.getElementById('bot');
+			let info = `${os_data.guild_count} Servers<br />
+									${os_data.time}<br />
+									${os_data.date}<br />
+									${os_data.bot_mem.toLocaleString()} MegaBytes<br /><br />`;
+
+			script.innerHTML = info;
+
+			let script2 = document.getElementById('cpu');
+			let info2 = `${os_data.os_cpu}<br />
+									${os_data.os_plat}<br />
+									${os_data.os_rel}<br />
+									${os_data.os_meminuse.toLocaleString()}/${os_data.os_memtotal.toLocaleString()} MegaBytes<br />
+									${os_data.os_up.hour}:${os_data.os_up.minute}:${os_data.os_up.second} Uptime<br /><br />`;
+
+			script2.innerHTML = info2;
+		</script>
+
+		<script>
+			var canvas = document.getElementById('stat_hold');
+			var percentage = Math.floor(os_data.os_meminuse * 100 / os_data.os_memtotal);
+			var radius;
+			var total = os_data.os_memtotal;
+			var now = os_data.os_meminuse;
+			var func = 'Server';
+
+			if (stat_hold.height < stat_hold.width) {
+				radius = stat_hold.height / 3;
+			} else {
+				radius = stat_hold.width / 3;
+			}
+
+			if (percentage < 1) var percentage = 1;
+
+			drawPercentageCircle(percentage, radius, canvas, total, now, func);
+
+			var canvas = document.getElementById('stat_hold2');
+			var percentage = Math.floor(os_data.bot_mem * 100 / os_data.os_memtotal);
+			var radius;
+			var total = os_data.os_memtotal;
+			var now = os_data.bot_mem;
+			var func = 'Bot';
+
+			if (stat_hold.height < stat_hold.width) {
+				radius = stat_hold.height / 3;
+			} else {
+				radius = stat_hold.width / 3;
+			}
+			if (percentage < 1) var percentage = 1;
+
+			drawPercentageCircle(percentage, radius, canvas, total, now, func);
+		</script>
+
 	</body>
 
 </html>

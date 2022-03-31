@@ -238,6 +238,20 @@
 	overflow: hidden;
 }
 
+.h_box {
+	height: 100%;
+	width: 100%;
+	top: 700%;
+	left: 0px;
+	display: grid;
+	place-items: center;
+	position: absolute;
+	background-image: url('../images/backgrounds/3.png');
+	background-attachment: fixed;
+	background-size: cover;
+	overflow: hidden;
+}
+
 .extend_box {
 	height: 90%;
 	width: 90%;
