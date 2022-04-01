@@ -22,7 +22,9 @@ function drawPercentageCircle(percentage, radius, canvas, total, now, func) {
 	context.arc(x, y, radius, startAngle, endAngle, counterClockwise);
 	context.lineWidth = 15;
 
-	context.strokeStyle = 'white';
+	context.strokeStyle = 'rgba(0, 0, 0, 0.1)';
+	context.shadowColor = 'black';
+	context.shadowBlur = 5;
 	context.stroke();
 
 	counterClockwise = false;
@@ -33,7 +35,8 @@ function drawPercentageCircle(percentage, radius, canvas, total, now, func) {
 
 	context.strokeStyle = 'lightgreen';
 	context.stroke();
-
+	
+	context.shadowBlur = 0;
 	context.font = radius / 4.5 + "px Helvetica";
 	context.fillStyle = "black";
 	context.textAlign = "center";

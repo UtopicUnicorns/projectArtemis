@@ -294,7 +294,7 @@
 			let info = `${os_data.guild_count} Servers<br />
 									${os_data.time}<br />
 									${os_data.date}<br />
-									${os_data.bot_mem.toLocaleString()} MegaBytes<br /><br />`;
+									${os_data.uptime.hour}:${os_data.uptime.minute}:${os_data.uptime.second} Uptime<br /><br />`;
 
 			script.innerHTML = info;
 
@@ -302,7 +302,6 @@
 			let info2 = `${os_data.os_cpu}<br />
 									${os_data.os_plat}<br />
 									${os_data.os_rel}<br />
-									${os_data.os_meminuse.toLocaleString()}/${os_data.os_memtotal.toLocaleString()} MegaBytes<br />
 									${os_data.os_up.hour}:${os_data.os_up.minute}:${os_data.os_up.second} Uptime<br /><br />`;
 
 			script2.innerHTML = info2;
@@ -339,10 +338,8 @@
 				radius = stat_hold.width / 3;
 			}
 			if (percentage < 1) var percentage = 1;
-
 			drawPercentageCircle(percentage, radius, canvas, total, now, func);
 		</script>
-
 	</body>
 
 </html>
