@@ -6,11 +6,11 @@
 		<meta charset="utf-8" />
 		<meta name="description" content="Project Artemis is a collection of sub-projects, mainly known for the Discord bot called Artemis." />
 		<meta property="og:description" content="Project Artemis is a collection of sub-projects, mainly known for the Discord bot called Artemis." />
-		<meta property="og:image" content="https://artemis.rest/website/images/assets/project_artemis_background.png" />
+		<meta property="og:image" content="https://artemis.rest/website/images/assets/project_artemis_background2.png" />
 		<meta property="og:title" content="Project Artemis, Fuck you kindly." />
 		<meta name="twitter:title" content="Project Artemis, Fuck you kindly." />
 		<meta name="twitter:description" content="Project Artemis is a collection of sub-projects, mainly known for the Discord bot called Artemis." />
-		<meta name="twitter:image" content="https://artemis.rest/website/images/assets/project_artemis_background.png" />
+		<meta name="twitter:image" content="https://artemis.rest/website/images/assets/project_artemis_background2.png" />
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="keywords" content="Discord, Bot, Artemis, Javascript" />
@@ -181,7 +181,7 @@
 						<td style="text-align: center;">
 							<table style="width: 60%; margin-left: auto;  margin-right: auto;">
 								<tbody>
-									<tr>
+									<tr id="ref">
 										<td><canvas id="stat_hold" width="250" height="250"></canvas></td>
 										<td id="cpu" style="text-align: left;">&nbsp;</td>
 										<td><canvas id="stat_hold2" width="250" height="250"></canvas></td>
@@ -338,6 +338,7 @@
 				radius = stat_hold.width / 3;
 			}
 			if (percentage < 1) var percentage = 1;
+
 			drawPercentageCircle(percentage, radius, canvas, total, now, func);
 		</script>
 	</body>
