@@ -53,15 +53,15 @@ fetch('https://api.github.com/users/UtopicUnicorns/events')
 				<table style="width: 100%; height: 30%; overflow: hidden; background-color: rgba(255, 255, 255, 0.8); border-radius: 5px; box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);">
 					<tbody>
 						<tr>
-							<td style="height: 80px;text-align: center; background-image: url('${target_name}'); background-position: center; background-size: cover; background-repeat: no-repeat">
+							<td style="height: 80px;text-align: center; background-image: url('${target_name}'); background-position: center; background-size: cover; background-repeat: no-repeat;">
 								<table style="width: 100%; height: 50%;">
 									<tbody>
 										<tr>
-											<td style="width: 50%; height: 100%; text-align: left; padding-left: 5%;">
+											<td style="width: 50%; height: 100%; text-align: left; padding-left: 5%; color: rgba(255,255,255,0.8); font-size: 20px;">
 												${title.name}<br />
-												${time}
+												<a style="font-size: 15px; color: rgba(255,255,255,0.8);">${time}</a>
 											</td>
-											<td style="text-align: right; padding-right: 5%; width: 50%; height: 100%; background-image: url('${author.pic}');background-position: right; background-size: contain; background-repeat: no-repeat;">	
+											<td style="text-align: right; padding-right: 5%; width: 50%; height: 100%; background-image: url('${author.pic}');background-position: calc(95%) center; background-size: contain; background-repeat: no-repeat;">	
 											</td>
 										</tr>
 									</tbody>
