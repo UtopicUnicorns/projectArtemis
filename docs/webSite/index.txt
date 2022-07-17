@@ -1,0 +1,257 @@
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+	&lt;head&gt;
+		&lt;!--Meta Data --&gt;
+		&lt;meta charset=&quot;utf-8&quot; /&gt;
+		&lt;meta name=&quot;description&quot; content=&quot;Project Artemis is a collection of sub-projects, mainly known for the Discord bot called Artemis.&quot; /&gt;
+		&lt;meta property=&quot;og:description&quot; content=&quot;Project Artemis is a collection of sub-projects, mainly known for the Discord bot called Artemis.&quot; /&gt;
+		&lt;meta property=&quot;og:image&quot; content=&quot;https://artemis.rest/website/images/assets/project_artemis_background2.png&quot; /&gt;
+		&lt;meta property=&quot;og:title&quot; content=&quot;Project Artemis, Fuck you kindly.&quot; /&gt;
+		&lt;meta name=&quot;twitter:title&quot; content=&quot;Project Artemis, Fuck you kindly.&quot; /&gt;
+		&lt;meta name=&quot;twitter:description&quot; content=&quot;Project Artemis is a collection of sub-projects, mainly known for the Discord bot called Artemis.&quot; /&gt;
+		&lt;meta name=&quot;twitter:image&quot; content=&quot;https://artemis.rest/website/images/assets/project_artemis_background2.png&quot; /&gt;
+		&lt;meta name=&quot;twitter:card&quot; content=&quot;summary_large_image&quot; /&gt;
+		&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+		&lt;meta name=&quot;keywords&quot; content=&quot;Discord, Bot, Artemis, Javascript&quot; /&gt;
+		&lt;meta name=&quot;author&quot; content=&quot;Richard Dorrestijn&quot; /&gt;
+		&lt;meta name=&quot;copyright&quot; content=&quot;Richard Dorrestijn&quot; /&gt;
+		&lt;meta name=&quot;robots&quot; content=&quot;index, follow&quot; /&gt;
+
+		&lt;!--Favicon, icons--&gt;
+		&lt;link rel=&quot;apple-touch-icon&quot; sizes=&quot;180x180&quot; href=&quot;./favicon/apple-touch-icon.png&quot; /&gt;
+		&lt;link rel=&quot;icon&quot; type=&quot;image/png&quot; sizes=&quot;32x32&quot; href=&quot;./favicon/favicon-32x32.png&quot; /&gt;
+		&lt;link rel=&quot;icon&quot; type=&quot;image/png&quot; sizes=&quot;16x16&quot; href=&quot;./favicon/favicon-16x16.png&quot; /&gt;
+		&lt;link rel=&quot;manifest&quot; href=&quot;./favicon/site.webmanifest&quot; /&gt;
+		&lt;link rel=&quot;mask-icon&quot; href=&quot;./favicon/safari-pinned-tab.svg&quot; color=&quot;#5bbad5&quot; /&gt;
+		&lt;meta name=&quot;msapplication-TileColor&quot; content=&quot;#da532c&quot; /&gt;
+		&lt;meta name=&quot;theme-color&quot; content=&quot;#ffffff&quot; /&gt;
+
+		&lt;!--Preloads--&gt;
+		&lt;link rel=&quot;prefetch&quot; href=&quot;./images/backgrounds/1.png&quot; /&gt;
+		&lt;link rel=&quot;prefetch&quot; href=&quot;./images/backgrounds/2.png&quot; /&gt;
+		&lt;link rel=&quot;prefetch&quot; href=&quot;./images/backgrounds/3.png&quot; /&gt;
+		&lt;link rel=&quot;prefetch&quot; href=&quot;./images/backgrounds/4.png&quot; /&gt;
+		&lt;link rel=&quot;prefetch&quot; href=&quot;./images/backgrounds/5.png&quot; /&gt;
+		&lt;link rel=&quot;prefetch&quot; href=&quot;./images/backgrounds/prism.svg&quot; /&gt;
+		&lt;link rel=&quot;prefetch&quot; href=&quot;./images/assets/wave_top.svg&quot; /&gt;
+		&lt;link rel=&quot;prefetch&quot; href=&quot;./images/assets/wave_mid.svg&quot; /&gt;
+		&lt;link rel=&quot;prefetch&quot; href=&quot;./images/assets/wave_bot.svg&quot; /&gt;
+		&lt;link rel=&quot;prefetch&quot; href=&quot;./images/logo/logo.svg&quot; /&gt;
+
+		&lt;!--Title--&gt;
+		&lt;title&gt;Project Artemis, Fuck you kindly.&lt;/title&gt;
+
+		&lt;!--Stylesheet--&gt;
+		&lt;link rel=&quot;stylesheet&quot; href=&quot;./styles/sheet.css&quot; /&gt;
+	&lt;/head&gt;
+
+	&lt;body&gt;
+		&lt;div id=&quot;float_menu&quot; class=&quot;float_menu&quot;&gt;
+			&lt;button class=&quot;menu_button pulse&quot; onclick=&quot;document.getElementById('home').scrollIntoView();&quot;&gt;HOMEPAGE&lt;/button&gt;
+			&lt;button class=&quot;menu_button pulse&quot; onclick=&quot;document.getElementById('invite').scrollIntoView();&quot;&gt;INVITE&lt;/button&gt;
+			&lt;button class=&quot;menu_button pulse&quot; onclick=&quot;document.getElementById('github').scrollIntoView();&quot;&gt;GITHUB&lt;/button&gt;
+			&lt;button class=&quot;menu_button pulse&quot; onclick=&quot;document.getElementById('donate').scrollIntoView();&quot;&gt;DONATE&lt;/button&gt;
+			&lt;button class=&quot;menu_button pulse&quot; onclick=&quot;document.getElementById('contact').scrollIntoView();&quot;&gt;CONTACT&lt;/button&gt;
+			&lt;button class=&quot;menu_button pulse&quot; onclick=&quot;document.getElementById('stats').scrollIntoView();&quot;&gt;STATS&lt;/button&gt;
+		&lt;/div&gt;
+
+		&lt;div class=&quot;bg_box waveAnimation&quot;&gt;
+			&lt;div class=&quot;i_box bgTop&quot;&gt;
+				&lt;div class=&quot;wave waveTop&quot; style=&quot;background-image: url('./images/assets/wave_top.svg');&quot;&gt;&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;div class=&quot;i_box bgMiddle&quot;&gt;
+				&lt;div class=&quot;wave waveMiddle&quot; style=&quot;background-image: url('./images/assets/wave_mid.svg');&quot;&gt;&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;div class=&quot;i_box bgBottom&quot;&gt;
+				&lt;div class=&quot;wave waveBottom&quot; style=&quot;background-image: url('./images/assets/wave_bot.svg');&quot;&gt;&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+
+		&lt;div class=&quot;a_box&quot; id=&quot;home&quot;&gt;
+			&lt;div class=&quot;logo&quot;&gt;
+				&lt;img src=&quot;./images/logo/logo.svg&quot;&gt;
+			&lt;/div&gt;
+			&lt;div class=&quot;menu_box&quot;&gt;
+				&lt;button class=&quot;menu_button pulse&quot; onclick=&quot;document.getElementById('home').scrollIntoView();&quot;&gt;HOMEPAGE&lt;/button&gt;
+				&lt;button class=&quot;menu_button pulse&quot; onclick=&quot;document.getElementById('invite').scrollIntoView();&quot;&gt;INVITE&lt;/button&gt;
+				&lt;button class=&quot;menu_button pulse&quot; onclick=&quot;document.getElementById('github').scrollIntoView();&quot;&gt;GITHUB&lt;/button&gt;
+				&lt;button class=&quot;menu_button pulse&quot; onclick=&quot;document.getElementById('donate').scrollIntoView();&quot;&gt;DONATE&lt;/button&gt;
+				&lt;button class=&quot;menu_button pulse&quot; onclick=&quot;document.getElementById('contact').scrollIntoView();&quot;&gt;CONTACT&lt;/button&gt;
+				&lt;button class=&quot;menu_button pulse&quot; onclick=&quot;document.getElementById('stats').scrollIntoView();&quot;&gt;STATS&lt;/button&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+
+		&lt;div class=&quot;b_box&quot; id=&quot;invite&quot;&gt;
+			&lt;table style=&quot;width: 100%; height: 30%; overflow: hidden; background-color: rgba(255, 255, 255, 0.8); border-radius: 5px; box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);&quot;&gt;
+				&lt;tbody&gt;
+					&lt;tr&gt;
+						&lt;td style=&quot;height: 80px;text-align: center;&quot;&gt;
+							&lt;h1&gt;Invite Artemis&lt;/h1&gt;
+						&lt;/td&gt;
+					&lt;/tr&gt;
+					&lt;tr&gt;
+						&lt;td style=&quot;text-align: center;&quot;&gt;
+							To invite Artemis or the test/beta bot you need the following permissions:&lt;br /&gt;
+							&lt;ul style=&quot;text-align: left; padding-left: 35%;&quot;&gt;
+								&lt;li&gt;Administrator&lt;/li&gt;
+								&lt;li&gt;Create application commands&lt;/li&gt;
+							&lt;/ul&gt;
+							Both bots need/want administrative rights and the ability to create slash commands, which is a seperate permission in the invite URL.&lt;br /&gt;
+							Always make sure to study the links you open, make sure the URL is from Discord, and always make sure the connection is secure(https).&lt;br /&gt;
+							&lt;br /&gt;
+							The test bot is not to be used as a main bot, this bot serves a beta/alpha testing purpose, in this case she uses a custom API library.&lt;br /&gt;
+							Artemis is the main bot and can be used as your main bot in your server(s)&lt;br /&gt;&lt;br /&gt;
+						&lt;/td&gt;
+					&lt;/tr&gt;
+
+				&lt;/tbody&gt;
+			&lt;/table&gt;
+			&lt;div class=&quot;menu_box&quot;&gt;
+				&lt;button class=&quot;menu_button pulse&quot; onclick=&quot;window.open('https://discord.com/api/oauth2/authorize?client_id=440892659264126997&amp;permissions=8&amp;scope=applications.commands%20bot', '_blank')&quot; target=&quot;_blank&quot;&gt;Invite Artemis&lt;/button&gt;
+				&lt;button class=&quot;menu_button pulse&quot; onclick=&quot;window.open('https://discord.com/api/oauth2/authorize?client_id=654361253413781537&amp;permissions=8&amp;scope=applications.commands%20bot', '_blank')&quot; target=&quot;_blank&quot;&gt;Invite Test Bot&lt;/button&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+
+		&lt;div class=&quot;c_box&quot; id=&quot;github&quot;&gt;
+
+		&lt;/div&gt;
+
+		&lt;div class=&quot;d_box&quot; id=&quot;donate&quot;&gt;
+			&lt;table style=&quot;width: 100%; height: 30%; overflow: hidden; background-color: rgba(255, 255, 255, 0.8); border-radius: 5px; box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);&quot;&gt;
+				&lt;tbody&gt;
+					&lt;tr&gt;
+						&lt;td style=&quot;height: 80px;text-align: center;&quot;&gt;
+							&lt;h1&gt;Make a donation&lt;/h1&gt;
+						&lt;/td&gt;
+					&lt;/tr&gt;
+					&lt;tr&gt;
+						&lt;td style=&quot;text-align: center;&quot;&gt;
+							While any of the Projects are free to use, donations are needed to keep the servers up and running, as well as feeling rewarded for my work.&lt;br /&gt;
+							Currently only Patreon and PayPal are supported.&lt;br /&gt;
+							Donating gives you no additional benefits as the Project is full and complete as is, but you do get priority when requesting features.&lt;br /&gt;
+						&lt;/td&gt;
+					&lt;/tr&gt;
+				&lt;/tbody&gt;
+			&lt;/table&gt;
+			&lt;div class=&quot;menu_box&quot;&gt;
+				&lt;button class=&quot;menu_button pulse&quot; onclick=&quot;window.open('https://www.paypal.com/donate/?hosted_button_id=ULQ8N32CLXK4L', '_blank')&quot; target=&quot;_blank&quot;&gt;Donate with PayPal&lt;/button&gt;
+				&lt;button class=&quot;menu_button pulse&quot; onclick=&quot;window.open('https://www.patreon.com/projectartemis', '_blank')&quot; target=&quot;_blank&quot;&gt;Become a Patron&lt;/button&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+
+		&lt;div class=&quot;e_box&quot; id=&quot;contact&quot;&gt;
+			&lt;table style=&quot;width: 100%; height: 30%; overflow: hidden; background-color: rgba(255, 255, 255, 0.8); border-radius: 5px; box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);&quot;&gt;
+				&lt;tbody&gt;
+					&lt;tr&gt;
+						&lt;td style=&quot;height: 80px;text-align: center;&quot;&gt;
+							&lt;h1&gt;Contact&lt;/h1&gt;
+						&lt;/td&gt;
+					&lt;/tr&gt;
+					&lt;tr&gt;
+						&lt;td style=&quot;text-align: center;&quot;&gt;
+							Contacting me is not too hard, you can find me on GitHub, Email and Discord.&lt;br /&gt;
+							&lt;ul style=&quot;text-align: left; padding-left: 35%;&quot;&gt;
+								&lt;li&gt;.initrd#0383&lt;/li&gt;
+								&lt;li&gt;dorrestijn.r@gmail.com&lt;/li&gt;
+							&lt;/ul&gt;
+						&lt;/td&gt;
+					&lt;/tr&gt;
+				&lt;/tbody&gt;
+			&lt;/table&gt;
+			&lt;div class=&quot;menu_box&quot;&gt;
+				&lt;button class=&quot;menu_button pulse&quot; onclick=&quot;window.open('https://discord.com/invite/Y6f3XQyuTQ', '_blank')&quot; target=&quot;_blank&quot;&gt;Join Project Artemis Discord&lt;/button&gt;
+				&lt;button class=&quot;menu_button pulse&quot; onclick=&quot;window.open('mailto:dorrestijn.r@gmail.com', '_blank')&quot; target=&quot;_blank&quot;&gt;Email me&lt;/button&gt;
+				&lt;button class=&quot;menu_button pulse&quot; onclick=&quot;window.open('https://github.com/UtopicUnicorns/', '_blank')&quot; target=&quot;_blank&quot;&gt;Visit my GitHub&lt;/button&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+
+		&lt;div class=&quot;f_box&quot; id=&quot;stats&quot;&gt;
+			&lt;table style=&quot;width: 100%; height: 30%; overflow: hidden; background-color: rgba(255, 255, 255, 0.8); border-radius: 5px; box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);&quot;&gt;
+				&lt;tbody&gt;
+					&lt;tr&gt;
+						&lt;td style=&quot;height: 80px;text-align: center;&quot;&gt;
+							&lt;h1&gt;stats&lt;/h1&gt;
+						&lt;/td&gt;
+					&lt;/tr&gt;
+					&lt;tr&gt;
+						&lt;td style=&quot;text-align: center;&quot;&gt;
+							&lt;table style=&quot;width: 60%; margin-left: auto;  margin-right: auto;&quot;&gt;
+								&lt;tbody&gt;
+									&lt;tr id=&quot;ref&quot;&gt;
+										&lt;td&gt;&lt;canvas id=&quot;stat_hold&quot; width=&quot;250&quot; height=&quot;250&quot;&gt;&lt;/canvas&gt;&lt;/td&gt;
+										&lt;td id=&quot;cpu&quot; style=&quot;text-align: left;&quot;&gt;&amp;nbsp;&lt;/td&gt;
+										&lt;td&gt;&lt;canvas id=&quot;stat_hold2&quot; width=&quot;250&quot; height=&quot;250&quot;&gt;&lt;/canvas&gt;&lt;/td&gt;
+										&lt;td id=&quot;bot&quot; style=&quot;text-align: left;&quot;&gt;&lt;/td&gt;
+									&lt;/tr&gt;
+								&lt;/tbody&gt;
+							&lt;/table&gt;
+						&lt;/td&gt;
+					&lt;/tr&gt;
+				&lt;/tbody&gt;
+			&lt;/table&gt;
+		&lt;/div&gt;
+
+
+
+		&lt;!--Scripts--&gt;
+		&lt;script src=&quot;./scripts/floatMenu.js&quot;&gt;&lt;/script&gt;
+		&lt;script src=&quot;./scripts/gitHub.js&quot;&gt;&lt;/script&gt;
+		&lt;script src=&quot;./scripts/statsCalc.js&quot;&gt;&lt;/script&gt;
+		&lt;script src=&quot;./scripts/highLight.js&quot;&gt;&lt;/script&gt;
+		&lt;script src=&quot;./data.js&quot;&gt;&lt;/script&gt;
+		&lt;script&gt;
+			let script = document.getElementById('bot');
+			let info = `${os_data.guild_count} Servers&lt;br /&gt;
+									${os_data.time}&lt;br /&gt;
+									${os_data.date}&lt;br /&gt;
+									${os_data.uptime.hour}:${os_data.uptime.minute}:${os_data.uptime.second} Uptime&lt;br /&gt;&lt;br /&gt;`;
+
+			script.innerHTML = info;
+
+			let script2 = document.getElementById('cpu');
+			let info2 = `${os_data.os_cpu}&lt;br /&gt;
+									${os_data.os_plat}&lt;br /&gt;
+									${os_data.os_rel}&lt;br /&gt;
+									${os_data.os_up.hour}:${os_data.os_up.minute}:${os_data.os_up.second} Uptime&lt;br /&gt;&lt;br /&gt;`;
+
+			script2.innerHTML = info2;
+		&lt;/script&gt;
+
+		&lt;script&gt;
+			var canvas = document.getElementById('stat_hold');
+			var percentage = Math.floor(os_data.os_meminuse * 100 / os_data.os_memtotal);
+			var radius;
+			var total = os_data.os_memtotal;
+			var now = os_data.os_meminuse;
+			var func = 'Server';
+
+			if (stat_hold.height &lt; stat_hold.width) {
+				radius = stat_hold.height / 3;
+			} else {
+				radius = stat_hold.width / 3;
+			}
+
+			if (percentage &lt; 1) var percentage = 1;
+
+			drawPercentageCircle(percentage, radius, canvas, total, now, func);
+
+			var canvas = document.getElementById('stat_hold2');
+			var percentage = Math.floor(os_data.bot_mem * 100 / os_data.os_memtotal);
+			var radius;
+			var total = os_data.os_memtotal;
+			var now = os_data.bot_mem;
+			var func = 'Bot';
+
+			if (stat_hold.height &lt; stat_hold.width) {
+				radius = stat_hold.height / 3;
+			} else {
+				radius = stat_hold.width / 3;
+			}
+			if (percentage &lt; 1) var percentage = 1;
+
+			drawPercentageCircle(percentage, radius, canvas, total, now, func);
+		&lt;/script&gt;
+	&lt;/body&gt;
+
+&lt;/html&gt;

@@ -94,7 +94,7 @@ fetch('https://api.github.com/users/UtopicUnicorns/events')
 			}
 		}
 
-		let content_grab = document.getElementById('C');
+		let content_grab = document.getElementById('github');
 
 		let table_gen = `
 		<table style="width: 90%; height: 90%; overflow: hidden;">

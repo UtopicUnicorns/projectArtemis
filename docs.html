@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!--Meta Data -->
+		<meta charset="utf-8" />
+		<meta name="description" content="Project Artemis is a collection of sub-projects, mainly known for the Discord bot called Artemis." />
+		<meta property="og:description" content="Project Artemis is a collection of sub-projects, mainly known for the Discord bot called Artemis." />
+		<meta property="og:image" content="https://artemis.rest/website/images/assets/project_artemis_background2.png" />
+		<meta property="og:title" content="Project Artemis, Fuck you kindly." />
+		<meta name="twitter:title" content="Project Artemis, Fuck you kindly." />
+		<meta name="twitter:description" content="Project Artemis is a collection of sub-projects, mainly known for the Discord bot called Artemis." />
+		<meta name="twitter:image" content="https://artemis.rest/website/images/assets/project_artemis_background2.png" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="keywords" content="Discord, Bot, Artemis, Javascript" />
+		<meta name="author" content="Richard Dorrestijn" />
+		<meta name="copyright" content="Richard Dorrestijn" />
+		<meta name="robots" content="index, follow" />
+
+		<!--Favicon, icons-->
+		<link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png" />
+		<link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png" />
+		<link rel="manifest" href="./favicon/site.webmanifest" />
+		<link rel="mask-icon" href="./favicon/safari-pinned-tab.svg" color="#5bbad5" />
+		<meta name="msapplication-TileColor" content="#da532c" />
+		<meta name="theme-color" content="#ffffff" />
+
+		<!--Title-->
+		<title>Project Artemis, Fuck you kindly.</title>
+
+		<!--Stylesheet-->
+		<link rel="stylesheet" href="./styles/sheet.css" />
+		<link rel="stylesheet" href="./styles/prism.css" data-noprefix />
+
+	</head>
+
+	<body>
+		<div class="bg_box waveAnimation">
+			<div class="i_box bgTop">
+				<div class="wave waveTop" style="background-image: url('./images/assets/wave_top.svg');"></div>
+			</div>
+			<div class="i_box bgMiddle">
+				<div class="wave waveMiddle" style="background-image: url('./images/assets/wave_mid.svg');"></div>
+			</div>
+			<div class="i_box bgBottom">
+				<div class="wave waveBottom" style="background-image: url('./images/assets/wave_bot.svg');"></div>
+			</div>
+		</div>
+
+		<div class="a_box" id="home">
+			<div class="docBack">
+				<div class="docLeftMenu">
+					<details open>
+						<summary>&ensp;Website</summary>
+							<p><button class="codeDocs" onclick="procFile('./docs/webSite/readMe.txt', 'html')">📄&ensp;readMe.MD</button></p>
+							<p><button class="codeDocs" onclick="procFile('./docs/webSite/index.txt', 'html')">📄&ensp;index.html</button></p>
+							<p><button class="codeDocs" onclick="procFile('./docs/webSite/docs.txt', 'html')">📄&ensp;docs.html</button></p>
+								<details>
+									<summary style="text-align: right;">&ensp;Website/Scripts</summary>
+										<p><button class="codeDocs" onclick="procFile('./docs/webSite/scripts/codeBox.txt', 'js')">📄&ensp;codeBox.js</button></p>
+										<p><button class="codeDocs" onclick="procFile('./docs/webSite/scripts/floatMenu.txt', 'js')">📄&ensp;floatMenu.js</button></p>
+										<p><button class="codeDocs" onclick="procFile('./docs/webSite/scripts/gitHub.txt', 'js')">📄&ensp;gitHub.js</button></p>
+										<p><button class="codeDocs" onclick="procFile('./docs/webSite/scripts/highLight.txt', 'js')">📄&ensp;highLight.js</button></p>
+										<p><button class="codeDocs" onclick="procFile('./docs/webSite/scripts/procFile.txt', 'js')">📄&ensp;procFile.js</button></p>
+										<p><button class="codeDocs" onclick="procFile('./scripts/statsCalc.js', 'js')">📄&ensp;statsCalc.js</button></p>
+								</details>
+								<details>
+									<summary style="text-align: right;">&ensp;Website/Styles</summary>
+										<p><button class="codeDocs" onclick="procFile('./docs/webSite/styles/sheet.txt', 'css')">📄&ensp;sheet.css</button></p>
+								</details>
+					</details>
+					<details>
+						<summary>&ensp;Project Bow</summary>
+							<p><button class="codeDocs" onclick="procFile('./docs/webSite/readMe.txt', 'html')">📄&ensp;readMe.MD</button></p>
+					</details>
+				</div>
+				<div class="docRightBox">
+					<pre id="codeView" class="language-js line-numbers linkable-line-numbers" data-jsonp="https://api.github.com/repos/UtopicUnicorns/Project_Bow/contents/library/index.js" data-line="1, 5-26, 50-100"></pre>
+				</div>
+			</div>
+		</div>
+		
+
+		<script src="./scripts/prism.js"></script>
+	</body>
+</html>

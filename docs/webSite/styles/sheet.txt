@@ -381,38 +381,36 @@
 
 /* DOCS */
 .docBack {
-	position: absolute;
 	width: 95%; 
 	height: 95%; 
 	display: flex;
-	overflow: hidden;
 	background-color: rgba(255,255,255,0.5);
 }
 
 .docLeftMenu {
-		position: relative;
+		display: inline-block;
     width: 20%;
     height: 100%;
     border-right: 1px solid green;
 }
 
 .docRightBox {
-		position: relative;
+		display: inline-block;
     width: 80%;
     height: 100%;
-    overflow: auto;
+		overflow: hidden;
 }
 
-details > summary {
-    list-style-type: '📁';
+details &gt; summary {
+    list-style-type: '&#xd83d;&#xdcc1;';
     cursor: pointer;
     box-shadow: 0px 3px black;
     background-color: rgba(0, 255, 0, 0.1);
     padding-left: 2px;
 }
 
-details[open] > summary {
-    list-style-type: '📂';
+details[open] &gt; summary {
+    list-style-type: '&#xd83d;&#xdcc2;';
     background-color: rgba(0, 255, 0, 0.3);
 }
 
@@ -420,7 +418,7 @@ details {
     background-color: rgba(0, 255, 0, 0.1);
 }
 
-details[open] > summary {
+details[open] &gt; summary {
     margin-bottom: 0.5rem;
     padding-left: 20px;
 }
@@ -434,7 +432,7 @@ details[open] summary ~ * {
   animation: open .5s ease-in-out;
 }
 
-details > p {
+details &gt; p {
     padding-left: 0px;
     margin: 0px;
 }
@@ -455,14 +453,4 @@ details > p {
 	box-shadow: 0px 3px black;
 	text-align: right;
 	padding-right: 50px;
-}
-
-code[class*="language-"],
-pre[class*="language-"] {
-    white-space: pre-wrap;
-}
-
-/* The following is needed for Google Chrome. */
-pre.line-numbers > code {
-    display: inline-block;
 }
