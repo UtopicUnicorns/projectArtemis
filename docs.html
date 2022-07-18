@@ -52,36 +52,150 @@
 			<div class="docBack">
 				<div class="docLeftMenu">
 					<details open>
-						<summary>&ensp;Website</summary>
-							<p><button class="codeDocs" onclick="procFile('./docs/webSite/readMe.txt', 'html')">📄&ensp;readMe.MD</button></p>
-							<p><button class="codeDocs" onclick="procFile('./docs/webSite/index.txt', 'html')">📄&ensp;index.html</button></p>
-							<p><button class="codeDocs" onclick="procFile('./docs/webSite/docs.txt', 'html')">📄&ensp;docs.html</button></p>
-								<details>
-									<summary style="text-align: right;">&ensp;Website/Scripts</summary>
-										<p><button class="codeDocs" onclick="procFile('./docs/webSite/scripts/codeBox.txt', 'js')">📄&ensp;codeBox.js</button></p>
-										<p><button class="codeDocs" onclick="procFile('./docs/webSite/scripts/floatMenu.txt', 'js')">📄&ensp;floatMenu.js</button></p>
-										<p><button class="codeDocs" onclick="procFile('./docs/webSite/scripts/gitHub.txt', 'js')">📄&ensp;gitHub.js</button></p>
-										<p><button class="codeDocs" onclick="procFile('./docs/webSite/scripts/highLight.txt', 'js')">📄&ensp;highLight.js</button></p>
-										<p><button class="codeDocs" onclick="procFile('./docs/webSite/scripts/procFile.txt', 'js')">📄&ensp;procFile.js</button></p>
-										<p><button class="codeDocs" onclick="procFile('./scripts/statsCalc.js', 'js')">📄&ensp;statsCalc.js</button></p>
-								</details>
-								<details>
-									<summary style="text-align: right;">&ensp;Website/Styles</summary>
-										<p><button class="codeDocs" onclick="procFile('./docs/webSite/styles/sheet.txt', 'css')">📄&ensp;sheet.css</button></p>
-								</details>
+						<summary>&ensp;./</summary>
+							<p><button class="codeDocs" onclick="load('./data.js')">📄&ensp;data.js</button></p>
+							<p><button class="codeDocs" onclick="load('./docs.html')">📄&ensp;docs.html</button></p>
+							<p><button class="codeDocs" onclick="load('./index.html')">📄&ensp;index.html</button></p>
+							<p><button class="codeDocs" onclick="load('./looper.sh')">📄&ensp;looper.sh</button></p>
+							<p><button class="codeDocs" onclick="load('./README.md')">📄&ensp;README.md</button></p>
+							<details>
+									<summary >&ensp;./favicon</summary>
+										<p><button class="codeDocs" onclick="load('./favicon/mstile-70x70.png')">📄&ensp;mstile-70x70.png</button></p>
+										<p><button class="codeDocs" onclick="load('./favicon/android-chrome-512x512.png')">📄&ensp;android-chrome-512x512.png</button></p>
+										<p><button class="codeDocs" onclick="load('./favicon/site.webmanifest')">📄&ensp;site.webmanifest</button></p>
+										<p><button class="codeDocs" onclick="load('./favicon/mstile-310x310.png')">📄&ensp;mstile-310x310.png</button></p>
+										<p><button class="codeDocs" onclick="load('./favicon/browserconfig.xml')">📄&ensp;browserconfig.xml</button></p>
+										<p><button class="codeDocs" onclick="load('./favicon/favicon.ico')">📄&ensp;favicon.ico</button></p>
+										<p><button class="codeDocs" onclick="load('./favicon/favicon-16x16.png')">📄&ensp;favicon-16x16.png</button></p>
+										<p><button class="codeDocs" onclick="load('./favicon/favicon-32x32.png')">📄&ensp;favicon-32x32.png</button></p>
+										<p><button class="codeDocs" onclick="load('./favicon/mstile-144x144.png')">📄&ensp;mstile-144x144.png</button></p>
+										<p><button class="codeDocs" onclick="load('./favicon/safari-pinned-tab.svg')">📄&ensp;safari-pinned-tab.svg</button></p>
+										<p><button class="codeDocs" onclick="load('./favicon/apple-touch-icon.png')">📄&ensp;apple-touch-icon.png</button></p>
+										<p><button class="codeDocs" onclick="load('./favicon/mstile-150x150.png')">📄&ensp;mstile-150x150.png</button></p>
+										<p><button class="codeDocs" onclick="load('./favicon/android-chrome-192x192.png')">📄&ensp;android-chrome-192x192.png</button></p>
+										<p><button class="codeDocs" onclick="load('./favicon/mstile-310x150.png')">📄&ensp;mstile-310x150.png</button></p>
+							</details>
+							
+							<details>
+									<summary >&ensp;./fonts</summary>
+										<p><button class="codeDocs" onclick="load('./fonts/quicksand-italic-webfont.woff')">📄&ensp;quicksand-italic-webfont.woff</button></p>
+										<p><button class="codeDocs" onclick="load('./fonts/quicksand_dash-webfont.woff2')">📄&ensp;quicksand_dash-webfont.woff2</button></p>
+										<p><button class="codeDocs" onclick="load('./fonts/quicksand-lightitalic-webfont.woff2')">📄&ensp;quicksand-lightitalic-webfont.woff2</button></p>
+										<p><button class="codeDocs" onclick="load('./fonts/quicksand-lightitalic-webfont.woff')">📄&ensp;quicksand-lightitalic-webfont.woff</button></p>
+										<p><button class="codeDocs" onclick="load('./fonts/quicksand-bolditalic-webfont.woff')">📄&ensp;quicksand-bolditalic-webfont.woff</button></p>
+										<p><button class="codeDocs" onclick="load('./fonts/quicksand-italic-webfont.woff2')">📄&ensp;quicksand-italic-webfont.woff2</button></p>
+										<p><button class="codeDocs" onclick="load('./fonts/quicksand-light-webfont.woff2')">📄&ensp;quicksand-light-webfont.woff2</button></p>
+										<p><button class="codeDocs" onclick="load('./fonts/quicksand-light-webfont.woff')">📄&ensp;quicksand-light-webfont.woff</button></p>
+										<p><button class="codeDocs" onclick="load('./fonts/quicksand-regular-webfont.woff2')">📄&ensp;quicksand-regular-webfont.woff2</button></p>
+										<p><button class="codeDocs" onclick="load('./fonts/quicksand-regular-webfont.woff')">📄&ensp;quicksand-regular-webfont.woff</button></p>
+										<p><button class="codeDocs" onclick="load('./fonts/quicksand-bold-webfont.woff')">📄&ensp;quicksand-bold-webfont.woff</button></p>
+										<p><button class="codeDocs" onclick="load('./fonts/quicksand_dash-webfont.woff')">📄&ensp;quicksand_dash-webfont.woff</button></p>
+										<p><button class="codeDocs" onclick="load('./fonts/quicksand-bold-webfont.woff2')">📄&ensp;quicksand-bold-webfont.woff2</button></p>
+										<p><button class="codeDocs" onclick="load('./fonts/quicksand-bolditalic-webfont.woff2')">📄&ensp;quicksand-bolditalic-webfont.woff2</button></p>
+							</details>
+							
+							<details>
+									<summary >&ensp;./images</summary>
+										<details>
+											<summary >&ensp;./images/backgrounds</summary>
+												<p><button class="codeDocs" onclick="load('./images/backgrounds/2.png')">📄&ensp;2.png</button></p>
+												<p><button class="codeDocs" onclick="load('./images/backgrounds/5.png')">📄&ensp;5.png</button></p>
+												<p><button class="codeDocs" onclick="load('./images/backgrounds/1.png')">📄&ensp;1.png</button></p>
+												<p><button class="codeDocs" onclick="load('./images/backgrounds/3.png')">📄&ensp;3.png</button></p>
+												<p><button class="codeDocs" onclick="load('./images/backgrounds/4.png')">📄&ensp;4.png</button></p>
+												<p><button class="codeDocs" onclick="load('./images/backgrounds/prism.svg')">📄&ensp;prism.svg</button></p>
+										</details>
+										<details>
+											<summary >&ensp;./images/icons</summary>
+												<p><button class="codeDocs" onclick="load('./images/icons/icon_contact.svg')">📄&ensp;icon_contact.svg</button></p>
+												<p><button class="codeDocs" onclick="load('./images/icons/icon_home.svg')">📄&ensp;icon_home.svg</button></p>
+												<p><button class="codeDocs" onclick="load('./images/icons/icon_patreon.svg')">📄&ensp;icon_patreon.svg</button></p>
+												<p><button class="codeDocs" onclick="load('./images/icons/icon_github.svg')">📄&ensp;icon_github.svg</button></p>
+												<p><button class="codeDocs" onclick="load('./images/icons/icon_discord.svg')">📄&ensp;icon_discord.svg</button></p>
+												<p><button class="codeDocs" onclick="load('./images/icons/icon_faq.svg')">📄&ensp;icon_faq.svg</button></p>
+												<p><button class="codeDocs" onclick="load('./images/icons/icon_commands.svg')">📄&ensp;icon_commands.svg</button></p>
+												<p><button class="codeDocs" onclick="load('./images/icons/icon_warning.svg')">📄&ensp;icon_warning.svg</button></p>
+												<p><button class="codeDocs" onclick="load('./images/icons/icon_paypal.svg')">📄&ensp;icon_paypal.svg</button></p>
+										</details>
+										<details>
+											<summary >&ensp;./images/logo</summary>
+												<p><button class="codeDocs" onclick="load('./images/logo/logo_round_colour.png')">📄&ensp;logo_round_colour.png</button></p>
+												<p><button class="codeDocs" onclick="load('./images/logo/project_artemis.svg')">📄&ensp;project_artemis.svg</button></p>
+												<p><button class="codeDocs" onclick="load('./images/logo/logo_round_colour.svg')">📄&ensp;logo_round_colour.svg</button></p>
+												<p><button class="codeDocs" onclick="load('./images/logo/project_bow.svg')">📄&ensp;project_bow.svg</button></p>
+												<p><button class="codeDocs" onclick="load('./images/logo/project_arrow.svg')">📄&ensp;project_arrow.svg</button></p>
+												<p><button class="codeDocs" onclick="load('./images/logo/logo.png')">📄&ensp;logo.png</button></p>
+												<p><button class="codeDocs" onclick="load('./images/logo/logo_round.svg')">📄&ensp;logo_round.svg</button></p>
+												<p><button class="codeDocs" onclick="load('./images/logo/logo.svg')">📄&ensp;logo.svg</button></p>
+										</details>
+										<details>
+											<summary >&ensp;./images/assets</summary>
+												<p><button class="codeDocs" onclick="load('./images/assets/wave_mid.svg')">📄&ensp;wave_mid.svg</button></p>
+												<p><button class="codeDocs" onclick="load('./images/assets/wave_top.svg')">📄&ensp;wave_top.svg</button></p>
+												<p><button class="codeDocs" onclick="load('./images/assets/wave_bot.svg')">📄&ensp;wave_bot.svg</button></p>
+												<p><button class="codeDocs" onclick="load('./images/assets/project_bow_background.png')">📄&ensp;project_bow_background.png</button></p>
+												<p><button class="codeDocs" onclick="load('./images/assets/project_arrow_background.svg')">📄&ensp;project_arrow_background.svg</button></p>
+												<p><button class="codeDocs" onclick="load('./images/assets/discord_logo.png')">📄&ensp;discord_logo.png</button></p>
+												<p><button class="codeDocs" onclick="load('./images/assets/Artemis.png')">📄&ensp;Artemis.png</button></p>
+												<p><button class="codeDocs" onclick="load('./images/assets/project_artemis_background2.png')">📄&ensp;project_artemis_background2.png</button></p>
+												<p><button class="codeDocs" onclick="load('./images/assets/project_artemis_background.svg')">📄&ensp;project_artemis_background.svg</button></p>
+												<p><button class="codeDocs" onclick="load('./images/assets/Server_Invite.png')">📄&ensp;Server_Invite.png</button></p>
+												<p><button class="codeDocs" onclick="load('./images/assets/discord_logo.svg')">📄&ensp;discord_logo.svg</button></p>
+												<p><button class="codeDocs" onclick="load('./images/assets/project_artemis_background.png')">📄&ensp;project_artemis_background.png</button></p>
+												<p><button class="codeDocs" onclick="load('./images/assets/project_bow_background.svg')">📄&ensp;project_bow_background.svg</button></p>
+												<p><button class="codeDocs" onclick="load('./images/assets/project_arrow_background.png')">📄&ensp;project_arrow_background.png</button></p>
+										</details>
+										<details>
+											<summary >&ensp;./images/patreon</summary>
+												<p><button class="codeDocs" onclick="load('./images/patreon/tier1.png')">📄&ensp;tier1.png</button></p>
+												<p><button class="codeDocs" onclick="load('./images/patreon/banner.png')">📄&ensp;banner.png</button></p>
+												<p><button class="codeDocs" onclick="load('./images/patreon/tier2.png')">📄&ensp;tier2.png</button></p>
+												<p><button class="codeDocs" onclick="load('./images/patreon/tier3.png')">📄&ensp;tier3.png</button></p>
+												<p><button class="codeDocs" onclick="load('./images/patreon/tier2.svg')">📄&ensp;tier2.svg</button></p>
+												<p><button class="codeDocs" onclick="load('./images/patreon/logo.png')">📄&ensp;logo.png</button></p>
+												<p><button class="codeDocs" onclick="load('./images/patreon/tier1.svg')">📄&ensp;tier1.svg</button></p>
+												<p><button class="codeDocs" onclick="load('./images/patreon/tier3.svg')">📄&ensp;tier3.svg</button></p>
+												<p><button class="codeDocs" onclick="load('./images/patreon/_.svg')">📄&ensp;_.svg</button></p>
+										</details>
+							</details>
+							
+							<details>
+								<summary >&ensp;./scripts</summary>
+									<p><button class="codeDocs" onclick="load('./scripts/procFile.js')">📄&ensp;procFile.js</button></p>
+									<p><button class="codeDocs" onclick="load('./scripts/floatMenu.js')">📄&ensp;floatMenu.js</button></p>
+									<p><button class="codeDocs" onclick="load('./scripts/prism.js')">📄&ensp;prism.js</button></p>
+									<p><button class="codeDocs" onclick="load('./scripts/statsCalc.js')">📄&ensp;statsCalc.js</button></p>
+									<p><button class="codeDocs" onclick="load('./scripts/gitHub.js')">📄&ensp;gitHub.js</button></p>
+							</details>
+							
+							<details>
+								<summary >&ensp;./styles</summary>
+									<p><button class="codeDocs" onclick="load('./styles/prism.css')">📄&ensp;prism.css</button></p>
+									<p><button class="codeDocs" onclick="load('./styles/sheet.css')">📄&ensp;sheet.css</button></p>
+							</details>
 					</details>
-					<details>
-						<summary>&ensp;Project Bow</summary>
-							<p><button class="codeDocs" onclick="procFile('./docs/webSite/readMe.txt', 'html')">📄&ensp;readMe.MD</button></p>
-					</details>
+
 				</div>
-				<div class="docRightBox">
-					<pre id="codeView" class="language-js line-numbers linkable-line-numbers" data-jsonp="https://api.github.com/repos/UtopicUnicorns/Project_Bow/contents/library/index.js" data-line="1, 5-26, 50-100"></pre>
+				<div class="docRightBox" id="docRightBox">
+					<pre>	Open a file.</pre>
 				</div>
 			</div>
 		</div>
 		
 
-		<script src="./scripts/prism.js"></script>
+		<script src="./scripts/prism.js" id="javaScriptLoad"></script>
+		<script>
+			function load(file, dataLine) {
+				var element = document.getElementById('javaScriptLoad');
+					element.remove();
+						document.getElementById("docRightBox").innerHTML = `<pre id="codeView" class="line-numbers linkable-line-numbers" data-src="${file}" data-line="${dataLine}"></pre>`;
+							var head = document.getElementsByTagName('head')[0];
+								var script = document.createElement('script');
+									script.src = './scripts/prism.js';
+										script.id = 'javaScriptLoad';
+										head.appendChild(script);
+			}
+		</script>
+
 	</body>
 </html>

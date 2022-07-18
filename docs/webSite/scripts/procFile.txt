@@ -1,9 +1,0 @@
-function procFile(file, mode) {
-				fetch(file)
-				.then(response =&gt; response.text())
-				.then(data =&gt; {
-					document.getElementById(&quot;codeBox&quot;).innerHTML = `${file}\n${data}`;
-					highLight(document.getElementById(&quot;highLight&quot;), mode);
-					lineNumbers(document.getElementById(&quot;codeBox&quot;));
-				});
-			}
