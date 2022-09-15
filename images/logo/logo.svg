@@ -8,7 +8,7 @@
    version="1.1"
    id="svg5"
    sodipodi:docname="logo.svg"
-   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14, custom)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -27,21 +27,23 @@
      inkscape:lockguides="true"
      showguides="true"
      inkscape:guide-bbox="true"
-     inkscape:zoom="0.70710678"
-     inkscape:cx="224.15285"
-     inkscape:cy="334.46151"
+     inkscape:zoom="1.4142136"
+     inkscape:cx="417.193"
+     inkscape:cy="389.61584"
      inkscape:window-width="1920"
      inkscape:window-height="1080"
      inkscape:window-x="1920"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer3"
+     inkscape:current-layer="layer1"
      fit-margin-top="0"
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
      units="px"
-     width="663.30231px" />
+     width="663.30231px"
+     inkscape:showpageshadow="2"
+     inkscape:deskcolor="#d1d1d1" />
   <defs
      id="defs2">
     <rect
@@ -142,7 +144,7 @@
        aria-label="Project Artemis Fuck you kindly"
        id="text2211"
        style="font-size:10.5833px;line-height:0.8;font-family:Cinzel;-inkscape-font-specification:'Cinzel, Normal';stroke-width:0.264583"
-       transform="translate(0.36805657,38.506911)">
+       transform="matrix(0.99592897,0,0,1,0.4511617,38.506911)">
       <path
          d="m 29.63948,175.14872 q 0,0.86925 -0.355601,1.61996 -0.651935,1.40265 -2.29165,1.9558 -0.572912,0.19756 -0.98778,0.19756 -1.224847,0 -2.113849,-0.45438 v -0.19755 q 1.442159,0.31609 2.667006,-0.31609 1.086558,-0.55316 1.48167,-1.81752 0.118534,-0.39511 0.118534,-0.75071 0,-0.3556 0,-0.43463 -0.03951,-1.38289 -0.730958,-2.19287 -0.691446,-0.82973 -1.936048,-0.82973 H 23.21891 v 11.79409 q 0.01975,0.51365 0.375356,0.889 0.375356,0.3556 0.889002,0.3556 h 0.256823 v 0.19756 h -4.326477 v -0.19756 h 0.256823 q 0.513646,0 0.869247,-0.3556 0.375356,-0.37535 0.395112,-0.889 v -11.04338 q -0.05927,-0.49389 -0.414868,-0.80998 -0.355601,-0.33584 -0.849491,-0.33584 H 20.43337 l -0.01976,-0.19756 h 5.156212 q 1.896538,0 2.983096,1.02729 1.086558,1.00754 1.086558,2.78554 z"
          style="font-size:19.7556px;text-align:center;letter-spacing:0.79375px;text-anchor:middle"
