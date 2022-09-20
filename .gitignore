@@ -2,5 +2,6 @@
 *sub
 *stats
 *data.js
-*.
+.jshintrc
+.prettierrc
 robots.txt
