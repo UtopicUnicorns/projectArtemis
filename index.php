@@ -1,6 +1,6 @@
+<?php include './panel.d/homeCall.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
-
 	<head>
 		<!--Meta Data -->
 		<meta charset="utf-8" />
@@ -80,17 +80,7 @@
 		</div>
 
 		<div class="a_box" id="home">
-			<div class="logo">
-				<img src="./images/logo/logo.svg">
-			</div>
-			<div class="menu_box">
-				<button class="menu_button pulse" onclick="document.getElementById('home').scrollIntoView();">HOMEPAGE</button>
-				<button class="menu_button pulse" onclick="document.getElementById('invite').scrollIntoView();">INVITE</button>
-				<button class="menu_button pulse" onclick="document.getElementById('github').scrollIntoView();">GITHUB</button>
-				<button class="menu_button pulse" onclick="document.getElementById('donate').scrollIntoView();">DONATE</button>
-				<button class="menu_button pulse" onclick="document.getElementById('contact').scrollIntoView();">CONTACT</button>
-				<button class="menu_button pulse" onclick="document.getElementById('stats').scrollIntoView();">STATS</button>
-			</div>
+      <?php print $personalizedContent; ?>
 		</div>
 
 		<div class="b_box" id="invite">
@@ -209,7 +199,6 @@
 		<script src="./scripts/floatMenu.js"></script>
 		<script src="./scripts/gitHub.js"></script>
 		<script src="./scripts/statsCalc.js"></script>
-		<script src="./scripts/highLight.js"></script>
 		<script src="./data.js"></script>
 		<script>
 			let script = document.getElementById('bot');

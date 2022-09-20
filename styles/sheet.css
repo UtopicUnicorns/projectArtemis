@@ -1,3 +1,22 @@
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: 1px;
+    scrollbar-color: #ffffff transparent;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 1px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #ffffff;
+  }
 /*FONTS*/
 @font-face {
 	font-family: 'regular';
@@ -55,6 +74,14 @@
 	font-style: normal;
 }
 
+@font-face {
+	font-family: 'fancy';
+	src: url('../fonts/Cinzel-Regular.woff2') format('woff2'),
+		url('../fonts/Cinzel-Regular.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
 /*SCROLLBAR*/
 ::-webkit-scrollbar {
 	width: 5px;
@@ -71,7 +98,9 @@
 ::-webkit-scrollbar-thumb:hover {
 	background: #555;
 }
-
+body {
+  overflow: hidden;
+}
 /*BUTTONS*/
 .menu_button {
 	padding: 10px;
@@ -104,8 +133,46 @@
 	place-items: center;
 	border-radius: 1500px;
 	background-color: rgba(255, 255, 255, 0.8);
+	background-image: url('../images/logo/logo.svg');
+	background-size: 90%;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 663px;
+	height: 663px;
 	box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5);
 	animation: entrance 2s;
+	opacity: 0.9;
+	color: rgba(255, 255, 255, 0.9);
+	text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.9);
+	font-size: 100px;
+	font-family: 'fancy';
+	filter: saturate(0%);
+}
+
+#logoColTop {
+  color: rgba(255, 255, 255, 1);
+	text-shadow: 0px 0px 1px rgba(0, 0, 0, 1);
+	font-size: 100px;
+	font-family: 'fancy';
+	text-align: center;
+	line-height: 0.7;
+	transform: rotate(-15deg);
+}
+
+#nameInUserPanel {
+  color: rgba(255, 255, 255, 1);
+	text-shadow: 0px 0px 1px rgba(0, 0, 0, 1);
+	font-size: 30px;
+	font-family: 'fancy';
+	line-height: 1;
+}
+
+#logoColBot {
+  color: rgba(255, 255, 255, 1);
+	text-shadow: 0px 0px 2px rgba(0, 0, 0, 1);
+	font-size: 30px;
+	font-family: 'fancy';
+	line-height: 0.7;
 }
 
 .float_menu {
@@ -387,11 +454,13 @@
 	display: flex;
 	overflow: hidden;
 	background-color: rgba(255,255,255,0.5);
+	border-radius: 0px 50px 0px 50px;
+	box-shadow: 5px 5px 2px rgba(0,0,0,0.5);
 }
 
 .docLeftMenu {
 		position: relative;
-    width: 20%;
+    width: 25%;
     height: 100%;
     border-right: 1px solid green;
     overflow: auto;
@@ -399,13 +468,13 @@
 
 .docRightBox {
 		position: relative;
-    width: 80%;
+    width: 75%;
     height: 100%;
     overflow: auto;
 }
 
 details > summary {
-    list-style-type: '📁';
+    list-style-type: '';
     cursor: pointer;
     box-shadow: 0px 3px black;
     background-color: rgba(0, 255, 0, 0.1);
@@ -413,7 +482,7 @@ details > summary {
 }
 
 details[open] > summary {
-    list-style-type: '📂';
+    list-style-type: '';
     background-color: rgba(0, 255, 0, 0.3);
 }
 
@@ -422,7 +491,7 @@ details {
 }
 
 details[open] > summary {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0px;
     padding-left: 20px;
 }
 
@@ -458,12 +527,3 @@ details > p {
 	padding-left: 50px;
 }
 
-code[class*="language-"],
-pre[class*="language-"] {
-    white-space: pre-wrap;
-}
-
-/* The following is needed for Google Chrome. */
-pre.line-numbers > code {
-    display: inline-block;
-}
