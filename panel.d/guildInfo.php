@@ -1,12 +1,12 @@
 <?php
-  foreach ($decodedJson2 as $guildLoop) {
+  foreach ($guildsWeShare as $guildLoop) {
     if ($_GET["guild"] == $guildLoop->id) {
       if($guildLoop->icon) {
           $res = str_starts_with($guildLoop->icon, "a_");
           if($res == true) {
-            $guildAvatar = 'https://cdn.discordapp.com/icons/' . $guildLoop->id . '/' .  $guildLoop->icon . '.gif?size=4096';
+            $guildAvatar = 'https://cdn.discordapp.com/icons/' . $guildLoop->id . '/' .  $guildLoop->icon . '.png?size=256';
           } else {
-            $guildAvatar = 'https://cdn.discordapp.com/icons/' . $guildLoop->id . '/' .  $guildLoop->icon. '.png?size=4096';
+            $guildAvatar = 'https://cdn.discordapp.com/icons/' . $guildLoop->id . '/' .  $guildLoop->icon. '.png?size=256';
           }
         } else {
           $guildAvatar = './images/icons/user.svg';
@@ -14,9 +14,9 @@
       if($guildLoop->banner) {
           $res2 = str_starts_with($guildLoop->banner, "a_");
           if($res2 == true) {
-            $guildBanner = 'https://cdn.discordapp.com/banners/' . $guildLoop->id . '/' . $guildLoop->banner . '.gif?size=4096';
+            $guildBanner = 'https://cdn.discordapp.com/banners/' . $guildLoop->id . '/' . $guildLoop->banner . '.png?size=256';
           } else {
-            $guildBanner = 'https://cdn.discordapp.com/banners/' . $guildLoop->id . '/' . $guildLoop->banner . '.png?size=4096';
+            $guildBanner = 'https://cdn.discordapp.com/banners/' . $guildLoop->id . '/' . $guildLoop->banner . '.png?size=256';
           }
         } else {
           $guildBanner = './images/backgrounds/2.png';

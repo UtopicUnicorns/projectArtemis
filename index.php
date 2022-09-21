@@ -44,11 +44,6 @@
 		<link rel="prefetch" href="./images/backgrounds/3.png" />
 		<link rel="prefetch" href="./images/backgrounds/4.png" />
 		<link rel="prefetch" href="./images/backgrounds/5.png" />
-		<link rel="prefetch" href="./images/backgrounds/prism.svg" />
-		<link rel="prefetch" href="./images/assets/wave_top.svg" />
-		<link rel="prefetch" href="./images/assets/wave_mid.svg" />
-		<link rel="prefetch" href="./images/assets/wave_bot.svg" />
-		<link rel="prefetch" href="./images/logo/logo.svg" />
 
 		<!--Title-->
 		<title>Project Artemis, Fuck you kindly.</title>
@@ -193,7 +188,9 @@
 			</table>
 		</div>
 
-
+    <div id="load">
+      <div class="loader">Loading...</div>
+    </div>
 
 		<!--Scripts-->
 		<script src="./scripts/floatMenu.js"></script>

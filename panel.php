@@ -64,5 +64,9 @@
 				</div>
 			</div>
 		</div>
+		
+		 <div id="load">
+      <div class="loader">Loading...</div>
+    </div>
 	</body>
 </html>

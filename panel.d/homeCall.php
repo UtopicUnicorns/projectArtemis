@@ -26,7 +26,7 @@
     curl_setopt($curl_h, CURLOPT_RETURNTRANSFER, true);
     $response = curl_exec($curl_h);
     $decodedJson = json_decode($response, false);
-    $personalizedContent = '<div class="logo" style="background-size: contain; background-image: url(\'https://cdn.discordapp.com/avatars/' . $decodedJson->id . '/' . $decodedJson->avatar . '.png?size=2048\')">
+    $personalizedContent = '<div class="logo" style="background-size: contain; background-image: url(\'https://cdn.discordapp.com/avatars/' . $decodedJson->id . '/' . $decodedJson->avatar . '.png?size=512\')">
             <p id="logoColTop">
               <br />Project You<br />
               <small id="logoColBot">
@@ -42,8 +42,8 @@
              <button class="menu_button pulse" onclick="document.getElementById(\'contact\').scrollIntoView();">CONTACT</button>
              <button class="menu_button pulse" onclick="document.getElementById(\'stats\').scrollIntoView();">STATS</button>
              <br /><br />
-             <button class="menu_button pulse" onclick="location.href=\'./panel.php\';">My Control Panel</button>
-             <button class="menu_button pulse" onclick="location.href=\'./panel.php?page=logout\';" >Log me out</button>
+             <button class="menu_button pulse" onclick="document.getElementById(\'load\').style.display=\'grid\'; location.href=\'./panel.php\';">My Control Panel</button>
+             <button class="menu_button pulse" onclick="document.getElementById(\'load\').style.display=\'grid\'; location.href=\'./panel.php?page=logout\';" >Log me out</button>
            </div>
            </div>';
   } else {
@@ -58,7 +58,7 @@
             <button class="menu_button pulse" onclick="document.getElementById(\'contact\').scrollIntoView();">CONTACT</button>
             <button class="menu_button pulse" onclick="document.getElementById(\'stats\').scrollIntoView();">STATS</button>
             <br /><br />
-            <button class="menu_button pulse" onclick="location.href=\'' . $baseURL . '\';">LOGIN</button>
+            <button class="menu_button pulse" onclick="document.getElementById(\'load\').style.display=\'grid\'; location.href=\'' . $baseURL . '\';">LOGIN</button>
            </div>
            </div>';
   }

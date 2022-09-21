@@ -5,7 +5,9 @@ function str_starts_with(string $string, string $substring): bool {
   return substr($string, 0, $len) === $substring;
 }
 if($_COOKIE["setCode"]) {
-    include './panel.d/loginFlow.php';
+    include './panel.d/configd.php';
+    $yourInformation = urlGet("https://discord.com/api/users/@me", 'authorization: Bearer ' . $_COOKIE["setCode"]);
+    $guildsWeShare = urlGet("https://discord.com/api/users/@me/guilds", 'authorization: Bearer ' . $_COOKIE["setCode"]);
     include './panel.d/userMenu.php';
     if ($_GET["page"] == 'guildSettings' && $_GET["guild"]) include './panel.d/guildSettings.php';
     if ($_GET["page"] == 'guildInfo' && $_GET["guild"]) include './panel.d/guildInfo.php';
