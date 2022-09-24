@@ -50,16 +50,16 @@ fetch('https://api.github.com/users/UtopicUnicorns/events')
 				if (repo.name.includes('Project_Artemis')) target_name += './images/assets/project_artemis_background.png';
 
 				let combine_info = `
-				<table style="width: 100%; height: 30%; overflow: hidden; background-color: rgba(255, 255, 255, 0.8); border-radius: 5px; box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);">
+				<table style="width: 50vw; height: 30vh; overflow: hidden; background-color: rgba(255, 255, 255, 0.8); border-radius: 5px; box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);">
 					<tbody>
 						<tr>
-							<td style="height: 80px;text-align: center; background-image: url('${target_name}'); background-position: center; background-size: cover; background-repeat: no-repeat;">
+							<td style="height: 10vh;text-align: center; background-image: url('${target_name}'); background-position: center; background-size: cover; background-repeat: no-repeat;">
 								<table style="width: 100%; height: 50%;">
 									<tbody>
 										<tr>
-											<td style="width: 50%; height: 100%; text-align: left; padding-left: 5%; color: rgba(255,255,255,0.8); font-size: 20px;">
+											<td style="width: 50vw; height: 100%; text-align: left; padding-left: 5%; color: rgba(255,255,255,0.8); font-size: 2vh;">
 												${title.name}<br />
-												<a style="font-size: 15px; color: rgba(255,255,255,0.8);">${time}</a>
+												<a style="font-size: 2vh; color: rgba(255,255,255,0.8);">${time}</a>
 											</td>
 											<td style="text-align: right; padding-right: 5%; width: 50%; height: 100%; background-image: url('${author.pic}');background-position: calc(95%) center; background-size: contain; background-repeat: no-repeat;">	
 											</td>
@@ -97,7 +97,7 @@ fetch('https://api.github.com/users/UtopicUnicorns/events')
 		let content_grab = document.getElementById('github');
 
 		let table_gen = `
-		<table style="width: 90%; height: 90%; overflow: hidden;">
+		<table style="width: 90vw; height: 90vh; overflow: hidden;">
 			<tbody>
 				<tr>
 					<td style="width: 42%; height: 100%; overflow: hidden;">${array.slice(0,3).join(' ')}</td>

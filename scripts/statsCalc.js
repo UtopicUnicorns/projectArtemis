@@ -15,9 +15,9 @@ function drawPercentageCircle(percentage, radius, canvas, total, now, func) {
 	var y = canvas.height / 2;
 	var startAngle = percentToRadians(0);
 	var endAngle = percentToRadians(percentage);
-
+  
 	var counterClockwise = true;
-
+  
 	context.beginPath();
 	context.arc(x, y, radius, startAngle, endAngle, counterClockwise);
 	context.lineWidth = 15;
@@ -37,18 +37,18 @@ function drawPercentageCircle(percentage, radius, canvas, total, now, func) {
 	context.stroke();
 	
 	context.shadowBlur = 0;
-	context.font = radius / 4.5 + "px Helvetica";
+	context.font = "2vh Helvetica";
 	context.fillStyle = "black";
 	context.textAlign = "center";
 	context.fillText(`${func}`, x, y * 0.7);
 
-	context.font = radius / 2.5 + "px Helvetica";
+	context.font = "2vh Helvetica";
 	context.fillStyle = "black";
 	context.textAlign = "center";
 
 	context.fillText(`${percentage}%`, x, y * 1);
 
-	context.font = radius / 4.5 + "px Helvetica";
+	context.font = "2vh Helvetica";
 	context.fillStyle = "black";
 	context.textAlign = "center";
 	context.fillText(`${now.toLocaleString()}/${total.toLocaleString()}`, x, y * 1.3);

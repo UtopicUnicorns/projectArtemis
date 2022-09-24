@@ -4,10 +4,10 @@
       if($guildLoop->icon) {
           $res = str_starts_with($guildLoop->icon, "a_");
           if($res == true) {
-              $guildAvatar = 'https://cdn.discordapp.com/icons/' . $guildLoop->id . '/' .  $guildLoop->icon . '.png?size=256';
-            } else {
-              $guildAvatar = 'https://cdn.discordapp.com/icons/' . $guildLoop->id . '/' .  $guildLoop->icon. '.png?size=256';
-            }
+            $guildAvatar = 'https://cdn.discordapp.com/icons/' . $guildLoop->id . '/' .  $guildLoop->icon . '.png?size=256';
+          } else {
+            $guildAvatar = 'https://cdn.discordapp.com/icons/' . $guildLoop->id . '/' .  $guildLoop->icon. '.png?size=256';
+          }
         } else {
           $guildAvatar = './images/icons/user.svg';
         }
@@ -29,7 +29,7 @@
           $ownedGuild = '';
         }
       $siteContext = '<div style="width: 100%; height: 25%; background-size: cover; background-repeat: no-repeat; overflow: hidden; background-position: center; box-shadow: 0px 5px 2px black; background-image: url(\'' . $guildBanner . '\'); display: flex; place-items: center left;">
-                        <img src="' . $guildAvatar . '" style="height: 80%; border-radius: 500px; margin-left: 50px; box-shadow: 5px 5px 2px black;" /><h1 style="margin-left: 20px;" id="nameInUserPanel"> ' . $guildLoop->name . '<br />' . $guildLoop->id . '</h1>
+                        <img src="' . $guildAvatar . '" style="height: 25vh; border-radius: 500px; margin-left: 50px; box-shadow: 5px 5px 2px black;" /><h1 style="margin-left: 20px;" id="nameInUserPanel"> ' . $guildLoop->name . '<br />' . $guildLoop->id . '</h1>
                         '. $ownedGuild .'
                       </div>
                       <div style="width: 100%; height: 65%; background-color: rgba(255, 255, 255, 0.5); display: grid; place-items: center;">

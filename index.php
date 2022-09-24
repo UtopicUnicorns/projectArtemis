@@ -114,10 +114,10 @@
 		</div>
 
 		<div class="d_box" id="donate">
-			<table style="width: 100%; height: 30%; overflow: hidden; background-color: rgba(255, 255, 255, 0.8); border-radius: 5px; box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);">
+			<table style="width: 100vw; height: 30vh; overflow: hidden; background-color: rgba(255, 255, 255, 0.8); border-radius: 5px; box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);">
 				<tbody>
 					<tr>
-						<td style="height: 80px;text-align: center;">
+						<td style="height: 80%;text-align: center;">
 							<h1>Make a donation</h1>
 						</td>
 					</tr>
@@ -137,7 +137,7 @@
 		</div>
 
 		<div class="e_box" id="contact">
-			<table style="width: 100%; height: 30%; overflow: hidden; background-color: rgba(255, 255, 255, 0.8); border-radius: 5px; box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);">
+			<table style="width: 100vw; height: 30vh; overflow: hidden; background-color: rgba(255, 255, 255, 0.8); border-radius: 5px; box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);">
 				<tbody>
 					<tr>
 						<td style="height: 80px;text-align: center;">
@@ -163,28 +163,13 @@
 		</div>
 
 		<div class="f_box" id="stats">
-			<table style="width: 100%; height: 30%; overflow: hidden; background-color: rgba(255, 255, 255, 0.8); border-radius: 5px; box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);">
-				<tbody>
-					<tr>
-						<td style="height: 80px;text-align: center;">
-							<h1>stats</h1>
-						</td>
-					</tr>
-					<tr>
-						<td style="text-align: center;">
-							<table style="width: 60%; margin-left: auto;  margin-right: auto;">
-								<tbody>
-									<tr id="ref">
-										<td><canvas id="stat_hold" width="250" height="250"></canvas></td>
-										<td id="cpu" style="text-align: left;">&nbsp;</td>
-										<td><canvas id="stat_hold2" width="250" height="250"></canvas></td>
-										<td id="bot" style="text-align: left;"></td>
-									</tr>
-								</tbody>
-							</table>
-						</td>
-					</tr>
-				</tbody>
+			<table style="width: 100%; height: 50vh; overflow: hidden; background-color: rgba(255, 255, 255, 0.8); border-radius: 5px; box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);">
+
+										<td id="testMe" style="width: 50%;"><canvas id="stat_hold" style="width: 50vh; height: 50vh; border: 1px solid black;">&nbsp;</canvas></td>
+										<!--<td id="cpu" style="width: 25%; height: 100%; text-align: left;">&nbsp;</td>-->
+										<td style="width: 50%;"><canvas id="stat_hold2" style="width: 50vh; height: 50vh; border: 1px solid black;">&nbsp;</canvas></td>
+										<!--<td id="bot" style="width: 25%; height: 100%; text-align: left;">&nbsp;</td>-->
+
 			</table>
 		</div>
 
@@ -217,16 +202,17 @@
 
 		<script>
 			var canvas = document.getElementById('stat_hold');
+			//alert(`${canvas.height} ${canvas.width}`);
 			var percentage = Math.floor(os_data.os_meminuse * 100 / os_data.os_memtotal);
 			var radius;
 			var total = os_data.os_memtotal;
 			var now = os_data.os_meminuse;
 			var func = 'Server';
-
+			
 			if (stat_hold.height < stat_hold.width) {
-				radius = stat_hold.height / 3;
+				radius = stat_hold.height / 2 ;
 			} else {
-				radius = stat_hold.width / 3;
+				radius = stat_hold.width / 2  ;
 			}
 
 			if (percentage < 1) var percentage = 1;
@@ -241,9 +227,9 @@
 			var func = 'Bot';
 
 			if (stat_hold.height < stat_hold.width) {
-				radius = stat_hold.height / 3;
+				radius = stat_hold.height / 2;
 			} else {
-				radius = stat_hold.width / 3;
+				radius = stat_hold.width / 2;
 			}
 			if (percentage < 1) var percentage = 1;
 
