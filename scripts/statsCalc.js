@@ -10,6 +10,7 @@ function percentToRadians(percentage) {
 
 function drawPercentageCircle(percentage, radius, canvas, total, now, func) {
 	var context = canvas.getContext('2d');
+	context.clearRect(0, 0, canvas.width, canvas.height);
 
 	var x = canvas.width / 2;
 	var y = canvas.height / 2;
@@ -40,17 +41,17 @@ function drawPercentageCircle(percentage, radius, canvas, total, now, func) {
 	context.font = "2vh Helvetica";
 	context.fillStyle = "black";
 	context.textAlign = "center";
-	context.fillText(`${func}`, x, y * 0.7);
+	context.fillText(`${func}`, x, y - 40);
+
+	context.font = "4vh Helvetica";
+	context.fillStyle = "black";
+	context.textAlign = "center";
+
+	context.fillText(`${percentage}%`, x, y);
 
 	context.font = "2vh Helvetica";
 	context.fillStyle = "black";
 	context.textAlign = "center";
-
-	context.fillText(`${percentage}%`, x, y * 1);
-
-	context.font = "2vh Helvetica";
-	context.fillStyle = "black";
-	context.textAlign = "center";
-	context.fillText(`${now.toLocaleString()}/${total.toLocaleString()}`, x, y * 1.3);
-	context.fillText(`MegaBytes`, x, y * 1.45);
+	context.fillText(`${now.toLocaleString()}/${total.toLocaleString()}`, x, y + 20);
+	context.fillText(`MegaBytes`, x, y + 40);
 }

@@ -163,13 +163,11 @@
 		</div>
 
 		<div class="f_box" id="stats">
-			<table style="width: 100%; height: 50vh; overflow: hidden; background-color: rgba(255, 255, 255, 0.8); border-radius: 5px; box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);">
-
-										<td id="testMe" style="width: 50%;"><canvas id="stat_hold" style="width: 50vh; height: 50vh; border: 1px solid black;">&nbsp;</canvas></td>
-										<!--<td id="cpu" style="width: 25%; height: 100%; text-align: left;">&nbsp;</td>-->
-										<td style="width: 50%;"><canvas id="stat_hold2" style="width: 50vh; height: 50vh; border: 1px solid black;">&nbsp;</canvas></td>
-										<!--<td id="bot" style="width: 25%; height: 100%; text-align: left;">&nbsp;</td>-->
-
+			<table style="display: grid; place-items: center; width: 100%; height: 50vh; overflow: hidden; background-color: rgba(255, 255, 255, 0.8); border-radius: 5px; box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);">
+        <td style="width: 50%;"><canvas id="stat_hold" width="400" height="400" style="height: 50vh; width: 50vh;">&nbsp;</canvas></td>
+        <!--<td id="cpu" style="width: 25%; height: 100%; text-align: left;">&nbsp;</td>-->
+        <td style="width: 50%;"><canvas id="stat_hold2" width="400" height="400" style="height: 50vh; width: 50vh;">&nbsp;</canvas></td>
+        <!--<td id="bot" style="width: 25%; height: 100%; text-align: left;">&nbsp;</td>-->
 			</table>
 		</div>
 
@@ -181,60 +179,7 @@
 		<script src="./scripts/floatMenu.js"></script>
 		<script src="./scripts/gitHub.js"></script>
 		<script src="./scripts/statsCalc.js"></script>
-		<script src="./data.js"></script>
-		<script>
-			let script = document.getElementById('bot');
-			let info = `${os_data.guild_count} Servers<br />
-									${os_data.time}<br />
-									${os_data.date}<br />
-									${os_data.uptime.hour}:${os_data.uptime.minute}:${os_data.uptime.second} Uptime<br /><br />`;
-
-			script.innerHTML = info;
-
-			let script2 = document.getElementById('cpu');
-			let info2 = `${os_data.os_cpu}<br />
-									${os_data.os_plat}<br />
-									${os_data.os_rel}<br />
-									${os_data.os_up.hour}:${os_data.os_up.minute}:${os_data.os_up.second} Uptime<br /><br />`;
-
-			script2.innerHTML = info2;
-		</script>
-
-		<script>
-			var canvas = document.getElementById('stat_hold');
-			//alert(`${canvas.height} ${canvas.width}`);
-			var percentage = Math.floor(os_data.os_meminuse * 100 / os_data.os_memtotal);
-			var radius;
-			var total = os_data.os_memtotal;
-			var now = os_data.os_meminuse;
-			var func = 'Server';
-			
-			if (stat_hold.height < stat_hold.width) {
-				radius = stat_hold.height / 2 ;
-			} else {
-				radius = stat_hold.width / 2  ;
-			}
-
-			if (percentage < 1) var percentage = 1;
-
-			drawPercentageCircle(percentage, radius, canvas, total, now, func);
-
-			var canvas = document.getElementById('stat_hold2');
-			var percentage = Math.floor(os_data.bot_mem * 100 / os_data.os_memtotal);
-			var radius;
-			var total = os_data.os_memtotal;
-			var now = os_data.bot_mem;
-			var func = 'Bot';
-
-			if (stat_hold.height < stat_hold.width) {
-				radius = stat_hold.height / 2;
-			} else {
-				radius = stat_hold.width / 2;
-			}
-			if (percentage < 1) var percentage = 1;
-
-			drawPercentageCircle(percentage, radius, canvas, total, now, func);
-		</script>
+		<script src="./scripts/statCall.js"></script>
 	</body>
 
 </html>
