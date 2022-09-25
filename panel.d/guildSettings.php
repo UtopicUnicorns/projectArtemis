@@ -1,6 +1,22 @@
 <?php
   foreach ($guildsWeShare as $guildLoop) {
     if ($_GET["guild"] == $guildLoop->id) {
+      $permInt = $guildLoop->permissions;
+      $needPerm = 1 << 5;
+      $calcPerm = $permInt & $needPerm;
+      if($calcPerm == $needPerm) {
+        $guildCheck = urlGet("https://discord.com/api/v10/guilds/" . $guildLoop->id . "/channels", 'authorization: Bot ' . $botToken);
+        $textTest = ''; //manage guild perms
+        foreach ($guildCheck as $guildChannels) {
+          if($guildChannels->type == 0) {
+            $textTest .= '<button class="guildChannelsButton">
+                          ' . $guildChannels->name . '<br>' . $guildChannels->id . '
+                          </button>';             
+          }
+        }
+      } else {
+        $textTest = 'no'; // no perms
+      }
       if($guildLoop->icon) {
           $res = str_starts_with($guildLoop->icon, "a_");
           if($res == true) {
@@ -28,13 +44,13 @@
         } else {
           $ownedGuild = '';
         }
-      $siteContext = '<div style="width: 100%; height: 25%; background-size: cover; background-repeat: no-repeat; overflow: hidden; background-position: center; box-shadow: 0px 5px 2px black; background-image: url(\'' . $guildBanner . '\'); display: flex; place-items: center left;">
+      $siteContext = '<div style="width: 100%; height: 25%; background-size: cover; background-repeat: no-repeat; overflow: hidden; background-position: center; background-image: url(\'' . $guildBanner . '\'); display: flex; place-items: center left;">
                         <img src="' . $guildAvatar . '" style="height: 25vh; border-radius: 500px; margin-left: 50px; box-shadow: 5px 5px 2px black;" /><h1 style="margin-left: 20px;" id="nameInUserPanel"> ' . $guildLoop->name . '<br />' . $guildLoop->id . '</h1>
                         '. $ownedGuild .'
                       </div>
-                      <div style="width: 100%; height: 65%; background-color: rgba(255, 255, 255, 0.5); display: grid; place-items: center;">
-                        <br />Permissions: ' . $guildLoop->permissions . '
-                        <br />permissionsNew: ' . $guildLoop->permissions_new . '
+                      <div style="width: 100%; height: 65%; background-color: rgba(255, 255, 255, 0.5); display: flex; place-items: center;">
+                        <div style="width: 50%; height: 100%; overflow: auto;"><!--TOBEFILLED--></div>
+                        <div style="width: 50%; height: 100%; overflow: auto;">' .  $textTest .  '</div>
                       </div>
                       <div style="width: 100%; height: 10%; background-size: cover; background-repeat: no-repeat; background-position: center; background-image: url(\'./images/assets/project_artemis_background.svg\'); background-color: rgba(255, 255, 255, 0.7); display: grid; place-items: center;">
                         <!--Just a footer-->
