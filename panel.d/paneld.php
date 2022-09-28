@@ -14,6 +14,7 @@ if($_COOKIE["setCode"]) {
     if ($_GET["page"] == 'userInfo') include './panel.d/userInfo.php';
     if ($_GET["page"] == 'userSettings') include './panel.d/userSettings.php';
     if ($_GET["page"] == 'logout') include './panel.d/logout.php';
+    if ($_GET["page"] == 'channelView' && $_GET["channel"] && $_GET["guild"]) include './panel.d/channelView.php';
     if (!$_GET["page"]) include './panel.d/userInfo.php';
   } else {
     echo '<script type="text/javascript">window.location = "https://artemis.rest/";</script>';

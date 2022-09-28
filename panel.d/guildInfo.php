@@ -9,7 +9,7 @@
         $textTest = ''; //manage guild perms
         foreach ($guildCheck as $guildChannels) {
           if($guildChannels->type == 0) {
-            $textTest .= '<button class="guildChannelsButton">
+            $textTest .= '<button onclick="document.getElementById(\'load\').style.display=\'grid\'; location.href=\'./panel.php?page=channelView&channel=' . $guildChannels->id . '&guild=' . $guildLoop->id . '\';" class="guildChannelsButton">
                           ' . $guildChannels->name . '<br>' . $guildChannels->id . '
                           </button>';             
           }
