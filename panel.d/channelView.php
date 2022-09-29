@@ -56,28 +56,51 @@
                           <img src="' . $guildAvatar . '" style="height: 25vh; border-radius: 500px; margin-left: 50px; box-shadow: 5px 5px 2px black;" /><h1 style="margin-left: 20px;" id="nameInUserPanel"> ' . $guildLoop->name . '<br />' . $guildLoop->id . '</h1>
                         </div>
                         <div style="width: 100%; height: 65%; background-color: rgba(255, 255, 255, 0.5);">
-                          <form action="?">
+                          <form id="channelSettings" action="?">
                             <input type="hidden" id="page" name="page" value="channelView">
                             <input type="hidden" id="channel" name="channel" value="' . $guildChannelId . '">
                             <input type="hidden" id="guild" name="guild" value="' . $guildLoop->id . '">
                             <input type="hidden" id="changeRequest" name="changeRequest" value="changeRequest">
-                            <div style="width: 100%; height: 10%; overflow: auto;">
-                              <a style="width:auto; height: 100%;" class="guildChannelsButton">
-                                <input type="text" id="channelName" name="channelName" value="' . $channelName . '"><br />
-                                ' . $guildChannelId . '<br /> 
-                              </a>
-                            </div>
-                            <div style="width: 100%; height: 10%; overflow: hidden;">
-                              <textarea style="width: 100%; height: 100%;" id="channelTopic" name="channelTopic">' . $channelTopic . '</textarea>
-                            </div>
-                            <div style="width: 100%; height: 10%; overflow: auto; display: grid; place-items: center;">
-                              <input type="range" min="-1" max="21600" value="'.$channelSlowDown.'" class="slider" id="channelSlowDown" name="channelSlowDown">
-                              <div id="chanSlowDown"></div>
-                            </div>
-                            <div class="showSubmit" id="showSubmit">
-                              <input class="submitButtonChannelView" type="submit" value="">
-                            </div>
                           </form>
+                          
+                          <form id="chatMessage" action="?">
+                            <input type="hidden" id="page" name="page" value="channelView">
+                            <input type="hidden" id="channel" name="channel" value="' . $guildChannelId . '">
+                            <input type="hidden" id="guild" name="guild" value="' . $guildLoop->id . '">
+                          </form>
+                          
+                          <div class="channelViewNameAndId" style="height: 15%; width: inherit; overflow: hidden;">
+                            <input type="text" form="channelSettings" id="channelName" name="channelName" value="' . $channelName . '"><br />
+                              ' . $guildChannelId . '<br /> 
+                          </div>
+                          
+                          <div style="display: grid; place-items: center; height: 15%; width: inherit; overflow: hidden;">
+                            <textarea form="channelSettings" style="width: 100%; height: 100%;" id="channelTopic" name="channelTopic">' . $channelTopic . '</textarea>
+                          </div>
+                          
+                          <div style="display: grid; place-items: center; height: 15%; width: inherit; overflow: hidden;">
+                            <input form="channelSettings" type="range" min="-1" max="21600" value="'.$channelSlowDown.'" class="slider" id="channelSlowDown" name="channelSlowDown">
+                            <div id="chanSlowDown"></div>
+                          </div>
+                          
+                          <div style="display: grid; place-items: center; height: 50%; width: inherit; overflow: hidden;">
+                            <textarea form="chatMessage" placeholder="Chat channel message..." style="width: 100%; height: 100%;" id="chatMessage" name="chatMessage"></textarea>
+                          </div> 
+                          
+                          <div style="display: grid; place-items: center; height: 5%; width: inherit; overflow: hidden;">
+                            <input form="chatMessage" style="width: 100%; height: 100%;" class="submitChatButtonChannelView" type="submit" value="Send Message">
+                          </div> 
+                          
+                          <div class="showSubmit" id="showSubmit">
+                            <input form="channelSettings" class="submitButtonChannelView" type="submit" value="">
+                          </div>
+                          
+                        </div>
+                        <div id="errText" style="overflow: hidden; text-shadow: 1px 1px 1px black; font-size: 1rem; color: white; width: 100%; height: 10%; background-size: cover; background-repeat: no-repeat; background-position: center; background-image: url(\'./images/assets/project_artemis_background.svg\'); background-color: rgba(255, 255, 255, 0.7); display: grid; place-items: center;">
+                          <!--Just a footer-->
+                          '.$responseMe.'
+                        </div>
+                        
                         <script type="text/javascript">
                           function submitButton() {
                             document.getElementById("showSubmit").style.width = "100px";
@@ -102,40 +125,29 @@
                           var slider = document.getElementById("channelSlowDown");
                           var output = document.getElementById("chanSlowDown");
                           if(slider.value <= 0) { 
-                            output.innerHTML = `OFF`;
+                            output.innerHTML = `Slowmode: OFF`;
                             slider.value = "-1";
                           } else {
                             if(slider.value <= 1) {
-                              output.innerHTML = `${slider.value} second`;
+                              output.innerHTML = `Slowmode: ${slider.value} second`;
                             } else {
-                              output.innerHTML = `${slider.value} seconds`;
+                              output.innerHTML = `Slowmode: ${slider.value} seconds`;
                             }
                           }
                           slider.oninput = function() {
                             if(this.value !== smw) submitButton();
                             if(this.value <= 0) {
-                              output.innerHTML = `OFF`;
+                              output.innerHTML = `Slowmode: OFF`;
                               slider.value = "-1";
                             } else {
                               if(this.value <= 1) {
-                                output.innerHTML = `${this.value} second`;
+                                output.innerHTML = `Slowmode: ${this.value} second`;
                               } else {
-                                output.innerHTML = `${this.value} seconds`;
+                                output.innerHTML = `Slowmode: ${this.value} seconds`;
                               }
                             }
                           } 
-                        </script>
-                        <form action="?">
-                          <input type="hidden" id="page" name="page" value="channelView">
-                          <input type="hidden" id="channel" name="channel" value="' . $guildChannelId . '">
-                          <input type="hidden" id="guild" name="guild" value="' . $guildLoop->id . '">
-                          <input class="chatButton" type="text" id="chatMessage" name="chatMessage" value="">
-                        </form>
-                        </div>
-                        <div id="errText" style="overflow: hidden; text-shadow: 1px 1px 1px black; font-size: 1rem; color: white; width: 100%; height: 10%; background-size: cover; background-repeat: no-repeat; background-position: center; background-image: url(\'./images/assets/project_artemis_background.svg\'); background-color: rgba(255, 255, 255, 0.7); display: grid; place-items: center;">
-                          <!--Just a footer-->
-                          '.$responseMe.'
-                        </div>';
+                        </script>';
       } else {
         echo '<script type="text/javascript">
                 window.location = "https://artemis.rest/panel.php";
