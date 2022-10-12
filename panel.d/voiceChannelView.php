@@ -29,6 +29,11 @@
               $responseMe = urlPatch( "https://discord.com/api/v10/channels/" . $guildChannelId, 
                                       array('Content-Type: application/json', 'authorization: Bot ' . $botToken), 
                                       $dataToSend );
+              if(json_decode($responseMe)->message == 'The resource is being rate limited.') {
+                $responseMeTo = '<a style="font-size: 3rem; color: white;">Changes were not made.</a>'; 
+              } else {
+                $responseMeTo = '<a style="font-size: 3rem; color: white;">Changes applied.</a>'; 
+              } 
             }
             if($_GET["chatMessage"]) {
               $guildChannelId = $guildChannels->id;
@@ -36,7 +41,12 @@
               $dataToSend = json_encode($formJson);
               $responseMe = urlPost( "https://discord.com/api/v10/channels/" . $guildChannelId . "/messages", 
                                       array('Content-Type: application/json', 'authorization: Bot ' . $botToken), 
-                                      $dataToSend );        
+                                      $dataToSend );   
+              if(json_decode($responseMe)->message == 'The resource is being rate limited.') {
+                $responseMeTo = '<a style="font-size: 3rem; color: white;">Message was not send.</a>'; 
+              } else {
+                $responseMeTo = '<a style="font-size: 3rem; color: white;">Message was send.</a>'; 
+              }     
             }
           
             $channelName = $guildChannels->name;
@@ -98,7 +108,7 @@
                         </div>
                         <div id="errText" style="overflow: hidden; text-shadow: 1px 1px 1px black; font-size: 1rem; color: white; width: 100%; height: 10%; background-size: cover; background-repeat: no-repeat; background-position: center; background-image: url(\'./images/assets/project_artemis_background.svg\'); background-color: rgba(255, 255, 255, 0.7); display: grid; place-items: center;">
                           <!--Just a footer-->
-                          '.$responseMe.'
+                          '.$responseMeTo.'
                         </div>
                         
                         <script type="text/javascript">
