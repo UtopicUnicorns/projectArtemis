@@ -29,8 +29,6 @@
                                  ' . $guildChannels->name . '<br>' . $guildChannels->id . '
                                </button>';             
           }
-           
-          
         }
       } else {
         $textChannels = '';
@@ -38,26 +36,15 @@
         $threadChannels = '';
         $debug = '';
       }
+      
       if($guildLoop->icon) {
-          $res = str_starts_with($guildLoop->icon, "a_");
-          if($res == true) {
-            $guildAvatar = 'https://cdn.discordapp.com/icons/' . $guildLoop->id . '/' .  $guildLoop->icon . '.png?size=256';
-          } else {
-            $guildAvatar = 'https://cdn.discordapp.com/icons/' . $guildLoop->id . '/' .  $guildLoop->icon. '.png?size=256';
-          }
+         $guildAvatar = 'https://cdn.discordapp.com/icons/' . $guildLoop->id . '/' .  $guildLoop->icon. '.png?size=256';
         } else {
           $guildAvatar = './images/icons/user.svg';
         }
-      if($guildLoop->banner) {
-          $res2 = str_starts_with($guildLoop->banner, "a_");
-          if($res2 == true) {
-            $guildBanner = 'https://cdn.discordapp.com/banners/' . $guildLoop->id . '/' . $guildLoop->banner . '.png?size=256';
-          } else {
-            $guildBanner = 'https://cdn.discordapp.com/banners/' . $guildLoop->id . '/' . $guildLoop->banner . '.png?size=256';
-          }
-        } else {
-          $guildBanner = './images/backgrounds/2.png';
-        }
+        
+      $guildBanner = './images/backgrounds/2.png';
+      
       if($guildLoop->owner == true) {
           $ownedGuild =  '<div style="background-color: rgba(255, 255, 255, 0.7); transform: rotate(45deg); position: relative; top: 0px; right: 0px; display: grid; place-items: center; height: 20%; width: 100%;">
                             <a id="nameInUserPanel">YOUR GUILD</a>

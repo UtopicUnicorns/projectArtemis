@@ -1,24 +1,16 @@
 <?php
   if($yourInformation->avatar) {
-    $res = str_starts_with($yourInformation->avatar, "a_");
-      if($res == true) {
-        $userAvatar = 'https://cdn.discordapp.com/avatars/' . $yourInformation->id . '/' .  $yourInformation->avatar . '.png?size=256';
-      } else {
-        $userAvatar = 'https://cdn.discordapp.com/avatars/' . $yourInformation->id . '/' .  $yourInformation->avatar. '.png?size=256';
-      }
+      $userAvatar = 'https://cdn.discordapp.com/avatars/' . $yourInformation->id . '/' .  $yourInformation->avatar. '.png?size=256';
     } else {
       $userAvatar = './images/icons/user.svg';
     }
+    
   if($yourInformation->banner) {
-      $res2 = str_starts_with($yourInformation->banner, "a_");
-      if($res2 == true) {
-        $userBanner = 'https://cdn.discordapp.com/banners/' . $yourInformation->id . '/' . $yourInformation->banner . '.png?size=256';
-      } else {
-        $userBanner = 'https://cdn.discordapp.com/banners/' . $yourInformation->id . '/' . $yourInformation->banner . '.png?size=256';
-      }
+      $userBanner = 'https://cdn.discordapp.com/banners/' . $yourInformation->id . '/' . $yourInformation->banner . '.png?size=256';
     } else {
       $userBanner = './images/backgrounds/2.png';
     }
+    
   $myGuilds = '';
   $commonGuilds = '';
   foreach($guildsWeShare as $guild) {

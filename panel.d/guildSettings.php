@@ -6,37 +6,94 @@
       $calcPerm = $permInt & $needPerm;
       if($calcPerm == $needPerm) {
         $guildCheck = urlGet("https://discord.com/api/v10/guilds/" . $guildLoop->id . "/channels", 'authorization: Bot ' . $botToken);
-        $textTest = ''; //manage guild perms
+        $guildThreadCheck = urlGet("https://discord.com/api/v10/guilds/" . $guildLoop->id . "/threads/active", 'authorization: Bot ' . $botToken);
+        
+        $bindChannels = '<option value="NONE">NONE/UNBIND</option>';
+        
         foreach ($guildCheck as $guildChannels) {
           if($guildChannels->type == 0) {
-            $textTest .= '<button onclick="document.getElementById(\'load\').style.display=\'grid\'; location.href=\'./panel.php?page=channelView&channel=' . $guildChannels->id . '&guild=' . $guildLoop->id . '\';" class="guildChannelsButton">
-                          ' . $guildChannels->name . '<br>' . $guildChannels->id . '
-                          </button>';             
+            $bindChannels .= '<option value="' . $guildChannels->id . '"># ' . $guildChannels->name . '</option>';  
           }
         }
-      } else {
-        $textTest = 'no'; // no perms
+        
+        foreach($guildThreadCheck->threads as $guildThreadChannel) {
+          $bindChannels .=  '<option value="' . $guildThreadChannel->id . '">⌥ ' . $guildThreadChannel->name . '</option>'; 
+        }
+        
+        $leftContent = '';
+        $rightContent = '<button class="guildSettingsCog">
+                          Join Event Log Channel<br>
+                          <select class="guildSettingsSelecting" name="joinEventLog" id="joinEventLog">
+                            ' . $bindChannels . '
+                          </select>
+                         </button>
+                         
+                         <button class="guildSettingsCog">
+                          Leave Event Log Channel<br>
+                          <select class="guildSettingsSelecting" name="leaveEventLog" id="leaveEventLog">
+                            ' . $bindChannels . '
+                          </select>
+                         </button>
+                         
+                         <button class="guildSettingsCog">
+                          Username Change Event Log Channel<br>
+                          <select class="guildSettingsSelecting" name="userNameChangeEventLog" id="userNameChangeEventLog">
+                            ' . $bindChannels . '
+                          </select>
+                         </button>
+                         
+                         <button class="guildSettingsCog">
+                          Nickname Change Event Log Channel<br>
+                          <select class="guildSettingsSelecting" name="nickNameChangeEventLog" id="nickNameChangeEventLog">
+                            ' . $bindChannels . '
+                          </select>
+                         </button>
+                         
+                         <button class="guildSettingsCog">
+                          Kick Event Log Channel<br>
+                          <select class="guildSettingsSelecting" name="kickEventLog" id="joinEventLog">
+                            ' . $bindChannels . '
+                          </select>
+                         </button>
+                         
+                         <button class="guildSettingsCog">
+                          Ban Event Log Channel<br>
+                          <select class="guildSettingsSelecting" name="banEventLog" id="joinEventLog">
+                            ' . $bindChannels . '
+                          </select>
+                         </button>
+                         
+                         <button class="guildSettingsCog">
+                          Timeout Event Log Channel<br>
+                          <select class="guildSettingsSelecting" name="timeOutEventLog" id="timeOutEventLog">
+                            ' . $bindChannels . '
+                          </select>
+                         </button>
+                         
+                         <button class="guildSettingsCog">
+                          Message Edit Event Log Channel<br>
+                          <select class="guildSettingsSelecting" name="messageEditEventLog" id="messageEditEventLog">
+                            ' . $bindChannels . '
+                          </select>
+                         </button>
+                         
+                         <button class="guildSettingsCog">
+                          Message Delete Event Log Channel<br>
+                          <select class="guildSettingsSelecting" name="messageDeleteEventLog" id="messageDeleteEventLog">
+                            ' . $bindChannels . '
+                          </select>
+                         </button>';  
+        
       }
+      
       if($guildLoop->icon) {
-          $res = str_starts_with($guildLoop->icon, "a_");
-          if($res == true) {
-            $guildAvatar = 'https://cdn.discordapp.com/icons/' . $guildLoop->id . '/' .  $guildLoop->icon . '.png?size=256';
-          } else {
-            $guildAvatar = 'https://cdn.discordapp.com/icons/' . $guildLoop->id . '/' .  $guildLoop->icon. '.png?size=256';
-          }
+          $guildAvatar = 'https://cdn.discordapp.com/icons/' . $guildLoop->id . '/' .  $guildLoop->icon. '.png?size=256';
         } else {
           $guildAvatar = './images/icons/user.svg';
         }
-      if($guildLoop->banner) {
-          $res2 = str_starts_with($guildLoop->banner, "a_");
-          if($res2 == true) {
-            $guildBanner = 'https://cdn.discordapp.com/banners/' . $guildLoop->id . '/' . $guildLoop->banner . '.png?size=256';
-          } else {
-            $guildBanner = 'https://cdn.discordapp.com/banners/' . $guildLoop->id . '/' . $guildLoop->banner . '.png?size=256';
-          }
-        } else {
-          $guildBanner = './images/backgrounds/2.png';
-        }
+        
+      $guildBanner = './images/backgrounds/2.png';
+        
       if($guildLoop->owner == true) {
           $ownedGuild =  '<div style="background-color: rgba(255, 255, 255, 0.7); transform: rotate(45deg); position: relative; top: 0px; right: 0px; display: grid; place-items: center; height: 20%; width: 100%;">
                             <a id="nameInUserPanel">YOUR GUILD</a>
@@ -44,13 +101,14 @@
         } else {
           $ownedGuild = '';
         }
+        
       $siteContext = '<div style="width: 100%; height: 25%; background-size: cover; background-repeat: no-repeat; overflow: hidden; background-position: center; background-image: url(\'' . $guildBanner . '\'); display: flex; place-items: center left;">
                         <img src="' . $guildAvatar . '" style="height: 25vh; border-radius: 500px; margin-left: 50px; box-shadow: 5px 5px 2px black;" /><h1 style="margin-left: 20px;" id="nameInUserPanel"> ' . $guildLoop->name . '<br />' . $guildLoop->id . '</h1>
                         '. $ownedGuild .'
                       </div>
                       <div style="width: 100%; height: 65%; background-color: rgba(255, 255, 255, 0.5); display: flex; place-items: center;">
-                        <div style="width: 50%; height: 100%; overflow: auto;"><!--TOBEFILLED--></div>
-                        <div style="width: 50%; height: 100%; overflow: auto;">' .  $textTest .  '</div>
+                        <div style="width: 50%; height: 100%; overflow: auto;">' .  $bindChannels .  '</div>
+                        <div style="width: 50%; height: 100%; overflow: auto;">' .  $rightContent .  '</div>
                       </div>
                       <div style="width: 100%; height: 10%; background-size: cover; background-repeat: no-repeat; background-position: center; background-image: url(\'./images/assets/project_artemis_background.svg\'); background-color: rgba(255, 255, 255, 0.7); display: grid; place-items: center;">
                         <!--Just a footer-->
