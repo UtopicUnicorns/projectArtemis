@@ -21,7 +21,23 @@
         }
         
         $leftContent = '';
-        $rightContent = '<button class="guildSettingsCog">
+        //include './panel.d/configd.php';
+        // Create connection
+        $conn = mysqli_connect('localhost', $sqlUser, $sqlPass, 'artemis');
+        
+        // Check connection
+        if (!$conn) {
+          die("Connection failed: " . mysqli_connect_error());
+        }
+        
+         $leftContent .= $conn->query("SELECT 'username' FROM 'gundefined' WHERE 'username' LIKE '.initrd'");
+        //$leftContent .= "Connected successfully";
+
+        $rightContent = '<button class="guildSettingsCog" style="font-size: 2rem;">
+                           Log Settings
+                         </button>
+                         
+                         <button class="guildSettingsCog">
                           Join Event Log Channel<br>
                           <select class="guildSettingsSelecting" name="joinEventLog" id="joinEventLog">
                             ' . $bindChannels . '
@@ -107,7 +123,7 @@
                         '. $ownedGuild .'
                       </div>
                       <div style="width: 100%; height: 65%; background-color: rgba(255, 255, 255, 0.5); display: flex; place-items: center;">
-                        <div style="width: 50%; height: 100%; overflow: auto;">' .  $bindChannels .  '</div>
+                        <div style="width: 50%; height: 100%; overflow: auto;">' .  $leftContent .  '</div>
                         <div style="width: 50%; height: 100%; overflow: auto;">' .  $rightContent .  '</div>
                       </div>
                       <div style="width: 100%; height: 10%; background-size: cover; background-repeat: no-repeat; background-position: center; background-image: url(\'./images/assets/project_artemis_background.svg\'); background-color: rgba(255, 255, 255, 0.7); display: grid; place-items: center;">
