@@ -21,18 +21,19 @@
         }
         
         $leftContent = '';
-        //include './panel.d/configd.php';
-        // Create connection
-        $conn = mysqli_connect('localhost', $sqlUser, $sqlPass, 'artemis');
         
-        // Check connection
-        if (!$conn) {
-          die("Connection failed: " . mysqli_connect_error());
-        }
         
-         $leftContent .= $conn->query("SELECT 'username' FROM 'gundefined' WHERE 'username' LIKE '.initrd'");
-        //$leftContent .= "Connected successfully";
-
+        $conn = new mysqli('localhost', $sqlUser, $sqlPass, 'artemis');
+        $conn->set_charset('utf8mb4');
+        $name = '.initrd';
+        $flow = $conn->prepare("SELECT * FROM gundefined WHERE username=? limit 1");
+        $flow->bind_param('s', $name);
+        $flow->execute();
+        $result = $flow->get_result();
+        $value = $result->fetch_object();
+        $leftContent .= $value->user;
+        
+        
         $rightContent = '<button class="guildSettingsCog" style="font-size: 2rem;">
                            Log Settings
                          </button>
