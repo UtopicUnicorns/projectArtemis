@@ -10,6 +10,8 @@
         
         $bindChannels = '<option value="NONE">NONE/UNBIND</option>';
         $numNameChan = [];
+        $numNameChan['NONE'] .= 'Not Set';
+        
         foreach ($guildCheck as $guildChannels) {
           if($guildChannels->type == 0) {
             $bindChannels .= '<option value="' . $guildChannels->id . '"># ' . $guildChannels->name . '</option>'; 
