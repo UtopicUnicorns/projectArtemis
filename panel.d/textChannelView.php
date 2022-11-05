@@ -130,8 +130,6 @@
                             if(this.value !== tw) submitButton();
                           }
                           
-                          console.log(nameWatch, topicWatch, slowmodeWatch);
-                          
                           var slider = document.getElementById("channelSlowDown");
                           var output = document.getElementById("chanSlowDown");
                           if(slider.value <= 0) { 

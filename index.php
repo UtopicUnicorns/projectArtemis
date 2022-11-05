@@ -165,9 +165,7 @@
 		<div class="f_box" id="stats">
 			<table style="display: grid; place-items: center; width: 100%; height: 50vh; overflow: hidden; background-color: rgba(255, 255, 255, 0.8); border-radius: 5px; box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);">
         <td style="width: 50%;"><canvas id="stat_hold" width="400" height="400" style="height: 50vh; width: 50vh;">&nbsp;</canvas></td>
-        <!--<td id="cpu" style="width: 25%; height: 100%; text-align: left;">&nbsp;</td>-->
         <td style="width: 50%;"><canvas id="stat_hold2" width="400" height="400" style="height: 50vh; width: 50vh;">&nbsp;</canvas></td>
-        <!--<td id="bot" style="width: 25%; height: 100%; text-align: left;">&nbsp;</td>-->
 			</table>
 		</div>
 
