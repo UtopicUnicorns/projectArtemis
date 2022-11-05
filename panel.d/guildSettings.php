@@ -23,16 +23,67 @@
         $leftContent = '';
         
         
-        $conn = new mysqli('localhost', $sqlUser, $sqlPass, 'artemis');
-        $conn->set_charset('utf8mb4');
-        $name = '.initrd';
-        $flow = $conn->prepare("SELECT * FROM gundefined WHERE username=? limit 1");
-        $flow->bind_param('s', $name);
-        $flow->execute();
-        $result = $flow->get_result();
-        $value = $result->fetch_object();
-        $leftContent .= $value->user;
+        $connection = new mysqli('localhost', $sqlUser, $sqlPass);
+        $testDataBase = $connection->query("USE g{$guildLoop->id};");
+        if(!$testDataBase) $connection->query("CREATE DATABASE IF NOT EXISTS g{$guildLoop->id};");
+        $connection->query("USE g{$guildLoop->id};");
+        $testTable = $connection->query("SELECT * FROM Logs;");
+        if(!$testTable) $connection->query("CREATE TABLE Logs (id varchar(100) NOT NULL, value varchar(255), PRIMARY KEY (id))");
         
+        $joinEventLog = $connection->query("SELECT value FROM Logs WHERE id = 'joinEventLog' limit 1;")->fetch_object()->value;
+        $leaveEventLog = $connection->query("SELECT value FROM Logs WHERE id = 'leaveEventLog' limit 1;")->fetch_object()->value;
+        $userNameChangeEventLog = $connection->query("SELECT value FROM Logs WHERE id = 'userNameChangeEventLog' limit 1;")->fetch_object()->value;
+        $nickNameChangeEventLog = $connection->query("SELECT value FROM Logs WHERE id = 'nickNameChangeEventLog' limit 1;")->fetch_object()->value;
+        $kickEventLog = $connection->query("SELECT value FROM Logs WHERE id = 'kickEventLog' limit 1;")->fetch_object()->value;
+        $banEventLog = $connection->query("SELECT value FROM Logs WHERE id = 'banEventLog' limit 1;")->fetch_object()->value;
+        $timeOutEventLog = $connection->query("SELECT value FROM Logs WHERE id = 'timeOutEventLog' limit 1;")->fetch_object()->value;
+        $messageEditEventLog = $connection->query("SELECT value FROM Logs WHERE id = 'messageEditEventLog' limit 1;")->fetch_object()->value;
+        $messageDeleteEventLog = $connection->query("SELECT value FROM Logs WHERE id = 'messageDeleteEventLog' limit 1;")->fetch_object()->value;
+        if(!$joinEventLog) $connection->query("INSERT INTO Logs (id, value) VALUES ('joinEventLog', 'NONE')");
+        if(!$leaveEventLog) $connection->query("INSERT INTO Logs (id, value) VALUES ('leaveEventLog', 'NONE')");
+        if(!$userNameChangeEventLog) $connection->query("INSERT INTO Logs (id, value) VALUES ('userNameChangeEventLog', 'NONE')");
+        if(!$nickNameChangeEventLog) $connection->query("INSERT INTO Logs (id, value) VALUES ('nickNameChangeEventLog', 'NONE')");
+        if(!$kickEventLog) $connection->query("INSERT INTO Logs (id, value) VALUES ('kickEventLog', 'NONE')");
+        if(!$banEventLog) $connection->query("INSERT INTO Logs (id, value) VALUES ('banEventLog', 'NONE')");
+        if(!$timeOutEventLog) $connection->query("INSERT INTO Logs (id, value) VALUES ('timeOutEventLog', 'NONE')");
+        if(!$messageEditEventLog) $connection->query("INSERT INTO Logs (id, value) VALUES ('messageEditEventLog', 'NONE')");
+        if(!$messageDeleteEventLog) $connection->query("INSERT INTO Logs (id, value) VALUES ('messageDeleteEventLog', 'NONE')");
+        $joinEventLog = $connection->query("SELECT value FROM Logs WHERE id = 'joinEventLog' limit 1;")->fetch_object()->value;
+        $leaveEventLog = $connection->query("SELECT value FROM Logs WHERE id = 'leaveEventLog' limit 1;")->fetch_object()->value;
+        $userNameChangeEventLog = $connection->query("SELECT value FROM Logs WHERE id = 'userNameChangeEventLog' limit 1;")->fetch_object()->value;
+        $nickNameChangeEventLog = $connection->query("SELECT value FROM Logs WHERE id = 'nickNameChangeEventLog' limit 1;")->fetch_object()->value;
+        $kickEventLog = $connection->query("SELECT value FROM Logs WHERE id = 'kickEventLog' limit 1;")->fetch_object()->value;
+        $banEventLog = $connection->query("SELECT value FROM Logs WHERE id = 'banEventLog' limit 1;")->fetch_object()->value;
+        $timeOutEventLog = $connection->query("SELECT value FROM Logs WHERE id = 'timeOutEventLog' limit 1;")->fetch_object()->value;
+        $messageEditEventLog = $connection->query("SELECT value FROM Logs WHERE id = 'messageEditEventLog' limit 1;")->fetch_object()->value;
+        $messageDeleteEventLog = $connection->query("SELECT value FROM Logs WHERE id = 'messageDeleteEventLog' limit 1;")->fetch_object()->value;
+        
+        $joinSelectLog = '<option value="' . $joinEventLog . '" selected>' . $joinEventLog . '</option>';
+        $joinSelectLog .= $bindChannels;
+        
+        $leaveSelectLog = '<option value="' . $leaveEventLog . '" selected>' . $leaveEventLog . '</option>';
+        $leaveSelectLog .= $bindChannels;
+        
+        $nameSelectLog = '<option value="' . $userNameChangeEventLog . '" selected>' . $userNameChangeEventLog . '</option>';
+        $nameSelectLog .= $bindChannels;
+        
+        $nickSelectLog = '<option value="' . $nickNameChangeEventLog . '" selected>' . $nickNameChangeEventLog . '</option>';
+        $nickSelectLog .= $bindChannels;
+        
+        $kickSelectLog = '<option value="' . $kickEventLog . '" selected>' . $kickEventLog . '</option>';
+        $kickSelectLog .= $bindChannels;
+        
+        $banSelectLog = '<option value="' . $banEventLog . '" selected>' . $banEventLog . '</option>';
+        $banSelectLog .= $bindChannels;
+        
+        $timeoutSelectLog = '<option value="' . $timeOutEventLog . '" selected>' . $timeOutEventLog . '</option>';
+        $timeoutSelectLog .= $bindChannels;
+        
+        $msgeditSelectLog = '<option value="' . $messageEditEventLog . '" selected>' . $messageEditEventLog . '</option>';
+        $msgeditSelectLog .= $bindChannels;
+        
+        $msgdelSelectLog = '<option value="' . $messageDeleteEventLog . '" selected>' . $messageDeleteEventLog . '</option>';
+        $msgdelSelectLog .= $bindChannels;
         
         $rightContent = '<button class="guildSettingsCog" style="font-size: 2rem;">
                            Log Settings
@@ -41,63 +92,63 @@
                          <button class="guildSettingsCog">
                           Join Event Log Channel<br>
                           <select class="guildSettingsSelecting" name="joinEventLog" id="joinEventLog">
-                            ' . $bindChannels . '
+                            ' . $joinSelectLog . '
                           </select>
                          </button>
                          
                          <button class="guildSettingsCog">
                           Leave Event Log Channel<br>
                           <select class="guildSettingsSelecting" name="leaveEventLog" id="leaveEventLog">
-                            ' . $bindChannels . '
+                            ' . $leaveSelectLog . '
                           </select>
                          </button>
                          
                          <button class="guildSettingsCog">
                           Username Change Event Log Channel<br>
                           <select class="guildSettingsSelecting" name="userNameChangeEventLog" id="userNameChangeEventLog">
-                            ' . $bindChannels . '
+                            ' . $nameSelectLog . '
                           </select>
                          </button>
                          
                          <button class="guildSettingsCog">
                           Nickname Change Event Log Channel<br>
                           <select class="guildSettingsSelecting" name="nickNameChangeEventLog" id="nickNameChangeEventLog">
-                            ' . $bindChannels . '
+                            ' . $nickSelectLog . '
                           </select>
                          </button>
                          
                          <button class="guildSettingsCog">
                           Kick Event Log Channel<br>
                           <select class="guildSettingsSelecting" name="kickEventLog" id="joinEventLog">
-                            ' . $bindChannels . '
+                            ' . $kickSelectLog . '
                           </select>
                          </button>
                          
                          <button class="guildSettingsCog">
                           Ban Event Log Channel<br>
                           <select class="guildSettingsSelecting" name="banEventLog" id="joinEventLog">
-                            ' . $bindChannels . '
+                            ' . $banSelectLog . '
                           </select>
                          </button>
                          
                          <button class="guildSettingsCog">
                           Timeout Event Log Channel<br>
                           <select class="guildSettingsSelecting" name="timeOutEventLog" id="timeOutEventLog">
-                            ' . $bindChannels . '
+                            ' . $timeoutSelectLog . '
                           </select>
                          </button>
                          
                          <button class="guildSettingsCog">
                           Message Edit Event Log Channel<br>
                           <select class="guildSettingsSelecting" name="messageEditEventLog" id="messageEditEventLog">
-                            ' . $bindChannels . '
+                            ' . $msgeditSelectLog . '
                           </select>
                          </button>
                          
                          <button class="guildSettingsCog">
                           Message Delete Event Log Channel<br>
                           <select class="guildSettingsSelecting" name="messageDeleteEventLog" id="messageDeleteEventLog">
-                            ' . $bindChannels . '
+                            ' . $msgdelSelectLog . '
                           </select>
                          </button>';  
         
