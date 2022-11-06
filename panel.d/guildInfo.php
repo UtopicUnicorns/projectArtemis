@@ -10,7 +10,9 @@
         $textChannels = '';
         $threadChannels = '';
         $voiceChannels = '';
-        $debug = '';
+        $debug = '<button class="guildChannelsButton" style="font-size: 2rem;">
+                    Edit Channels
+                  </button>';
         foreach($guildThreadCheck->threads as $guildThreadChannel) {
           $threadChannels .= '<button onclick="document.getElementById(\'load\').style.display=\'grid\'; location.href=\'./panel.php?page=threadChannelView&channel=' . $guildThreadChannel->id . '&guild=' . $guildLoop->id . '\';" class="threadChannelsButton">
                                  ' . $guildThreadChannel->name . '<br>' . $guildThreadChannel->id . '

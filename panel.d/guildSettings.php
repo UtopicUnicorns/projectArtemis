@@ -15,16 +15,16 @@
         foreach ($guildCheck as $guildChannels) {
           if($guildChannels->type == 0) {
             $bindChannels .= '<option value="' . $guildChannels->id . '"># ' . $guildChannels->name . '</option>'; 
-            $numNameChan[$guildChannels->id] .= $guildChannels->name;
+            $numNameChan[$guildChannels->id] .= '# ' . $guildChannels->name;
           }
         }
         
         foreach($guildThreadCheck->threads as $guildThreadChannel) {
           $bindChannels .=  '<option value="' . $guildThreadChannel->id . '">⌥ ' . $guildThreadChannel->name . '</option>'; 
-          $numNameChan[$guildThreadChannel->id] .= $guildThreadChannel->name;
+          $numNameChan[$guildThreadChannel->id] .= '⌥ ' . $guildThreadChannel->name;
         }
         
-        $leftContent = '';//$numNameChan['759889020368584714'];
+        $leftContent = '';
         
         $connection = new mysqli('localhost', $sqlUser, $sqlPass);
         $testDataBase = $connection->query("USE g{$guildLoop->id};");
@@ -100,7 +100,7 @@
         $msgdelSelectLog = '<option value="' . $messageDeleteEventLog . '" selected>' . $numNameChan[$messageDeleteEventLog] . '</option>';
         $msgdelSelectLog .= $bindChannels;
         
-        $rightContent = '<form id="logChannelsSettings" action="?">
+        $rightContent = '<form id="guildSettings" action="?">
                           <input type="hidden" id="page" name="page" value="guildSettings">
                           <input type="hidden" id="guild" name="guild" value="' . $guildLoop->id . '">
                          </form>
@@ -110,63 +110,63 @@
                         
                         <button class="guildSettingsCog">
                           Join Event Log Channel<br>
-                          <select onchange="submitButton();" form="logChannelsSettings" class="guildSettingsSelecting" name="joinEventLog" id="joinEventLog">
+                          <select onchange="submitButton();" form="guildSettings" class="guildSettingsSelecting" name="joinEventLog" id="joinEventLog">
                             ' . $joinSelectLog . '
                           </select>
                         </button>
                         
                         <button class="guildSettingsCog">
                           Leave Event Log Channel<br>
-                          <select onchange="submitButton();" form="logChannelsSettings" class="guildSettingsSelecting" name="leaveEventLog" id="leaveEventLog">
+                          <select onchange="submitButton();" form="guildSettings" class="guildSettingsSelecting" name="leaveEventLog" id="leaveEventLog">
                             ' . $leaveSelectLog . '
                           </select>
                         </button>
                         
                         <button class="guildSettingsCog">
                           Username Change Event Log Channel<br>
-                          <select onchange="submitButton();" form="logChannelsSettings" class="guildSettingsSelecting" name="userNameChangeEventLog" id="userNameChangeEventLog">
+                          <select onchange="submitButton();" form="guildSettings" class="guildSettingsSelecting" name="userNameChangeEventLog" id="userNameChangeEventLog">
                             ' . $nameSelectLog . '
                           </select>
                         </button>
                         
                         <button class="guildSettingsCog">
                           Nickname Change Event Log Channel<br>
-                          <select onchange="submitButton();" form="logChannelsSettings" class="guildSettingsSelecting" name="nickNameChangeEventLog" id="nickNameChangeEventLog">
+                          <select onchange="submitButton();" form="guildSettings" class="guildSettingsSelecting" name="nickNameChangeEventLog" id="nickNameChangeEventLog">
                             ' . $nickSelectLog . '
                           </select>
                         </button>
                         
                         <button class="guildSettingsCog">
                           Kick Event Log Channel<br>
-                          <select onchange="submitButton();" form="logChannelsSettings" class="guildSettingsSelecting" name="kickEventLog" id="joinEventLog">
+                          <select onchange="submitButton();" form="guildSettings" class="guildSettingsSelecting" name="kickEventLog" id="joinEventLog">
                             ' . $kickSelectLog . '
                           </select>
                         </button>
                         
                         <button class="guildSettingsCog">
                           Ban Event Log Channel<br>
-                          <select onchange="submitButton();" form="logChannelsSettings" class="guildSettingsSelecting" name="banEventLog" id="joinEventLog">
+                          <select onchange="submitButton();" form="guildSettings" class="guildSettingsSelecting" name="banEventLog" id="joinEventLog">
                             ' . $banSelectLog . '
                           </select>
                         </button>
                         
                         <button class="guildSettingsCog">
                           Timeout Event Log Channel<br>
-                          <select onchange="submitButton();" form="logChannelsSettings" class="guildSettingsSelecting" name="timeOutEventLog" id="timeOutEventLog">
+                          <select onchange="submitButton();" form="guildSettings" class="guildSettingsSelecting" name="timeOutEventLog" id="timeOutEventLog">
                             ' . $timeoutSelectLog . '
                           </select>
                         </button>
                         
                         <button class="guildSettingsCog">
                           Message Edit Event Log Channel<br>
-                          <select onchange="submitButton();" form="logChannelsSettings" class="guildSettingsSelecting" name="messageEditEventLog" id="messageEditEventLog">
+                          <select onchange="submitButton();" form="guildSettings" class="guildSettingsSelecting" name="messageEditEventLog" id="messageEditEventLog">
                             ' . $msgeditSelectLog . '
                           </select>
                         </button>
                         
                         <button class="guildSettingsCog">
                           Message Delete Event Log Channel<br>
-                          <select onchange="submitButton();" form="logChannelsSettings" class="guildSettingsSelecting" name="messageDeleteEventLog" id="messageDeleteEventLog">
+                          <select onchange="submitButton();" form="guildSettings" class="guildSettingsSelecting" name="messageDeleteEventLog" id="messageDeleteEventLog">
                             ' . $msgdelSelectLog . '
                           </select>
                         </button>';  
@@ -197,7 +197,7 @@
                         <div style="width: 50%; height: 100%; overflow: auto;">' .  $leftContent .  '</div>
                         <div style="width: 50%; height: 100%; overflow: auto;">' .  $rightContent .  '</div>
                         <div class="showSubmit" id="showSubmit">
-                          <input form="logChannelsSettings" class="submitButtonChannelView" type="submit" value="">
+                          <input form="guildSettings" class="submitButtonChannelView" type="submit" value="">
                         </div>
                       </div>
                       <div style="width: 100%; height: 10%; background-size: cover; background-repeat: no-repeat; background-position: center; background-image: url(\'./images/assets/project_artemis_background.svg\'); background-color: rgba(255, 255, 255, 0.7); display: grid; place-items: center;">
