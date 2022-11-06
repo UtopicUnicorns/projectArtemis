@@ -7,6 +7,7 @@
       if($calcPerm == $needPerm) {
         $guildCheck = urlGet("https://discord.com/api/v10/guilds/" . $guildLoop->id . "/channels", 'authorization: Bot ' . $botToken);
         $guildThreadCheck = urlGet("https://discord.com/api/v10/guilds/" . $guildLoop->id . "/threads/active", 'authorization: Bot ' . $botToken);
+        $guildRolesGet = urlGet("https://discord.com/api/v10/guilds/" . $guildLoop->id . "/roles", 'authorization: Bot ' . $botToken);
         
         $bindChannels = '<option value="NONE">NONE/UNBIND</option>';
         $numNameChan = [];
@@ -24,7 +25,14 @@
           $numNameChan[$guildThreadChannel->id] .= '⌥ ' . $guildThreadChannel->name;
         }
         
-        $leftContent = '';
+        $bindRoles = '<option value="NONE">NONE/UNBIND</option>';
+        $numNameRole = [];
+        $numNameRole['NONE'] .= 'Not Set';
+        
+        foreach($guildRolesGet as $guildRoles) {
+          $bindRoles .= '<option value="' . $guildRoles->id . '">@ ' . $guildRoles->name . '</option>'; 
+          $numNameRole[$guildRoles->id] .= '@ ' . $guildRoles->name;
+        }
         
         $connection = new mysqli('localhost', $sqlUser, $sqlPass);
         $testDataBase = $connection->query("USE g{$guildLoop->id};");
@@ -32,6 +40,13 @@
         $connection->query("USE g{$guildLoop->id};");
         $testTable = $connection->query("SELECT * FROM Logs;");
         if(!$testTable) $connection->query("CREATE TABLE Logs (id varchar(100) NOT NULL, value varchar(255), PRIMARY KEY (id))");
+        
+        $testTableToo = $connection->query("SELECT * FROM Settings;");
+        if(!$testTableToo) $connection->query("CREATE TABLE Settings (id varchar(100) NOT NULL, value varchar(255), PRIMARY KEY (id))");
+        
+        $verificationMethodSettings = $connection->query("SELECT value FROM Settings WHERE id = 'verificationMethodSettings' limit 1;")->fetch_object()->value;
+        $verificationChannelSettings = $connection->query("SELECT value FROM Settings WHERE id = 'verificationChannelSettings' limit 1;")->fetch_object()->value;
+        $memberRoleSettings = $connection->query("SELECT value FROM Settings WHERE id = 'memberRoleSettings' limit 1;")->fetch_object()->value;
         
         $joinEventLog = $connection->query("SELECT value FROM Logs WHERE id = 'joinEventLog' limit 1;")->fetch_object()->value;
         $leaveEventLog = $connection->query("SELECT value FROM Logs WHERE id = 'leaveEventLog' limit 1;")->fetch_object()->value;
@@ -43,6 +58,10 @@
         $messageEditEventLog = $connection->query("SELECT value FROM Logs WHERE id = 'messageEditEventLog' limit 1;")->fetch_object()->value;
         $messageDeleteEventLog = $connection->query("SELECT value FROM Logs WHERE id = 'messageDeleteEventLog' limit 1;")->fetch_object()->value;
         
+        if(!$verificationMethodSettings) $connection->query("INSERT INTO Settings (id, value) VALUES ('verificationMethodSettings', 'NONE')");
+        if(!$verificationChannelSettings) $connection->query("INSERT INTO Settings (id, value) VALUES ('verificationChannelSettings', 'NONE')");
+        if(!$memberRoleSettings) $connection->query("INSERT INTO Settings (id, value) VALUES ('memberRoleSettings', 'NONE')");
+        
         if(!$joinEventLog) $connection->query("INSERT INTO Logs (id, value) VALUES ('joinEventLog', 'NONE')");
         if(!$leaveEventLog) $connection->query("INSERT INTO Logs (id, value) VALUES ('leaveEventLog', 'NONE')");
         if(!$userNameChangeEventLog) $connection->query("INSERT INTO Logs (id, value) VALUES ('userNameChangeEventLog', 'NONE')");
@@ -53,6 +72,10 @@
         if(!$messageEditEventLog) $connection->query("INSERT INTO Logs (id, value) VALUES ('messageEditEventLog', 'NONE')");
         if(!$messageDeleteEventLog) $connection->query("INSERT INTO Logs (id, value) VALUES ('messageDeleteEventLog', 'NONE')");
         
+        if($_GET["verificationMethodSettings"]) $connection->query("UPDATE Settings SET value = '" . $_GET["verificationMethodSettings"] . "' WHERE id = 'verificationMethodSettings'");
+        if($_GET["verificationChannelSettings"]) $connection->query("UPDATE Settings SET value = '" . $_GET["verificationChannelSettings"] . "' WHERE id = 'verificationChannelSettings'");
+        if($_GET["memberRoleSettings"]) $connection->query("UPDATE Settings SET value = '" . $_GET["memberRoleSettings"] . "' WHERE id = 'memberRoleSettings'");
+        
         if($_GET["joinEventLog"]) $connection->query("UPDATE Logs SET value = '" . $_GET["joinEventLog"] . "' WHERE id = 'joinEventLog'");
         if($_GET["leaveEventLog"]) $connection->query("UPDATE Logs SET value = '" . $_GET["leaveEventLog"] . "' WHERE id = 'leaveEventLog'");
         if($_GET["userNameChangeEventLog"]) $connection->query("UPDATE Logs SET value = '" . $_GET["userNameChangeEventLog"] . "' WHERE id = 'userNameChangeEventLog'");
@@ -62,6 +85,10 @@
         if($_GET["timeOutEventLog"]) $connection->query("UPDATE Logs SET value = '" . $_GET["timeOutEventLog"] . "' WHERE id = 'timeOutEventLog'");
         if($_GET["messageEditEventLog"]) $connection->query("UPDATE Logs SET value = '" . $_GET["messageEditEventLog"] . "' WHERE id = 'messageEditEventLog'");
         if($_GET["messageDeleteEventLog"]) $connection->query("UPDATE Logs SET value = '" . $_GET["messageDeleteEventLog"] . "' WHERE id = 'messageDeleteEventLog'");
+        
+        $verificationMethodSettings = $connection->query("SELECT value FROM Settings WHERE id = 'verificationMethodSettings' limit 1;")->fetch_object()->value;
+        $verificationChannelSettings = $connection->query("SELECT value FROM Settings WHERE id = 'verificationChannelSettings' limit 1;")->fetch_object()->value;
+        $memberRoleSettings = $connection->query("SELECT value FROM Settings WHERE id = 'memberRoleSettings' limit 1;")->fetch_object()->value;
         
         $joinEventLog = $connection->query("SELECT value FROM Logs WHERE id = 'joinEventLog' limit 1;")->fetch_object()->value;
         $leaveEventLog = $connection->query("SELECT value FROM Logs WHERE id = 'leaveEventLog' limit 1;")->fetch_object()->value;
@@ -100,13 +127,49 @@
         $msgdelSelectLog = '<option value="' . $messageDeleteEventLog . '" selected>' . $numNameChan[$messageDeleteEventLog] . '</option>';
         $msgdelSelectLog .= $bindChannels;
         
-        $rightContent = '<form id="guildSettings" action="?">
-                          <input type="hidden" id="page" name="page" value="guildSettings">
-                          <input type="hidden" id="guild" name="guild" value="' . $guildLoop->id . '">
-                         </form>
-                        <button class="guildSettingsCog" style="font-size: 2rem;">
+        $verMethodNames = [];
+        $verMethodNames['NONE'] .= 'No Verification';
+        $verMethodNames['helloMethod'] .= 'Hello Artemis Challenge';
+        $verMethodNames['buttonMethod'] .= 'Button Click Challenge';
+        $verMethodNames['discordMethod'] .= 'Discord Built-in Gateway';
+        
+        $verMethodSel = '<option value="' . $verificationMethodSettings . '" selected>' . $verMethodNames[$verificationMethodSettings] . '</option>';
+        $verMethodSel .= '<option value="NONE">No Verification</option>
+                          <option value="helloMethod">Hello Artemis Challenge</option>
+                          <option value="buttonMethod">Button Click Challenge</option>
+                          <option value="discordMethod">Discord Built-in Gateway</option>';
+        
+        $verChannelSel = '<option value="' . $verificationChannelSettings . '" selected>' . $numNameChan[$verificationChannelSettings] . '</option>';
+        $verChannelSel .= $bindChannels;
+        
+        $defRoleSel = '<option value="' . $memberRoleSettings . '" selected>' . $numNameRole[$memberRoleSettings] . '</option>';
+        $defRoleSel .= $bindRoles;
+        
+        $leftContent .=  '
+                          <button class="guildSettingsCog" style="font-size: 2rem;">
+                            General Settings
+                          </button>
+                          
+                          <button class="guildSettingsCog">
+                            Verification Method<br>
+                            <select onchange="submitButton();" form="guildSettings" class="guildSettingsSelecting" name="verificationMethodSettings" id="verificationMethodSettings">
+                              ' . $verMethodSel . '
+                            </select>
+                            <select onchange="submitButton();" form="guildSettings" class="guildSettingsSelecting" name="verificationChannelSettings" id="verificationChannelSettings">
+                              ' . $verChannelSel . '
+                            </select>
+                          </button>
+                          
+                          <button class="guildSettingsCog">
+                            Default Member Role<br>
+                            <select onchange="submitButton();" form="guildSettings" class="guildSettingsSelecting" name="memberRoleSettings" id="memberRoleSettings">
+                              ' . $defRoleSel . '
+                            </select>
+                          </button>
+                        ';
+        $rightContent = '<button class="guildSettingsCog" style="font-size: 2rem;">
                           Log Settings
-                        </button>
+                         </button>
                         
                         <button class="guildSettingsCog">
                           Join Event Log Channel<br>
@@ -194,6 +257,10 @@
                         '. $ownedGuild .'
                       </div>
                       <div style="width: 100%; height: 65%; background-color: rgba(255, 255, 255, 0.5); display: flex; place-items: center;">
+                        <form id="guildSettings" action="?">
+                          <input type="hidden" id="page" name="page" value="guildSettings">
+                          <input type="hidden" id="guild" name="guild" value="' . $guildLoop->id . '">
+                         </form>
                         <div style="width: 50%; height: 100%; overflow: auto;">' .  $leftContent .  '</div>
                         <div style="width: 50%; height: 100%; overflow: auto;">' .  $rightContent .  '</div>
                         <div class="showSubmit" id="showSubmit">
