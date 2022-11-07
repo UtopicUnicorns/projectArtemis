@@ -891,3 +891,61 @@ textarea:hover, textarea:focus, input:hover, input:focus {
   border: none;
   box-shadow: 0px 0px 5px rgba(0, 255, 0, 0.7); 
 }
+
+.guildStreamerCog {
+  width: 100%; 
+  height: 15%; 
+  overflow: hidden; 
+  border: none;
+  padding-right: 5%;
+  background-color: rgba(255, 255, 255, 0.7); 
+  background-image: url("data:image/svg+xml,%3Csvg style='color: white' xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-tv' viewBox='0 0 16 16'%3E%3Cpath d='M2.5 13.5A.5.5 0 0 1 3 13h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zM13.991 3l.024.001a1.46 1.46 0 0 1 .538.143.757.757 0 0 1 .302.254c.067.1.145.277.145.602v5.991l-.001.024a1.464 1.464 0 0 1-.143.538.758.758 0 0 1-.254.302c-.1.067-.277.145-.602.145H2.009l-.024-.001a1.464 1.464 0 0 1-.538-.143.758.758 0 0 1-.302-.254C1.078 10.502 1 10.325 1 10V4.009l.001-.024a1.46 1.46 0 0 1 .143-.538.758.758 0 0 1 .254-.302C1.498 3.078 1.675 3 2 3h11.991zM14 2H2C0 2 0 4 0 4v6c0 2 2 2 2 2h12c2 0 2-2 2-2V4c0-2-2-2-2-2z' fill='white'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: contain;
+  box-shadow: 0px 5px 2px black; 
+  display: grid; 
+  place-items: center right;
+  text-align: right;
+}
+
+.guildStreamerCog:hover {
+  width: 100%; 
+  height: 15%; 
+  overflow: hidden; 
+  border: none;
+  background-color: rgba(0, 255, 0, 0.7); 
+  box-shadow: 0px 5px 2px black; 
+  display: grid; 
+  place-items: center right;
+  text-align: right;
+}
+
+.guildStreamerDelete {
+  width: 10vh; 
+  height: 10vh; 
+  overflow: hidden; 
+  border: none;
+  padding-left: 0;
+  background-color: rgba(255, 255, 255, 0.7); 
+  background-image: url("data:image/svg+xml,%3Csvg style='color: red' xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-trash' viewBox='0 0 16 16'%3E%3Cpath d='M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z' fill='red'%3E%3C/path%3E%3Cpath fill-rule='evenodd' d='M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z' fill='red'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: contain;
+  box-shadow: 0 0 0 transparent;
+  opacity: 0.1;
+  display: grid; 
+  place-items: center right;
+  text-align: right;
+}
+
+.guildStreamerDelete:hover {
+  width: 10vh; 
+  height: 10vh; 
+  overflow: hidden; 
+  border: none;
+  background-color: rgba(0, 255, 0, 0.7); 
+  box-shadow: 0 0 0 transparent;
+  opacity: 0.8;
+  display: grid; 
+  place-items: center right;
+  text-align: right;
+}
