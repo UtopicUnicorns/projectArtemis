@@ -11,6 +11,8 @@ if($_COOKIE["setCode"]) {
     include './panel.d/userMenu.php';
     if ($_GET["page"] == 'guildSettings' && $_GET["guild"]) include './panel.d/guildSettings.php';
     if ($_GET["page"] == 'guildInfo' && $_GET["guild"]) include './panel.d/guildInfo.php';
+    if ($_GET["page"] == 'guildStreamer' && $_GET["guild"]) include './panel.d/guildStreamers.php';
+    if ($_GET["page"] == 'guildTopics' && $_GET["guild"]) include './panel.d/guildTopics.php';
     if ($_GET["page"] == 'userInfo') include './panel.d/userInfo.php';
     if ($_GET["page"] == 'userSettings') include './panel.d/userSettings.php';
     if ($_GET["page"] == 'logout') include './panel.d/logout.php';
