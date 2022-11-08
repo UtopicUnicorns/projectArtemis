@@ -89,8 +89,32 @@
                           </div>
                           
                           <div style="display: grid; place-items: center; height: 15%; width: inherit; overflow: hidden;">
-                            <input form="channelSettings" type="range" min="-1" max="21600" value="'.$channelSlowDown.'" class="slider" id="channelSlowDown" name="channelSlowDown">
-                            <div id="chanSlowDown"></div>
+                            Slowmode:
+                            <select onchange="submitButton();" form="channelSettings" class="guildSettingsSelecting" name="channelSlowDown" id="channelSlowDown">
+                              <option value="' . $channelSlowDown . '">CURRENT: ' . $channelSlowDown . ' Seconds</option>
+                              <option value="-1">Off</option>
+                              <option value="1">1 Second</option>
+                              <option value="2">2 Seconds</option>
+                              <option value="5">5 Seconds</option>
+                              <option value="10">10 Seconds</option>
+                              <option value="20">20 Seconds</option>
+                              <option value="30">30 Seconds</option>
+                              <option value="60">1 Minute</option>
+                              <option value="120">2 Minutes</option>
+                              <option value="180">3 Minutes</option>
+                              <option value="240">4 Minutes</option>
+                              <option value="300">5 Minutes</option>
+                              <option value="600">10 Minutes</option>
+                              <option value="750">15 Minutes</option>
+                              <option value="1200">20 Minutes</option>
+                              <option value="1800">30 Minutes</option>
+                              <option value="3600">1 Hour</option>
+                              <option value="7200">2 Hours</option>
+                              <option value="10800">3 Hours</option>
+                              <option value="14400">4 Hours</option>
+                              <option value="18000">5 Hours</option>
+                              <option value="21600">6 Hours</option>
+                            </select>
                           </div>
                           
                           <div style="display: grid; place-items: center; height: 50%; width: inherit; overflow: hidden;">
