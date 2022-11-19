@@ -33,6 +33,7 @@
     }
     
     include './panel.d/configd.php';
+    
     $yourInformation = urlGet("https://discord.com/api/users/@me", 'authorization: Bearer ' . $_COOKIE["setCode"]);
     $guildsWeShare = urlGet("https://discord.com/api/users/@me/guilds", 'authorization: Bearer ' . $_COOKIE["setCode"]);
     
@@ -86,7 +87,7 @@
     //json_encode(array);
     //count(array);
     //array[entryId][entryValue]
-    
+    //echo $sharedGuildsArray['628978428019736619']["name"];
     include './panel.d/userMenu.php';
     
     if ($_GET["page"] == 'guildSettings' && $_GET["guild"]) include './panel.d/guildSettings.php';

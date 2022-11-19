@@ -1,7 +1,7 @@
 <?php
-  $guildCheck = urlGet("https://discord.com/api/v10/guilds/" . $guildLoop->id . "/channels", 'authorization: Bot ' . $botToken);
-  $guildThreadCheck = urlGet("https://discord.com/api/v10/guilds/" . $guildLoop->id . "/threads/active", 'authorization: Bot ' . $botToken);
-  $guildRolesGet = urlGet("https://discord.com/api/v10/guilds/" . $guildLoop->id . "/roles", 'authorization: Bot ' . $botToken);
+  $guildCheck = urlGet("https://discord.com/api/v10/guilds/" . $sharedGuildsArray[$_GET["guild"]]["id"] . "/channels", 'authorization: Bot ' . $botToken);
+  $guildThreadCheck = urlGet("https://discord.com/api/v10/guilds/" . $sharedGuildsArray[$_GET["guild"]]["id"] . "/threads/active", 'authorization: Bot ' . $botToken);
+  $guildRolesGet = urlGet("https://discord.com/api/v10/guilds/" . $sharedGuildsArray[$_GET["guild"]]["id"] . "/roles", 'authorization: Bot ' . $botToken);
   
   $bindChannels = '<option value="NONE">NONE/UNBIND</option>';
   $numNameChan = [];
@@ -29,9 +29,9 @@
   }
   
   $connection = new mysqli('localhost', $sqlUser, $sqlPass);
-  $testDataBase = $connection->query("USE g{$guildLoop->id};");
-  if(!$testDataBase) $connection->query("CREATE DATABASE IF NOT EXISTS g{$guildLoop->id};");
-  $connection->query("USE g{$guildLoop->id};");
+  $testDataBase = $connection->query("USE g{$sharedGuildsArray[$_GET["guild"]]["id"]};");
+  if(!$testDataBase) $connection->query("CREATE DATABASE IF NOT EXISTS g{$sharedGuildsArray[$_GET["guild"]]["id"]};");
+  $connection->query("USE g{$sharedGuildsArray[$_GET["guild"]]["id"]};");
   $testTable = $connection->query("SELECT * FROM Logs;");
   if(!$testTable) $connection->query("CREATE TABLE Logs (id varchar(100) NOT NULL, value varchar(255), PRIMARY KEY (id))");
   
