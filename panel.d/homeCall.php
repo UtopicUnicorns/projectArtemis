@@ -47,7 +47,8 @@
            </div>
            </div>';
   } else {
-    $clientId = '654361253413781537';
+    //$clientId = '654361253413781537';
+    $clientId = '440892659264126997';
     $baseURL='https://discord.com/api/oauth2/authorize?client_id=' . $clientId . '&redirect_uri=https%3A%2F%2Fartemis.rest%2F&response_type=code&scope=identify%20guilds%20guilds.members.read';
     $personalizedContent = '<div class="logo"></div>
            <div class="menu_box">
