@@ -10,20 +10,20 @@
               </button>';
               
     foreach($guildThreadCheck->threads as $guildThreadChannel) {
-      $threadChannels .= '<button onclick="document.getElementById(\'load\').style.display=\'grid\'; location.href=\'./panel.php?page=threadChannelView&channel=' . $guildThreadChannel->id . '&guild=' . $sharedGuildsArray[$_GET["guild"]]["id"] . '\';" class="threadChannelsButton">
+      $threadChannels .= '<button onclick="document.getElementById(\'load\').style.display=\'grid\'; location.href=\'./panel.php?page=channelView&channel=' . $guildThreadChannel->id . '&guild=' . $sharedGuildsArray[$_GET["guild"]]["id"] . '\';" class="threadChannelsButton">
                             ' . $guildThreadChannel->name . '<br>' . $guildThreadChannel->id . '
                           </button>'; 
     }
     
     foreach ($guildCheck as $guildChannels) {
       if($guildChannels->type == 0) {
-        $textChannels .= '<button onclick="document.getElementById(\'load\').style.display=\'grid\'; location.href=\'./panel.php?page=textChannelView&channel=' . $guildChannels->id . '&guild=' . $sharedGuildsArray[$_GET["guild"]]["id"] . '\';" class="guildChannelsButton">
+        $textChannels .= '<button onclick="document.getElementById(\'load\').style.display=\'grid\'; location.href=\'./panel.php?page=channelView&channel=' . $guildChannels->id . '&guild=' . $sharedGuildsArray[$_GET["guild"]]["id"] . '\';" class="guildChannelsButton">
                             ' . $guildChannels->name . '<br>' . $guildChannels->id . '
                           </button>';             
       }
       
       if($guildChannels->type == 2) {
-        $voiceChannels .=  '<button onclick="document.getElementById(\'load\').style.display=\'grid\'; location.href=\'./panel.php?page=voiceChannelView&channel=' . $guildChannels->id . '&guild=' . $sharedGuildsArray[$_GET["guild"]]["id"] . '\';" class="voiceChannelsButton">
+        $voiceChannels .=  '<button onclick="document.getElementById(\'load\').style.display=\'grid\'; location.href=\'./panel.php?page=channelView&channel=' . $guildChannels->id . '&guild=' . $sharedGuildsArray[$_GET["guild"]]["id"] . '\';" class="voiceChannelsButton">
                               ' . $guildChannels->name . '<br>' . $guildChannels->id . '
                             </button>';             
       }

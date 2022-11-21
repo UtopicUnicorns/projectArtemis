@@ -35,7 +35,6 @@
     include './panel.d/configd.php';
     
     $yourInformation = urlGet("https://discord.com/api/users/@me", 'authorization: Bearer ' . $_COOKIE["setCode"]);
-    $guildsWeShare = urlGet("https://discord.com/api/users/@me/guilds", 'authorization: Bearer ' . $_COOKIE["setCode"]);
     
     $botGuildsArray = [];
     $yourGuildsArray = [];
@@ -97,6 +96,7 @@
     if ($_GET["page"] == 'userInfo') include './panel.d/userInfo.php';
     if ($_GET["page"] == 'userSettings') include './panel.d/userSettings.php';
     if ($_GET["page"] == 'logout') include './panel.d/logout.php';
+    if ($_GET["page"] == 'channelView' && $_GET["channel"] && $_GET["guild"]) include './panel.d/channelView.php';
     if ($_GET["page"] == 'textChannelView' && $_GET["channel"] && $_GET["guild"]) include './panel.d/textChannelView.php';
     if ($_GET["page"] == 'threadChannelView' && $_GET["channel"] && $_GET["guild"]) include './panel.d/threadChannelView.php';
     if ($_GET["page"] == 'voiceChannelView' && $_GET["channel"] && $_GET["guild"]) include './panel.d/voiceChannelView.php';
