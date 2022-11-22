@@ -34,15 +34,15 @@
     
     include './panel.d/configd.php';
     
-    $yourInformation = urlGet("https://discord.com/api/users/@me", 'authorization: Bearer ' . $_COOKIE["setCode"]);
+    $yourInformation = urlGet("https://discord.com/api/v10/users/@me", 'authorization: Bearer ' . $_COOKIE["setCode"]);
     
     $botGuildsArray = [];
     $yourGuildsArray = [];
     $sharedGuildsArray = [];
     
     function loopMyGuilds($botGuildsArray, $botToken, $last) {
-      if(!$last) $botGuilds = urlGet("https://discord.com/api/users/@me/guilds?limit=200", 'authorization: Bot ' . $botToken);
-      if($last) $botGuilds = urlGet("https://discord.com/api/users/@me/guilds?limit=200&after=" . $last, 'authorization: Bot ' . $botToken);
+      if(!$last) $botGuilds = urlGet("https://discord.com/api/v10/users/@me/guilds?limit=200", 'authorization: Bot ' . $botToken);
+      if($last) $botGuilds = urlGet("https://discord.com/api/v10/users/@me/guilds?limit=200&after=" . $last, 'authorization: Bot ' . $botToken);
       foreach($botGuilds as $botGuild) {
         $botGuildsArray[$botGuild->id]['id'] .= $botGuild->id;
         $botGuildsArray[$botGuild->id]['name'] .= $botGuild->name;
@@ -54,8 +54,8 @@
     }
     
     function loopYourGuilds($yourGuildsArray, $code, $last) {
-      if(!$last) $yourGuilds = urlGet("https://discord.com/api/users/@me/guilds?limit=200", 'authorization: Bearer ' . $code);
-      if($last) $yourGuilds = urlGet("https://discord.com/api/users/@me/guilds?limit=200&after=" . $last, 'authorization: Bearer ' . $code);
+      if(!$last) $yourGuilds = urlGet("https://discord.com/api/v10/users/@me/guilds?limit=200", 'authorization: Bearer ' . $code);
+      if($last) $yourGuilds = urlGet("https://discord.com/api/v10/users/@me/guilds?limit=200&after=" . $last, 'authorization: Bearer ' . $code);
       foreach($yourGuilds as $yourGuild) {
         $yourGuildsArray[$yourGuild->id]['id'] .= $yourGuild->id;
         $yourGuildsArray[$yourGuild->id]['name'] .= $yourGuild->name;
@@ -97,9 +97,6 @@
     if ($_GET["page"] == 'userSettings') include './panel.d/userSettings.php';
     if ($_GET["page"] == 'logout') include './panel.d/logout.php';
     if ($_GET["page"] == 'channelView' && $_GET["channel"] && $_GET["guild"]) include './panel.d/channelView.php';
-    if ($_GET["page"] == 'textChannelView' && $_GET["channel"] && $_GET["guild"]) include './panel.d/textChannelView.php';
-    if ($_GET["page"] == 'threadChannelView' && $_GET["channel"] && $_GET["guild"]) include './panel.d/threadChannelView.php';
-    if ($_GET["page"] == 'voiceChannelView' && $_GET["channel"] && $_GET["guild"]) include './panel.d/voiceChannelView.php';
     if (!$_GET["page"]) include './panel.d/userInfo.php';
   } else {
     echo '<script type="text/javascript">window.location = "https://artemis.rest/";</script>';

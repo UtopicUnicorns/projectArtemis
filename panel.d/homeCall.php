@@ -9,7 +9,7 @@
               'redirect_uri'  => $redirect,
             ];
     $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, 'https://discord.com/api/oauth2/token');
+    curl_setopt($ch, CURLOPT_URL, 'https://discord.com/api/v10/oauth2/token');
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($post));
     $response = curl_exec($ch);
@@ -21,7 +21,7 @@
   }
 
   if($_COOKIE["setCode"]) {
-    $curl_h = curl_init('https://discord.com/api/users/@me');
+    $curl_h = curl_init('https://discord.com/api/v10/users/@me');
     curl_setopt($curl_h, CURLOPT_HTTPHEADER, array('authorization: Bearer ' . $_COOKIE["setCode"],));
     curl_setopt($curl_h, CURLOPT_RETURNTRANSFER, true);
     $response = curl_exec($curl_h);
@@ -49,7 +49,7 @@
   } else {
     //$clientId = '654361253413781537';
     $clientId = '440892659264126997';
-    $baseURL='https://discord.com/api/oauth2/authorize?client_id=' . $clientId . '&redirect_uri=https%3A%2F%2Fartemis.rest%2F&response_type=code&scope=identify%20guilds%20guilds.members.read';
+    $baseURL='https://discord.com/api/v10/oauth2/authorize?client_id=' . $clientId . '&redirect_uri=https%3A%2F%2Fartemis.rest%2F&response_type=code&scope=identify%20guilds%20guilds.members.read';
     $personalizedContent = '<div class="logo"></div>
            <div class="menu_box">
             <button class="menu_button pulse" onclick="document.getElementById(\'home\').scrollIntoView();">HOMEPAGE</button>
