@@ -38,6 +38,18 @@
   $testTableToo = $connection->query("SELECT * FROM Settings;");
   if(!$testTableToo) $connection->query("CREATE TABLE Settings (id varchar(100) NOT NULL, value varchar(255), PRIMARY KEY (id))");
   
+  $testTableThree = $connection->query("SELECT * FROM User;");
+  if(!$testTableThree) $connection->query("CREATE TABLE User (id varchar(100) NOT NULL, username varchar(255), discriminator varchar(255), points varchar(255), PRIMARY KEY (id))");
+  
+  $testTableFour = $connection->query("SELECT * FROM Streamers;");
+  if(!$testTableFour) $connection->query("CREATE TABLE Streamers (id varchar(100) NOT NULL, value varchar(255), PRIMARY KEY (id))");
+  
+  $testTableFive = $connection->query("SELECT * FROM Support;");
+  if(!$testTableFive) $connection->query("CREATE TABLE Support (id varchar(100) NOT NULL, value varchar(255), PRIMARY KEY (id))");
+  
+  $testTableSix = $connection->query("SELECT * FROM Topics;");
+  if(!$testTableSix) $connection->query("CREATE TABLE Topics (id varchar(100) NOT NULL, value varchar(255), PRIMARY KEY (id))");
+  
   $verificationMethodSettings = $connection->query("SELECT value FROM Settings WHERE id = 'verificationMethodSettings' limit 1;")->fetch_object()->value;
   $verificationChannelSettings = $connection->query("SELECT value FROM Settings WHERE id = 'verificationChannelSettings' limit 1;")->fetch_object()->value;
   $memberRoleSettings = $connection->query("SELECT value FROM Settings WHERE id = 'memberRoleSettings' limit 1;")->fetch_object()->value;
