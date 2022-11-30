@@ -48,7 +48,7 @@
         $botGuildsArray[$botGuild->id]['name'] .= $botGuild->name;
         $botGuildsArray[$botGuild->id]['icon'] .= $botGuild->icon;
       }
-      sleep(1);
+      sleep(0.1);
       if(count($botGuilds) == 200) return loopMyGuilds($botGuildsArray, $botToken, $botGuilds[199]->id);
       return $botGuildsArray;
     }
@@ -62,7 +62,7 @@
         $yourGuildsArray[$yourGuild->id]['icon'] .= $yourGuild->icon;
         $yourGuildsArray[$yourGuild->id]['permissions'] .= $yourGuild->permissions;
       }
-      sleep(1);
+      sleep(0.1);
       if(count($yourGuilds) == 200) return loopYourGuilds($yourGuildsArray, $code, $yourGuilds[199]->id);
       return $yourGuildsArray;
     }

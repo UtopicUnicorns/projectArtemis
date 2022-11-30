@@ -39,7 +39,7 @@
   if(!$testTableToo) $connection->query("CREATE TABLE Settings (id varchar(100) NOT NULL, value varchar(255), PRIMARY KEY (id))");
   
   $testTableThree = $connection->query("SELECT * FROM User;");
-  if(!$testTableThree) $connection->query("CREATE TABLE User (id varchar(100) NOT NULL, username varchar(255), discriminator varchar(255), points varchar(255), PRIMARY KEY (id))");
+  if(!$testTableThree) $connection->query("CREATE TABLE User (id varchar(100) NOT NULL, username varchar(255), discriminator varchar(255), points int, PRIMARY KEY (id))");
   
   $testTableFour = $connection->query("SELECT * FROM Streamers;");
   if(!$testTableFour) $connection->query("CREATE TABLE Streamers (id varchar(100) NOT NULL, value varchar(255), PRIMARY KEY (id))");

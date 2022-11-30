@@ -27,54 +27,6 @@
 }
 
 @font-face {
-	font-family: 'italic-light';
-	src: url('../fonts/quicksand-lightitalic-webfont.woff2') format('woff2'),
-		url('../fonts/quicksand-lightitalic-webfont.woff') format('woff');
-	font-weight: normal;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'light';
-	src: url('../fonts/quicksand-light-webfont.woff2') format('woff2'),
-		url('../fonts/quicksand-light-webfont.woff') format('woff');
-	font-weight: normal;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'italic';
-	src: url('../fonts/quicksand-italic-webfont.woff2') format('woff2'),
-		url('../fonts/quicksand-italic-webfont.woff') format('woff');
-	font-weight: normal;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'dash';
-	src: url('../fonts/quicksand_dash-webfont.woff2') format('woff2'),
-		url('../fonts/quicksand_dash-webfont.woff') format('woff');
-	font-weight: normal;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'bold-italic';
-	src: url('../fonts/quicksand-bolditalic-webfont.woff2') format('woff2'),
-		url('../fonts/quicksand-bolditalic-webfont.woff') format('woff');
-	font-weight: normal;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'bold';
-	src: url('../fonts/quicksand-bold-webfont.woff2') format('woff2'),
-		url('../fonts/quicksand-bold-webfont.woff') format('woff');
-	font-weight: normal;
-	font-style: normal;
-}
-
-@font-face {
 	font-family: 'fancy';
 	src: url('../fonts/Cinzel-Regular.woff2') format('woff2'),
 		url('../fonts/Cinzel-Regular.woff') format('woff');
@@ -705,39 +657,6 @@ textarea:hover, textarea:focus, input:hover, input:focus {
   border: none;
   background-color: rgba(255, 255, 255, 0.9);
   resize: none;
-}
-
-.slider {
-  -webkit-appearance: none;
-  width: 100%;
-  height: 25%;
-  background: #d3d3d3;
-  outline: none;
-  opacity: 0.7;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
-}
-
-.slider:hover {
-  opacity: 1;
-}
-
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 25px;
-  height: 25px;
-  border-radius: 50px;
-  background: rgba(0, 255, 0, 0.7);
-  cursor: pointer;
-}
-
-.slider::-moz-range-thumb {
-  width: 25px;
-  height: 25px;
-  border-radius: 50px;
-  background: rgba(0, 255, 0, 0.7);
-  cursor: pointer;
 }
 
 .showSubmit {
