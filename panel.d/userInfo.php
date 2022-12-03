@@ -37,14 +37,23 @@
     if($gChannel->type !== 11) array_push($gatherChannels, '# ' . $gChannel->name);
     array_push($gatherPoints, $valueSorted);
   }
-  echo json_encode($arrExtra);
+  $sharingGuild = '<button class="sharedGuildButton" style="font-size: 2rem">
+                    Guilds we share
+                  </button>';
+  foreach($sharedGuildsArrayNoPerms as $sharingStuff) {
+    $sharedIcon = 'https://cdn.discordapp.com/icons/'.$sharingStuff['id'].'/'.$sharingStuff['icon'].'.png?size=2048';
+    $sharingGuild .= '<button class="sharedGuildButton" style="background-image: url('.$sharedIcon.');">
+                        '.$sharingStuff['name'].'
+                      </button>';
+  }
+  
   $siteContext = '<div style="width: 100%; height: 25%; background-size: cover; background-repeat: no-repeat; background-position: center; background-image: url(\'' . $userBanner . '\'); display: flex; place-items: center left;">
                     <img src="' . $userAvatar . '" style="height: 25vh; border-radius: 500px; margin-left: 50px; box-shadow: 5px 5px 2px black;" /><h1 style="margin-left: 20px;" id="nameInUserPanel"> ' . $yourInformation->username . '#' . $yourInformation->discriminator . '<br />' . $yourInformation->id . '</h1>
                   </div>
-                  <div style="width: 100%; height: 65%; background-color: rgba(255, 255, 255, 0.5); display: flex; place-items: center;">
-                    <div style="width: 100%; height: 100%; overflow: auto;text-align: center; display: grid; place-items: center;">
+                  <div style="width: 100%; height: 65%; background-color: rgba(255, 255, 255, 0); display: flex; place-items: center; background-image: url(\'./images/backgrounds/prism.svg\'); background-attachment: fixed; background-size: cover;">
+                    <div style="width: 60%; height: 100%; overflow: auto;text-align: center; display: grid; place-items: center; background-color: rgba(255, 255, 255, 0.5);">
                       <script src="./scripts/chart.js"></script>
-                      <canvas id="myChart" style="width:50%; height: 50%;"></canvas>
+                      <canvas id="myChart" style="width:50vh; height: 20vh;"></canvas>
 
                       <script>
                       var xValues = '.json_encode($gatherChannels).';
@@ -74,6 +83,9 @@
                         }
                       });
                       </script>
+                    </div>
+                    <div style="width: 40%; height: 100%; overflow: auto; background-color: rgba(255, 255, 255, 0.5);">
+                      '.$sharingGuild.'
                     </div>
                   </div>
                   <div style="width: 100%; height: 10%; background-size: cover; background-repeat: no-repeat; background-position: center; background-image: url(\'./images/assets/project_artemis_background.svg\'); background-color: rgba(255, 255, 255, 0.7); display: grid; place-items: center;">

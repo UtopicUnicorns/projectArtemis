@@ -39,6 +39,7 @@
     $botGuildsArray = [];
     $yourGuildsArray = [];
     $sharedGuildsArray = [];
+    $sharedGuildsArrayNoPerms = [];
     
     function loopMyGuilds($botGuildsArray, $botToken, $last) {
       if(!$last) $botGuilds = urlGet("https://discord.com/api/v10/users/@me/guilds?limit=200", 'authorization: Bot ' . $botToken);
@@ -75,6 +76,10 @@
         $yourGuildPermissions = $processedYourGuilds[$checkersGuild["id"]]["permissions"];
         $guildManagePermissions = 1 << 5;
         $doMathForGuildPermissions = $yourGuildPermissions & $guildManagePermissions;
+        $sharedGuildsArrayNoPerms[$processedYourGuilds[$checkersGuild["id"]]["id"]]['id'] .= $processedYourGuilds[$checkersGuild["id"]]["id"];
+        $sharedGuildsArrayNoPerms[$processedYourGuilds[$checkersGuild["id"]]["id"]]['name'] .= $processedYourGuilds[$checkersGuild["id"]]["name"];
+        $sharedGuildsArrayNoPerms[$processedYourGuilds[$checkersGuild["id"]]["id"]]['icon'] .= $processedYourGuilds[$checkersGuild["id"]]["icon"];
+        $sharedGuildsArrayNoPerms[$processedYourGuilds[$checkersGuild["id"]]["id"]]['permissions'] .= $processedYourGuilds[$checkersGuild["id"]]["permissions"];
         if($doMathForGuildPermissions == $guildManagePermissions) {
           $sharedGuildsArray[$processedYourGuilds[$checkersGuild["id"]]["id"]]['id'] .= $processedYourGuilds[$checkersGuild["id"]]["id"];
           $sharedGuildsArray[$processedYourGuilds[$checkersGuild["id"]]["id"]]['name'] .= $processedYourGuilds[$checkersGuild["id"]]["name"];
