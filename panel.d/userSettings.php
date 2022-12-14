@@ -1,4 +1,5 @@
 <?php
+  return;
   if($yourInformation->avatar) $userAvatar = 'https://cdn.discordapp.com/avatars/' . $yourInformation->id . '/' .  $yourInformation->avatar. '.png?size=2048';
   if(!$yourInformation->avatar) $userAvatar = './images/icons/user.svg';
     

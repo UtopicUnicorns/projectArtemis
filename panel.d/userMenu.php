@@ -8,11 +8,11 @@
                       ℹ️&ensp;User Info
                     </button>
                   </p>
-                  <p>
+                  <!--<p>
                     <button class="codeDocs" onclick="document.getElementById(\'load\').style.display=\'grid\'; location.href=\'./panel.php?page=userSettings\';">
                       ⚙️&ensp;User Settings
                     </button>
-                  </p>
+                  </p>-->
                   <p>
                     <button class="codeDocs" onclick="document.getElementById(\'load\').style.display=\'grid\'; location.href=\'./panel.php?page=logout\';">
                       🚪&ensp;Log Me Out
