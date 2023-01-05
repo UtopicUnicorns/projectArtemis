@@ -55,6 +55,9 @@
   
   $testTableEight = $connection->query("SELECT * FROM roles;");
   if(!$testTableEight) $connection->query("CREATE TABLE roles (id varchar(100) NOT NULL, description varchar(255), emote varchar(255), slot varchar(255), PRIMARY KEY (id))");
+  // !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  $testTableNine = $connection->query("SELECT * FROM actionLog;");
+  if(!$testTableNine) $connection->query("CREATE TABLE actionLog (id varchar(100) NOT NULL, timeStamp varchar(255), takenBy varchar(255), issuedTo varchar(255), actionType varchar(255), actionNotes varchar(255), PRIMARY KEY (id))");
   
   $verificationMethodSettings = $connection->query("SELECT value FROM Settings WHERE id = 'verificationMethodSettings' limit 1;")->fetch_object()->value;
   $verificationChannelSettings = $connection->query("SELECT value FROM Settings WHERE id = 'verificationChannelSettings' limit 1;")->fetch_object()->value;
