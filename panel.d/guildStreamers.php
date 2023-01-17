@@ -1,32 +1,6 @@
 <?php
   if($sharedGuildsArray[$_GET["guild"]]) {
     include './panel.d/guildDatabaseGet.php';
-    $leftContent .=  '<button class="guildStreamerCog" style="font-size: 2rem;">
-                        Current Streamers
-                      </button>
-                      <button class="guildStreamerCog">
-                        <table>
-                          <tr>
-                            <td>
-                              <table>
-                                <tr>
-                                  <td style="font-size: 1.5rem;">
-                                    streamer name
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>
-                                    link
-                                  </td>
-                                </tr>
-                              </table>
-                            </td>
-                            <td>
-                              <input type="button" class="guildStreamerDelete" onclick="alert(\'Hello World!\')" value="">
-                            </td>
-                          </tr>
-                        </table>
-                      </button>';
     $rightContent =  '<button class="guildStreamerCog" style="font-size: 2rem;">
                         Add Streamer
                       </button>
@@ -34,7 +8,35 @@
                         Insert Streamer Name<br>
                         <input type="text" class="guildSettingsSelecting" id="fname" name="fname" value="John">
                       </button>';    
-    
+    $leftContent = '<button class="guildStreamerCog" style="font-size: 2rem;">
+                      Current Streamers
+                    </button>
+                    ';
+    foreach($testTableFour as $streamerSelect) {
+      $leftContent .= '<button class="guildStreamerCog">
+                        <table>
+                          <tr>
+                            <td>
+                              <table>
+                                <tr>
+                                  <td style="font-size: 1.5rem;">
+                                    '.$streamerSelect['id'].'
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <a href="https://www.twitch.tv/'.$streamerSelect['id'].'" target="_blank">Streamer Page</a>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                            <td>
+                              <input type="button" class="guildStreamerDelete" onclick="deleteStreamer(`'.$streamerSelect['id'].'`)" value="">
+                            </td>
+                          </tr>
+                        </table>
+                      </button>';
+    }
     if($sharedGuildsArray[$_GET["guild"]]["icon"]) $guildAvatar = 'https://cdn.discordapp.com/icons/' . $sharedGuildsArray[$_GET["guild"]]["id"] . '/' .  $sharedGuildsArray[$_GET["guild"]]["icon"] . '.png?size=2048';
     if(!$sharedGuildsArray[$_GET["guild"]]["id"]) $guildAvatar = './images/icons/user.svg';
     
@@ -58,6 +60,11 @@
                       <!--Just a footer-->
                     </div>
                     <script type="text/javascript">
+                      function deleteStreamer(val) {
+                        if (confirm(`Are you sure you want to remove ${val}?`)) {
+                          alert(`Removed ${val}.`);
+                        }
+                      }
                       function submitButton() {
                         document.getElementById("showSubmit").style.width = "100px";
                         document.getElementById("showSubmit").style.height = "100px";
