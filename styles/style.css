@@ -1,0 +1,472 @@
+/* Fonts */
+@font-face {
+	font-family: 'regular';
+	src: url('../fonts/novaMono.woff2') format('woff2'),
+		url('../fonts/novaMono.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+	width: 5px;
+}
+
+::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #555;
+}
+
+/* Main home body settings */
+body {
+  overflow: hidden;
+}
+
+/* Home menu buttons */
+.inviteButton {
+  width: 20vh;
+  height: 20vh;
+  border: none;
+  margin: 2vh;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.2) 0%,
+    rgba(0,0,0,0.2) 50%,
+    rgba(255,255,255,0.2) 50%,
+    rgba(255,255,255,0.2) 100%
+  );
+}
+
+.inviteButton:hover, .inviteButton:active, .inviteButton:focus  {
+  width: 20vh;
+  height: 20vh;
+  border: none;
+  border-radius: 25px 0px 25px 0px;
+  box-shadow: inset 0px 0px 10px rgba(0,0,0,0.9);
+  animation: breath 3s infinite;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.2) 0%,
+    rgba(0,0,0,0.2) 50%,
+    rgba(255,255,255,0.2) 50%,
+    rgba(255,255,255,0.2) 100%
+  );
+}
+
+.menuButton {
+  width: 25vw;
+  height: 10vh;
+  border: none;
+  border-top: 0vh inset black;
+  border-bottom: 0vh inset black;
+  color: white;
+  padding-left: 0px;
+  font-size: 1em;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.2) 0%,
+    rgba(0,0,0,0.2) 50%,
+    rgba(255,255,255,0.2) 50%,
+    rgba(255,255,255,0.2) 100%
+  );
+}
+
+.menuButton:hover, .menuButton:active, .menuButton:focus {
+  width: 25vw;
+  height: 10vh;
+  border-top: 1vh inset black;
+  border-bottom: 1vh inset black;
+  color: white;
+  padding-left: 5vw;
+  font-size: 1.5em;
+}
+
+.secondaryMenuButton {
+  width: 10vw;
+  height: 5vh;
+  border: none;
+  border-top: 0vh inset black;
+  border-bottom: 0vh inset black;
+  color: white;
+  font-size: 1em;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.2) 0%,
+    rgba(0,0,0,0.2) 50%,
+    rgba(255,255,255,0.2) 50%,
+    rgba(255,255,255,0.2) 100%
+  );
+}
+
+.secondaryMenuButton:hover, .secondaryMenuButton:active, .secondaryMenuButton:focus {
+  width: 10vw;
+  height: 5vh;
+  border-top: 0.1vh inset black;
+  border-bottom: 0.1vh inset black;
+  color: white;
+  font-size: 1.5em;
+}
+
+/* Background */
+.backgroundBox {
+	height: 100vh;
+	width: 100vw;
+	left: 0px;
+	bottom: 0px;
+	position: fixed;
+	background-image: url('../images/backgrounds/triangleVector.svg');
+	background-attachment: fixed;
+	background-size: cover;
+}
+
+/* Home menu bar bottom */
+.menuHome {
+	height: 10vh;
+	width: 100vw;
+	bottom: 0px;
+	left: 0px;
+	display: flex;
+	place-items: center;
+	position: fixed;
+	overflow: hidden;
+	color: rgba(255,255,255,0.5);
+	font-size: 1em;
+}
+
+/* Extra box for menu invite */
+.buttonHoldInvite {
+  display: flex;
+}
+
+/* Secondary menu */
+.loginAvatarBox {
+  width: 10vw;
+  height: 10vw;
+  display: grid;
+	place-items: center;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.2) 0%,
+    rgba(0,0,0,0.2) 50%,
+    rgba(255,255,255,0.2) 50%,
+    rgba(255,255,255,0.2) 100%
+  );
+}
+
+.loginAvatarBoxImage {
+  width: 10vw;
+  height: 10vw;
+}
+
+.secondaryMenuHome {
+	height: 90vh;
+	width: 10vw;
+	top: 0px;
+	left: 0px;
+	position: fixed;
+	overflow: hidden;
+	text-align: center;
+	background: linear-gradient(
+    to right,
+    rgba(0,0,0,0.2) 0%,
+    rgba(0,0,0,0.2) 50%,
+    rgba(255,255,255,0.2) 50%,
+    rgba(255,255,255,0.2) 100%
+  );
+	color: rgba(255,255,255,0.5);
+	font-size: 1em;
+}
+
+/* Content box for home */
+.boxContent {
+  width: 90vw;
+  height: auto;
+  max-height: 90vh;
+  inline-size: 90vw;
+  overflow-wrap: break-word;
+  background-color: rgba(255, 255, 255, 0.5);
+  display: grid;
+  position: absolute;
+  overflow: auto;
+  right: 0px;
+	place-items: center;
+	padding-top: 1vh;
+	padding-bottom: 1vh;
+}
+
+/* First home box */
+.boxFirstBg {
+	height: 100vh;
+	width: 100vw;
+	top: 0px;
+	left: 0px;
+	display: grid;
+	place-items: center;
+	position: absolute;
+	background-image: url('../images/backgrounds/starSky.jpg');
+	background-attachment: fixed;
+	background-size: cover;
+	overflow: hidden;
+	opacity: 0.5;
+}
+
+.boxFirst {
+	height: 90vh;
+	width: 100vw;
+	top: 0px;
+	left: 0px;
+	display: grid;
+	place-items: center;
+	background-image: url('../images/logo/logo.svg');
+	background-position: center;
+	background-repeat: no-repeat;
+	position: absolute;
+	overflow: hidden;
+	font-size: 1em;
+}
+
+/* Second home box */
+.boxSecondBg {
+	height: 100vh;
+	width: 100vw;
+	top: 0px;
+	left: 100vw;
+	display: grid;
+	place-items: center;
+	position: absolute;
+	background-image: url('../images/backgrounds/nightSky.jpg');
+	background-attachment: fixed;
+	background-size: cover;
+	overflow: hidden;
+	opacity: 0.5;
+}
+
+.boxSecond {
+	height: 90vh;
+	width: 100vw;
+	top: 0px;
+	left: 100vw;
+	display: grid;
+	place-items: center;
+	position: absolute;
+	overflow: hidden;
+	font-size: 1em;
+}
+
+/* Third home box */
+.boxThirdBg {
+	height: 100vh;
+	width: 100vw;
+	top: 0px;
+	left: 200vw;
+	display: grid;
+	place-items: center;
+	position: absolute;
+	background-image: url('../images/backgrounds/woodSky.jpg');
+	background-attachment: fixed;
+	background-size: cover;
+	overflow: hidden;
+	opacity: 0.5;
+}
+
+.boxThird {
+	height: 90vh;
+	width: 100vw;
+	top: 0px;
+	left: 200vw;
+	display: grid;
+	place-items: center;
+	position: absolute;
+	overflow: hidden;
+	font-size: 1em;
+}
+
+/* Fourth home box */
+.boxFourthBg {
+	height: 100vh;
+	width: 100vw;
+	top: 0px;
+	left: 300vw;
+	display: grid;
+	place-items: center;
+	position: absolute;
+	background-image: url('../images/backgrounds/waterNight.jpg');
+	background-attachment: fixed;
+	background-size: cover;
+	overflow: hidden;
+	opacity: 0.5;
+}
+
+.boxFourth {
+	height: 90vh;
+	width: 100vw;
+	top: 0px;
+	left: 300vw;
+	display: grid;
+	place-items: center;
+	position: absolute;
+	overflow: hidden;
+	font-size: 1em;
+}
+
+/* Wave animation */
+.waveBox {
+	overflow: hidden;
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
+	width: 100vw;
+	height: 100vh;
+}
+
+@keyframes move_wave {
+	0% {
+		transform: translateX(0) translateZ(0) scaleY(1)
+	}
+
+	50% {
+		transform: translateX(-25%) translateZ(0) scaleY(0.55)
+	}
+
+	100% {
+		transform: translateX(-50%) translateZ(0) scaleY(1)
+	}
+}
+
+.bgTop {
+	opacity: 1;
+}
+
+.bgMiddle {
+	opacity: 0.7;
+}
+
+.bgBottom {
+	opacity: 0.5;
+}
+
+.wave {
+	position: absolute;
+	left: 0;
+	width: 200vw;
+	height: 100vh;
+	background-repeat: repeat no-repeat;
+	background-position: 0 bottom;
+	transform-origin: center bottom;
+}
+
+.waveTop {
+	background-size: 50%;
+	background-repeat: repeat no-repeat;
+}
+
+.waveAnimation .waveTop {
+	animation: move-wave 3s;
+	-webkit-animation: move-wave 3s;
+	-webkit-animation-delay: 1s;
+	animation-delay: 1s;
+}
+
+.waveMiddle {
+	background-size: 50%;
+	background-repeat: repeat no-repeat;
+}
+
+.waveAnimation .waveMiddle {
+	animation: move_wave 10s linear infinite;
+}
+
+.waveBottom {
+	background-size: 50%;
+}
+
+.waveAnimation .waveBottom {
+	animation: move_wave 15s linear infinite;
+}
+
+/* Alert boxes */
+.alerts {
+  width: 90vw;
+  height: auto;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+}
+
+.danger {
+  padding: 20px;
+  background-color: rgba(255, 0, 0, 0.5);
+  box-shadow: inset 0px 0px 10px rgba(0,0,0,0.9);
+  color: white;
+  animation: breath 3s infinite;
+}
+
+.notification {
+  padding: 20px;
+  background-color: rgba(0, 255, 255, 0.5);
+  box-shadow: inset 0px 0px 10px rgba(0,0,0,0.9);
+  color: white;
+  animation: breath 3s infinite;
+}
+
+.warning {
+  padding: 20px;
+  background-color: rgba(255, 255, 0, 0.5);
+  box-shadow: inset 0px 0px 10px rgba(0,0,0,0.9);
+  color: white;
+  animation: breath 3s infinite;
+}
+
+.success {
+  padding: 20px;
+  background-color: rgba(0, 255, 0, 0.5);
+  box-shadow: inset 0px 0px 10px rgba(0,0,0,0.9);
+  color: white;
+  animation: breath 3s infinite;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 2em;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
+
+@keyframes breath {
+	0% {
+		opacity: 1;
+	}
+
+	50% {
+		opacity: 0.5;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+/* Global settings */
+* {
+	color: black;
+	scroll-behavior: smooth;
+	font-family: 'regular';
+	font-size: 1em;
+	-webkit-font-smoothing: antialiased;
+	transition: 250ms;
+}

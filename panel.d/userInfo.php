@@ -17,11 +17,15 @@
     foreach($chanPull as $chansOut) {
       $tableName = $chansOut["Tables_in_{$dbName} (c%)"];
       $gatherData = $personalConnection->query("USE ${dbName};");
-      $gatherMoreData = $personalConnection->query("SELECT value FROM {$tableName} WHERE id = {$yourInformation->id};")->fetch_object()->value;
+      $gatherMoreData = $personalConnection->query("SELECT value FROM {$tableName} WHERE id = {$yourInformation->id};");
       if($gatherMoreData) {
-        $newTableName = substr($tableName, 1);
-        $newDBName = substr($dbName, 1);
-        $keysSort[$newTableName] = $gatherMoreData;
+        if($gatherMoreData->fetch_object()) {
+          if($gatherMoreData->fetch_object()->value) {
+            $newTableName = substr($tableName, 1);
+            $newDBName = substr($dbName, 1);
+            $keysSort[$newTableName] = $gatherMoreData;
+          }
+        }
       }
     }
   }
