@@ -63,90 +63,46 @@
     <!--Intro page-->
 		<div class="boxFirstBg"></div>
 		<div class="boxFirst" id="home"></div>
-		
-		<!--Invite bot page-->
-		<div class="boxSecondBg"></div>
-		<div class="boxSecond" id="invite">
-      <div class="boxContent">
-        <div class="buttonHoldInvite">
-          <button class="inviteButton" onclick="versionSelect('beta');">
-            <img src='../images/assets/artemisAlternateProfilePictureSmall.png' style="border-radius: 25px 0px 25px 0px; width: 90%;" />
-          </button>
-          <button class="inviteButton" onclick="versionSelect('main');">
-            <img src='../images/assets/artemisProfilePictureSmall.png' style="border-radius: 25px 0px 25px 0px; width: 90%;" />
-          </button>
-        </div>
-        <div id="artemisVersion">
-          <h1>Artemis Main Branch</h1>
-          <pre>The main version of this bot.
-          It has custom commands, action logs, anti raid functions and more.
-          The bot still uses prefixes, but will be changed in near future.
-          Hop by in the discord server if you want.</pre>
-          <br />
-          <button class="secondaryMenuButton" onclick="goToSite('mainBotInvite', true);">Invite Bot</button>
-        </div>
-        <div id="artemisVersionBeta" style="display: none;">
-          <div class="danger" onclick="this.style.display='none';">
-            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-            <strong>DANGER!</strong> Highly experimental version.
-          </div>
-          <h1>Artemis Beta Branch</h1>
-          <pre>No warranty for issues, this version is being worked on constantly.
-          It has some support for slash commands.
-          This entire website will also be the playground for this version.
-          This version will eventually take over from the main branch.</pre>
-          <br />
-          <button class="secondaryMenuButton" onclick="goToSite('betaBotInvite', true);">Invite Bot</button>
-        </div>
-        <div id="artemisVersionMain" style="display: none;">
-          <h1>Artemis Main Branch</h1>
-          <pre class="preSel">The main version of this bot.
-          It has custom commands, action logs, anti raid functions and more.
-          The bot still uses prefixes, but will be changed in near future.
-          Hop by in the discord server if you want.</pre>
-          <br />
-          <button class="secondaryMenuButton" onclick="goToSite('mainBotInvite', true);">Invite Bot</button>
-        </div>
-      </div>
-		</div>
-		
-		<!--Status page-->
-		<div class="boxThirdBg"></div>
-		<div class="boxThird" id="status">
-      <div class="boxContent">
-        uptime -s 
-      </div>
-		</div>
-		
-		<!--Support page-->
-		<div class="boxFourthBg"></div>
-		<div class="boxFourth" id="support">
-      <div class="boxContent">
-        <div class="buttonHoldInvite">
-          <button class="inviteButton" onclick="goToSite('patreon', true);">
-            <img src='../images/icons/patreon.svg' style="border-radius: 25px 0px 25px 0px; width: 90%;" />
-          </button>
-          <button class="inviteButton" onclick="goToSite('paypal', true);">
-            <img src='../images/icons/paypal.svg' style="border-radius: 25px 0px 25px 0px; width: 90%;" />
-          </button>
-        </div>
-      </div>
-		</div>
-		
-		<!-- Panel -->
-		<?php print $panelCreate; ?>
     
+    	<!--Info page-->
+		<div class="boxSecondBg"></div>
+		<div class="boxSecond" id="info">
+      <div class="boxContent">
+        - 
+      </div>
+		</div>
+		
+		<!--Settings page-->
+		<div class="boxThirdBg"></div>
+		<div class="boxThird" id="setting">
+      <div class="boxContent">
+        - 
+      </div>
+		</div>
+		
+		<!--Channel page-->
+		<div class="boxFourthBg"></div>
+		<div class="boxFourth" id="channels">
+      <div class="boxContent">
+        -
+      </div>
+		</div>
+    
+    <!-- Panel -->
+		<?php print $panelCreate; ?>
+		
     <!--Main menu-->
     <div class="menuHome">
       <button class="menuButton" onclick="document.getElementById('home').scrollIntoView();">HOME</button>
-      <button class="menuButton" onclick="document.getElementById('invite').scrollIntoView();">INVITE</button>
-      <button class="menuButton" onclick="document.getElementById('status').scrollIntoView();">STATUS</button>
-      <button class="menuButton" onclick="document.getElementById('support').scrollIntoView();">SUPPORT ME</button>
+      <button class="menuButton" onclick="document.getElementById('info').scrollIntoView();">INFO</button>
+      <button class="menuButton" onclick="document.getElementById('setting').scrollIntoView();">SETTINGS</button>
+      <button class="menuButton" onclick="document.getElementById('channels').scrollIntoView();">CHANNELS</button>
     </div>
     
     <!--Side bar-->
     <div class="secondaryMenuHome">
       <?php print $userLoggedIn; ?>
+      <button class="secondaryMenuButton" onclick="goToSite('homePage', false);">GO HOME</button>
       <button class="secondaryMenuButton" onclick="goToSite('emailLink', true);">EMAIL</button>
       <button class="secondaryMenuButton" onclick="goToSite('githubLink', true);">GITHUB</button>
       <button class="secondaryMenuButton" onclick="goToSite('discordLink', true);">DISCORD</button>
@@ -158,7 +114,7 @@
     </div>
 
 		<!--Scripts-->
-		<script>      
+		<script>
       function versionSelect(version) {
         if(version == 'beta') document.getElementById("artemisVersion").innerHTML = document.getElementById("artemisVersionBeta").innerHTML;
         if(version == 'main') document.getElementById("artemisVersion").innerHTML = document.getElementById("artemisVersionMain").innerHTML;
@@ -170,6 +126,7 @@
         if(out) outText = 'This link will open in a new tab/window';
         if(siteText == 'controlPane') linkTo = `https://artemis.rest/control.d.php?guild=${gId}`;
         if(siteText == 'logoutLink') linkTo = 'https://artemis.rest/login.d/logout.d.php';
+        if(siteText == 'homePage') linkTo = 'https://artemis.rest/';
         if(siteText == 'patreon') linkTo = 'https://www.patreon.com/projectartemis';
         if(siteText == 'paypal') linkTo = 'https://www.paypal.com/donate/?hosted_button_id=ULQ8N32CLXK4L';
         if(siteText == 'loginLink') linkTo = 'https://discord.com/api/v10/oauth2/authorize?client_id=440892659264126997&redirect_uri=https%3A%2F%2Fartemis.rest%2F&response_type=code&scope=identify%20guilds%20guilds.members.read';
@@ -185,5 +142,4 @@
       }
       </script>
 	</body>
-
 </html>
