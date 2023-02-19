@@ -1,28 +1,32 @@
 <?php include './login.d/watch.d.php'; ?>
-<?php include './login.d/botCheck.d.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<!--Meta Data -->
 		<meta charset="utf-8" />
 		<!-- Primary Meta Tags -->
-    <title>Project Artemis, Your World Depends On It.</title>
     <meta name="title" content="Project Artemis, Your World Depends On It.">
-    <meta name="description" content="Project Artemis is a collection of sub-projects, mainly known for the Discord bot called Artemis.">
+    <meta name="description" content="Control panel.">
+    <meta name="keywords" content="Discord, Bot, Artemis, Javascript">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="1 days">
+    <meta name="author" content="Richard Dorrestijn">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://artemis.rest/">
     <meta property="og:title" content="Project Artemis, Your World Depends On It.">
-    <meta property="og:description" content="Project Artemis is a collection of sub-projects, mainly known for the Discord bot called Artemis.">
-    <meta property="og:image" content="https://artemis.rest/images/assets/project_artemis_background.png">
+    <meta property="og:description" content="Control panel.">
+    <meta property="og:image" content="https://artemis.rest/images/assets/pBack.png">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://artemis.rest/">
     <meta property="twitter:title" content="Project Artemis, Your World Depends On It.">
-    <meta property="twitter:description" content="Project Artemis is a collection of sub-projects, mainly known for the Discord bot called Artemis.">
-    <meta property="twitter:image" content="https://artemis.rest/images/assets/project_artemis_background.png">
+    <meta property="twitter:description" content="Control panel.">
+    <meta property="twitter:image" content="https://artemis.rest/images/assets/pBack.png">
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="keywords" content="Discord, Bot, Artemis, Javascript" />
@@ -44,6 +48,7 @@
 
 		<!--Stylesheet-->
 		<link rel="stylesheet" href="./style.css" />
+		<link rel="stylesheet" href="./styleCell.css" />
 	</head>
 
 	<body>

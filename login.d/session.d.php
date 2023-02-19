@@ -70,4 +70,117 @@
       </div>
     </div>
   ';
+  
+  //Start new database connection
+  $sessionUserDataBase = new mysqli('localhost', $sqlUser, $sqlPass);
+  
+  //Select data for user activity
+  //Data collection pool
+  $pointValues = [];
+  $countTotalPoints = 0;
+  
+  //Fetch guilds
+  $userNeedGuilds = $sessionUserDataBase->query("SHOW DATABASES LIKE 'g%';");
+  
+  //Loop fetched guilds
+  foreach($userNeedGuilds as $selectedUserDatabase) {
+    //Simplify looped guild id
+    $guVal = $selectedUserDatabase["Database (g%)"];
+    
+    //Use database
+    $sessionUserDataBase->query("USE {$guVal};");
+    
+    //Fetch channels from selected database
+    $gtuVal = $sessionUserDataBase->query("SHOW TABLES FROM " . $guVal . " LIKE 'c%';");
+    
+    //For each channel
+    foreach($gtuVal as $utSel) {
+      //Simplify channel id
+      $utsVal = $utSel["Tables_in_{$guVal} (c%)"];
+      
+      //Select data from channel table
+      $gyuvSel = $sessionUserDataBase->query("SELECT value FROM {$utsVal} WHERE id = {$decodedJson->id} LIMIT 1;");
+      
+      //If any returned data
+      if($gyuvSel) {
+        //Parse into val
+        $fetchedInfo = $gyuvSel->fetch_object();
+        
+        //If value is set
+        if(isset($fetchedInfo->value)) {
+          //Process numbers
+          $stripChanId = substr($utsVal, 1);
+          $stripGuildId = substr($guVal, 1);
+          
+          $pointValues["{$stripChanId}"] = $fetchedInfo->value;
+          $countTotalPoints = $countTotalPoints + $fetchedInfo->value;
+        }
+      }  
+    }
+  }
+  
+  //Sort point values
+  arsort($pointValues);
+  
+  //Process point values
+  $topUsedChannels = '';
+  $countLoopsVals = 0;
+  foreach($pointValues as $chanNum => $chanPointVal) {
+    $countLoopsVals++;
+    if($countLoopsVals <= 5) {
+      //Get channel
+      $getLoopedChannel = urlGet("https://discord.com/api/v10/channels/{$chanNum}", 'authorization: Bot ' . $botToken);
+      if(!isset($getLoopedChannel->message)) {
+        if($getLoopedChannel->type === 0) $topUsedChannels .= "<button class=\"channelButton\">
+                                                                <div style=\"width: auto; float:left; padding-left: 6vw; font-size: 2rem;\">{$chanPointVal}</div>
+                                                                <div style=\"width: auto; float:right; font-size: 1.5rem;\">{$getLoopedChannel->name}<br />{$chanNum}</div>
+                                                                <div style=\"width: auto; float:left; padding-left: 1vw; font-size: 1rem;\"><center>Messages send</center></div>
+                                                              </button>";
+        if($getLoopedChannel->type === 2) $topUsedChannels .= "<button class=\"voiceButton\">
+                                                                  <div style=\"width: auto; float:left; padding-left: 6vw; font-size: 2rem;\">{$chanPointVal}</div>
+                                                                  <div style=\"width: auto; float:right; font-size: 1.5rem;\">{$getLoopedChannel->name}<br />{$chanNum}</div>
+                                                                  <div style=\"width: auto; float:left; padding-left: 1vw; font-size: 1rem;\"><center>Messages send</center></div>
+                                                                </button>";
+        if($getLoopedChannel->type === 10) $topUsedChannels .= "<button class=\"threadButton\">
+                                                                  <div style=\"width: auto; float:left; padding-left: 6vw; font-size: 2rem;\">{$chanPointVal}</div>
+                                                                  <div style=\"width: auto; float:right; font-size: 1.5rem;\">{$getLoopedChannel->name}<br />{$chanNum}</div>
+                                                                  <div style=\"width: auto; float:left; padding-left: 1vw; font-size: 1rem;\"><center>Messages send</center></div>
+                                                                </button>";
+        if($getLoopedChannel->type === 11) $topUsedChannels .= "<button class=\"threadButton\">
+                                                                  <div style=\"width: auto; float:left; padding-left: 6vw; font-size: 2rem;\">{$chanPointVal}</div>
+                                                                  <div style=\"width: auto; float:right; font-size: 1.5rem;\">{$getLoopedChannel->name}<br />{$chanNum}</div>
+                                                                  <div style=\"width: auto; float:left; padding-left: 1vw; font-size: 1rem;\"><center>Messages send</center></div>
+                                                                </button>";
+        if($getLoopedChannel->type === 12) $topUsedChannels .= "<button class=\"threadButton\">
+                                                                  <div style=\"width: auto; float:left; padding-left: 6vw; font-size: 2rem;\">{$chanPointVal}</div>
+                                                                  <div style=\"width: auto; float:right; font-size: 1.5rem;\">{$getLoopedChannel->name}<br />{$chanNum}</div>
+                                                                  <div style=\"width: auto; float:left; padding-left: 1vw; font-size: 1rem;\"><center>Messages send</center></div>
+                                                                </button>";
+        if($getLoopedChannel->type === 13) $topUsedChannels .= "<button class=\"voiceButton\">
+                                                                  <div style=\"width: auto; float:left; padding-left: 6vw; font-size: 2rem;\">{$chanPointVal}</div>
+                                                                  <div style=\"width: auto; float:right; font-size: 1.5rem;\">{$getLoopedChannel->name}<br />{$chanNum}</div>
+                                                                  <div style=\"width: auto; float:left; padding-left: 1vw; font-size: 1rem;\"><center>Messages send</center></div>
+                                                                </button>";
+      } else {
+        $countLoopsVals--;
+      }
+    }
+  }
+  
+  //Form user data
+  $gatherData = "
+    <div class=\"boxFirst\" id=\"home\" style=\"background: none;\">
+      <div class=\"boxContent\" style=\"background: none;\">
+        <button class=\"voiceButton\" style=\"text-align: center; height: 5vh; background-image: none;\">
+          Top most participated channels<br />A.K.A your filthy records ( ͡° ͜ʖ ͡°)
+        </button>
+        {$topUsedChannels}
+        <button class=\"voiceButton\" style=\"text-align: center; height: 5vh; background-image: none;\">
+          Total messages send<br />
+          {$countTotalPoints}
+        </button>
+      </div>
+    </div>
+  ";
+  
 ?>

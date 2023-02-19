@@ -1,28 +1,32 @@
 <?php include './login.d/watch.d.php'; ?>
-<?php include './login.d/botCheck.d.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<!--Meta Data -->
 		<meta charset="utf-8" />
 		<!-- Primary Meta Tags -->
-    <title>Project Artemis, Your World Depends On It.</title>
     <meta name="title" content="Project Artemis, Your World Depends On It.">
-    <meta name="description" content="Project Artemis is a collection of sub-projects, mainly known for the Discord bot called Artemis.">
+    <meta name="description" content="Home of the most clever Discord bot.">
+    <meta name="keywords" content="Discord, Bot, Artemis, Javascript">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="1 days">
+    <meta name="author" content="Richard Dorrestijn">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://artemis.rest/">
     <meta property="og:title" content="Project Artemis, Your World Depends On It.">
-    <meta property="og:description" content="Project Artemis is a collection of sub-projects, mainly known for the Discord bot called Artemis.">
-    <meta property="og:image" content="https://artemis.rest/images/assets/project_artemis_background.png">
+    <meta property="og:description" content="Home of the most clever Discord bot.">
+    <meta property="og:image" content="https://artemis.rest/images/assets/pBack.png">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://artemis.rest/">
     <meta property="twitter:title" content="Project Artemis, Your World Depends On It.">
-    <meta property="twitter:description" content="Project Artemis is a collection of sub-projects, mainly known for the Discord bot called Artemis.">
-    <meta property="twitter:image" content="https://artemis.rest/images/assets/project_artemis_background.png">
+    <meta property="twitter:description" content="Home of the most clever Discord bot.">
+    <meta property="twitter:image" content="https://artemis.rest/images/assets/pBack.png">
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="keywords" content="Discord, Bot, Artemis, Javascript" />
@@ -44,6 +48,7 @@
 
 		<!--Stylesheet-->
 		<link rel="stylesheet" href="./style.css" />
+		<link rel="stylesheet" href="./styleCell.css" />
 	</head>
 
 	<body>
@@ -62,7 +67,7 @@
     
     <!--Intro page-->
 		<div class="boxFirstBg"></div>
-		<div class="boxFirst" id="home"></div>
+		<?php print $gatherData; ?>
 		
 		<!--Invite bot page-->
 		<div class="boxSecondBg"></div>
@@ -112,9 +117,137 @@
 		
 		<!--Status page-->
 		<div class="boxThirdBg"></div>
-		<div class="boxThird" id="status">
-      <div class="boxContent">
-        uptime -s 
+		<div class="boxThird" id="project">
+      <div class="boxContent" style="background-color: transparent;">
+      
+        <table style="margin-bottom: 1vh; width: 100%; height: 20vh; border: none; border-collapse: collapse; background: linear-gradient( to top, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.2) 50%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.2) 100% ); box-shadow: inset 0px 0px 10px rgba(0,0,0,0.9);">
+          <tbody>
+            <tr>
+              <td style="padding: 0px; width: 20vh; background-image: url('../images/assets/projectArtemisBack.png'); background-position: center; background-repeat: no-repeat; background-size: cover; box-shadow: inset 0px 0px 10px rgba(0,0,0,0.9);"></td>
+              <td style="padding: 0px;">
+                <table style="width: 100%; height: 100%; border: none; border-collapse: collapse;">
+                  <tbody>
+                    <tr>
+                      <td style="background-color: rgba(255, 255, 255, 0.5); font-size: 1.5em; color: black; padding: 0px; height: 10%; text-align: right; padding-right: 5vw;">
+                        Project Artemis
+                        <hr />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="background-color: rgba(255, 255, 255, 0.5); color: black; padding: 0px; height: 70%; text-align: right; padding-right: 5vw;">
+                        The website you are on is also written in code.<br />
+                        And this project is just that.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="color: black; padding: 0px; height: 20%;">
+                        <button class="projectsButton" onclick="goToSite('gitArtemis', true);">
+                          Visit Project Artemis GitHub
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <table style="margin-bottom: 1vh; width: 100%; height: 20vh; border: none; border-collapse: collapse; background: linear-gradient( to top, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.2) 50%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.2) 100% ); box-shadow: inset 0px 0px 10px rgba(0,0,0,0.9);">
+          <tbody>
+            <tr>
+              <td style="padding: 0px;">
+                <table style="width: 100%; height: 100%; border: none; border-collapse: collapse;">
+                  <tbody>
+                    <tr>
+                      <td style="background-color: rgba(255, 255, 255, 0.5); font-size: 1.5em; color: black; padding: 0px; height: 10%; text-align: right; padding-right: 5vw;">
+                        Project Bow
+                        <hr />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="background-color: rgba(255, 255, 255, 0.5); color: black; padding: 0px; height: 70%; text-align: right; padding-right: 5vw;">
+                        Custom API wrapper/handler written in JavaScript.<br />
+                        This library is written to be lightweight and fast.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="color: black; padding: 0px; height: 20%;">
+                        <button class="projectsButton" onclick="goToSite('gitBow', true);">
+                          Visit Project Bow GitHub
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+              <td style="padding: 0px; width: 20vh; background-image: url('../images/assets/projectBowBack.png'); background-position: center; background-repeat: no-repeat; background-size: cover; box-shadow: inset 0px 0px 10px rgba(0,0,0,0.9);"></td>
+            </tr>
+          </tbody>
+        </table>
+        <table style="width: 100%; height: 20vh; border: none; border-collapse: collapse; background: linear-gradient( to top, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.2) 50%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.2) 100% ); box-shadow: inset 0px 0px 10px rgba(0,0,0,0.9);">
+          <tbody>
+            <tr>
+              <td style="padding: 0px; width: 20vh; background-image: url('../images/assets/projectArrowBack.png'); background-position: center; background-repeat: no-repeat; background-size: cover; box-shadow: inset 0px 0px 10px rgba(0,0,0,0.9);"></td>
+              <td style="padding: 0px;">
+                <table style="width: 100%; height: 100%; border: none; border-collapse: collapse;">
+                  <tbody>
+                    <tr>
+                      <td style="background-color: rgba(255, 255, 255, 0.5); font-size: 1.5em; color: black; padding: 0px; height: 10%; text-align: right; padding-right: 5vw;">
+                        Project Arrow
+                        <hr />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="background-color: rgba(255, 255, 255, 0.5); color: black; padding: 0px; height: 70%; text-align: right; padding-right: 5vw;">
+                        Discord bot being built on top of Project Bow.<br />
+                        This bot's main name is Artemis.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="color: black; padding: 0px; height: 20%;">
+                        <button class="projectsButton" onclick="goToSite('gitArrow', true);">
+                          Visit Project Arrow GitHub
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <table style="margin-bottom: 1vh; width: 100%; height: 20vh; border: none; border-collapse: collapse; background: linear-gradient( to top, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.2) 50%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.2) 100% ); box-shadow: inset 0px 0px 10px rgba(0,0,0,0.9);">
+          <tbody>
+            <tr>
+              <td style="padding: 0px;">
+                <table style="width: 100%; height: 100%; border: none; border-collapse: collapse;">
+                  <tbody>
+                    <tr>
+                      <td style="background-color: rgba(255, 255, 255, 0.5); font-size: 1.5em; color: black; padding: 0px; height: 10%; text-align: right; padding-right: 5vw;">
+                        Linux Mint Community Server
+                        <hr />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="background-color: rgba(255, 255, 255, 0.5); color: black; padding: 0px; height: 70%; text-align: right; padding-right: 5vw;">
+                        A supportive Discord server for Linux Mint.<br />
+                        Also found on the linuxmint.com main website, but also credited here, because I run the server.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="color: black; padding: 0px; height: 20%;">
+                        <button class="projectsButton" onclick="goToSite('mintDiscord', true);">
+                          Visit the Linux Mint Community Discord
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+              <td style="padding: 0px; width: 20vh; background-image: url('../images/assets/mintBack.png'); background-position: center; background-repeat: no-repeat; background-size: cover; box-shadow: inset 0px 0px 10px rgba(0,0,0,0.9);"></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
 		</div>
 		
@@ -140,7 +273,7 @@
     <div class="menuHome">
       <button class="menuButton" onclick="document.getElementById('home').scrollIntoView();">HOME</button>
       <button class="menuButton" onclick="document.getElementById('invite').scrollIntoView();">INVITE</button>
-      <button class="menuButton" onclick="document.getElementById('status').scrollIntoView();">STATUS</button>
+      <button class="menuButton" onclick="document.getElementById('project').scrollIntoView();">PROJECTS</button>
       <button class="menuButton" onclick="document.getElementById('support').scrollIntoView();">SUPPORT ME</button>
     </div>
     
@@ -175,6 +308,10 @@
         if(siteText == 'loginLink') linkTo = 'https://discord.com/api/v10/oauth2/authorize?client_id=440892659264126997&redirect_uri=https%3A%2F%2Fartemis.rest%2F&response_type=code&scope=identify%20guilds%20guilds.members.read';
         if(siteText == 'emailLink') linkTo = 'mailto:dorrestijn.r@gmail.com';
         if(siteText == 'githubLink') linkTo = 'https://github.com/UtopicUnicorns/';
+        if(siteText == 'gitArtemis') linkTo = 'https://github.com/UtopicUnicorns/Project_Artemis';
+        if(siteText == 'gitArrow') linkTo = 'https://github.com/UtopicUnicorns/Project_Arrow';
+        if(siteText == 'gitBow') linkTo = 'https://github.com/UtopicUnicorns/Project_Bow';
+        if(siteText == 'mintDiscord') linkTo = 'https://discord.com/invite/mint';
         if(siteText == 'discordLink') linkTo = 'https://discord.com/invite/Y6f3XQyuTQ';
         if(siteText == 'betaBotInvite') linkTo = 'https://discord.com/api/oauth2/authorize?client_id=654361253413781537&permissions=8&scope=applications.commands%20bot';
         if(siteText == 'mainBotInvite') linkTo = 'https://discord.com/api/oauth2/authorize?client_id=440892659264126997&permissions=8&scope=applications.commands%20bot';

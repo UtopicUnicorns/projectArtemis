@@ -8,6 +8,39 @@
   //Include config codes
   include './login.d/codes.d.php';
   
+  //Post, Get, Patch functions
+  function urlGet($url, $headers) {
+    $curl_h = curl_init($url);
+    curl_setopt($curl_h, CURLOPT_HTTPHEADER, array($headers));
+    curl_setopt($curl_h, CURLOPT_RETURNTRANSFER, true);
+    $response = curl_exec($curl_h);
+    return json_decode($response, false);
+  }
+  
+  function urlPatch($url, $headers, $data) {
+    $curl = curl_init();
+    curl_setopt($curl, CURLOPT_URL, $url);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($curl, CURLOPT_CUSTOMREQUEST, 'PATCH');
+    curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+    curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+    $response = curl_exec($curl);
+    curl_close($curl);
+    return $response;
+  }
+  
+  function urlPost($url, $headers, $data) {
+    $curl_i = curl_init();
+    curl_setopt($curl_i, CURLOPT_URL, $url);
+    curl_setopt($curl_i, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($curl_i, CURLOPT_POST, true);
+    curl_setopt($curl_i, CURLOPT_POSTFIELDS, $data);
+    curl_setopt($curl_i, CURLOPT_HTTPHEADER, $headers);
+    $response = curl_exec($curl_i);
+    curl_close($curl_i);
+    return $response;
+  }
+  
   //If get set to code, parse and encode
   if(isset($_GET["code"])) {
     //Build post request
@@ -90,5 +123,8 @@
     
     //Leave empty panel to supress error
     $panelCreate = '';
+    
+    //Empty data gather
+    $gatherData = '<div class="boxFirst" id="home"></div>';
   }
 ?>
