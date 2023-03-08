@@ -252,6 +252,17 @@ body {
 	padding-bottom: 1vh;
 }
 
+.loadChannel {
+  position: absolute;
+  height: 0vh;
+	width: 0vw;
+	top: 0px;
+	right: 0px;
+	margin: 1vh;
+	box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);	
+}
+
 /* -1 home box */
 .minusBoxBg {
 	height: 100vh;

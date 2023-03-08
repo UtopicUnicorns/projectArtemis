@@ -67,29 +67,31 @@
     
     <!--Intro page-->
 		<div class="boxFirstBg"></div>
-		<div class="boxFirst" id="home"></div>
+		<?php print $homeBox; ?>
     
     	<!--Info page-->
 		<div class="boxSecondBg"></div>
 		<div class="boxSecond" id="info">
-      <div class="boxContent">
-        - 
-      </div>
+      <?php print $infoBox; ?>
 		</div>
 		
 		<!--Settings page-->
 		<div class="boxThirdBg"></div>
 		<div class="boxThird" id="setting">
-      <div class="boxContent">
-        - 
-      </div>
+      <?php print $settingBox; ?>
 		</div>
 		
 		<!--Channel page-->
 		<div class="boxFourthBg"></div>
 		<div class="boxFourth" id="channels">
-      <div class="boxContent">
-        -
+      <?php print $channelBox; ?>
+      
+      <!--Channel load-->
+      <div id="loadChannel" class="loadChannel"></div>
+      
+      <!--Channel close-->
+      <div class="menuHome" id="channelCloseMenu" style="bottom: -5vh;">
+        <button class="menuButton" style="background-color: rgba(255,0,0,0.5); width: 100vw;" onclick="closeChannelMenu();">EXIT CHANNEL EDIT</button>
       </div>
 		</div>
     
@@ -97,7 +99,7 @@
 		<?php print $panelCreate; ?>
 		
     <!--Main menu-->
-    <div class="menuHome">
+    <div class="menuHome" id="homeMenu">
       <button class="menuButton" onclick="document.getElementById('home').scrollIntoView();">HOME</button>
       <button class="menuButton" onclick="document.getElementById('info').scrollIntoView();">INFO</button>
       <button class="menuButton" onclick="document.getElementById('setting').scrollIntoView();">SETTINGS</button>
@@ -112,7 +114,7 @@
       <button class="secondaryMenuButton" onclick="goToSite('githubLink', true);">GITHUB</button>
       <button class="secondaryMenuButton" onclick="goToSite('discordLink', true);">DISCORD</button>
     </div>
-		
+    
 		<!--Alerts-->
     <div class="alerts">
       <?php include './error/handleError.php'; ?>
@@ -123,6 +125,24 @@
       function versionSelect(version) {
         if(version == 'beta') document.getElementById("artemisVersion").innerHTML = document.getElementById("artemisVersionBeta").innerHTML;
         if(version == 'main') document.getElementById("artemisVersion").innerHTML = document.getElementById("artemisVersionMain").innerHTML;
+      }
+      
+      function closeChannelMenu() {
+        document.getElementById("channelCloseMenu").style.bottom = '-5vh';
+        document.getElementById("homeMenu").style.bottom = '0vh';
+        document.getElementById("loadChannel").innerHTML = '';
+        document.getElementById("loadChannel").style.height = '0vh';
+        document.getElementById("loadChannel").style.width = '0vw';
+      }
+      
+      function loadChannel(channel, guild) {
+        document.getElementById("channelCloseMenu").style.bottom = '0vh';
+        document.getElementById("homeMenu").style.bottom = '-5vh';
+        document.getElementById("loadChannel").innerHTML = '';
+        document.getElementById("loadChannel").style.height = '93vh';
+        document.getElementById("loadChannel").style.width = '89vw';
+        let toLoad = `<object type="text/html" data="channel.d.php?channel=${channel}&guild=${guild}" style="width: 100%; height: 100%;"></object>`;
+        document.getElementById("loadChannel").innerHTML = toLoad;
       }
       
       function goToSite(siteText, out, gId) {

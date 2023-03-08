@@ -35,7 +35,27 @@
   ';
   
   //Pull guilds
+  //Get user guilds
+  $grabUserGuilds = urlGet("https://discord.com/api/v10/users/@me/guilds?limit=200", 'authorization: Bearer ' . $decodeTok);
+  
+  //Fetch looped guilds
+  $userGuildFetch = [];
+  
+  //loop trough guilds
+  foreach($grabUserGuilds as $grabUserGuild) {
+    //Write to global
+    global $userGuildFetch;
+    
+    //Set values
+    $userGuildFetch[$grabUserGuild->id]['id'] = $grabUserGuild->id;
+    $userGuildFetch[$grabUserGuild->id]['name'] = $grabUserGuild->name;
+    $userGuildFetch[$grabUserGuild->id]['icon'] = $grabUserGuild->icon;
+    $userGuildFetch[$grabUserGuild->id]['permissions'] = $grabUserGuild->permissions;
+  }
+  
+  //Panel pop
   $panelPop = '';
+  
   foreach($sessionGuilds as $sessionGuild) {
     //Globalize pop
     global $panelPop;
@@ -46,15 +66,25 @@
     } else {
       $gAvatar = './images/icons/user.svg';
     }
-    
+    if($decodedJson->id === $ownerId) {
+      $panelPop .= '
+        <button class="inviteButton" onclick="goToSite(\'controlPane\', false, \''.$sessionGuild['guildId'].'\');">
+          <img src=\''.$gAvatar.'\' style="border-radius: 25px 0px 25px 0px; width: 90%;" />
+          <div style="position: relative; width: 20vh; max-width: 20vh; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">'.$sessionGuild['guildName'].'</div>
+        </button>
+      ';
+    } else {
+      if(isset($userGuildFetch[$sessionGuild['guildId']])) {
+        $panelPop .= '
+          <button class="inviteButton" onclick="goToSite(\'controlPane\', false, \''.$sessionGuild['guildId'].'\');">
+            <img src=\''.$gAvatar.'\' style="border-radius: 25px 0px 25px 0px; width: 90%;" />
+            <div style="position: relative; width: 20vh; max-width: 20vh; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">'.$sessionGuild['guildName'].'</div>
+          </button>
+        ';
+      }
+    }
     //Populate panel
-    $panelPop .= '
-      <button class="inviteButton" onclick="goToSite(\'controlPane\', false, \''.$sessionGuild['guildId'].'\');">
-        <img src=\''.$gAvatar.'\' style="border-radius: 25px 0px 25px 0px; width: 90%;" />
-        <div style="position: relative; width: 20vh; max-width: 20vh; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">'.$sessionGuild['guildName'].'</div>
-      </button>
-      
-    ';
+    
     //'.$sessionGuild['guildName'].'
     //$panelPop .= $sessionGuild['guildId'] . $sessionGuild['guildIcon'] . $sessionGuild['guildName'];
   }

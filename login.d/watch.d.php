@@ -108,7 +108,17 @@
     
     //Include session
     include './login.d/session.d.php';
+    
+    //Pages
+    if(basename($_SERVER['PHP_SELF']) == 'control.d.php') include './login.d/control.d.php';
+    if(basename($_SERVER['PHP_SELF']) == 'channel.d.php') include './login.d/channel.d.php';
   } else {
+    //If not index
+    if(basename($_SERVER['PHP_SELF']) !== 'index.php') { 
+      header('Location: https://artemis.rest/?message=403'); 
+      exit();
+    }
+    
     //Form login box for non-user
     $userLoggedIn = '
       <div class="loginAvatarBox">

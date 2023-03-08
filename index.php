@@ -287,6 +287,10 @@
 		
 		<!--Alerts-->
     <div class="alerts">
+      <div class="danger" onclick="this.style.display=\'none\';">
+        <span class="closebtn" onclick="this.parentElement.style.display=\'none\';">&times;</span>
+        <strong>MAINTENANCE NOTICE!</strong> 20th of March between 10PM UTC and 12PM UTC the server might be down for some time.
+      </div>
       <?php include './error/handleError.php'; ?>
     </div>
 
@@ -308,9 +312,9 @@
         if(siteText == 'loginLink') linkTo = 'https://discord.com/api/v10/oauth2/authorize?client_id=440892659264126997&redirect_uri=https%3A%2F%2Fartemis.rest%2F&response_type=code&scope=identify%20guilds%20guilds.members.read';
         if(siteText == 'emailLink') linkTo = 'mailto:dorrestijn.r@gmail.com';
         if(siteText == 'githubLink') linkTo = 'https://github.com/UtopicUnicorns/';
-        if(siteText == 'gitArtemis') linkTo = 'https://github.com/UtopicUnicorns/Project_Artemis';
-        if(siteText == 'gitArrow') linkTo = 'https://github.com/UtopicUnicorns/Project_Arrow';
-        if(siteText == 'gitBow') linkTo = 'https://github.com/UtopicUnicorns/Project_Bow';
+        if(siteText == 'gitArtemis') linkTo = 'https://github.com/UtopicUnicorns/projectArtemis';
+        if(siteText == 'gitArrow') linkTo = 'https://github.com/UtopicUnicorns/projectArrow';
+        if(siteText == 'gitBow') linkTo = 'https://github.com/UtopicUnicorns/projectBow';
         if(siteText == 'mintDiscord') linkTo = 'https://discord.com/invite/mint';
         if(siteText == 'discordLink') linkTo = 'https://discord.com/invite/Y6f3XQyuTQ';
         if(siteText == 'betaBotInvite') linkTo = 'https://discord.com/api/oauth2/authorize?client_id=654361253413781537&permissions=8&scope=applications.commands%20bot';

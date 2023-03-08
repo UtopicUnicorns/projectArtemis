@@ -1,7 +1,7 @@
 <?php
   if($sharedGuildsArray[$_GET["guild"]]) {
     $getChannel = urlGet("https://discord.com/api/v10/channels/" . $_GET["channel"], 'authorization: Bot ' . $botToken);
-    echo json_encode($getChannel);
+    $throwToDiscord = '';
     if($getChannel->guild_id == $sharedGuildsArray[$_GET["guild"]]["id"]) {
       if($_GET["changeRequest"]) {
         $formJson = '';
@@ -20,8 +20,8 @@
                                 array('Content-Type: application/json', 'authorization: Bot ' . $botToken), 
                                 $dataToSend );
         
-        if(json_decode($responseMe)->message) $responseMeTo = '<a style="font-size: 3rem; color: white;">Changes were not made.</a>';
-        if(!json_decode($responseMe)->message) $responseMeTo = '<a style="font-size: 3rem; color: white;">Changes applied.</a>'; 
+        if(json_decode($responseMe)->message) $throwToDiscord .= '<a style="font-size: 3rem; color: white;">Changes were not made.</a>';
+        if(!json_decode($responseMe)->message) $throwToDiscord .= '<a style="font-size: 3rem; color: white;">Changes applied.</a>'; 
       }
       
       if($_GET["chatMessage"]) {
@@ -32,8 +32,8 @@
                                 array('Content-Type: application/json', 'authorization: Bot ' . $botToken), 
                                 $dataToSend );
         
-        if(json_decode($responseMe)->message) $responseMeTo = '<a style="font-size: 3rem; color: white;">Message was not send.</a>'; 
-        if(!json_decode($responseMe)->message) $responseMeTo = '<a style="font-size: 3rem; color: white;">Message was send.</a>'; 
+        if(json_decode($responseMe)->message) $throwToDiscord .= '<a style="font-size: 3rem; color: white;">Message was not send.</a>'; 
+        if(!json_decode($responseMe)->message) $throwToDiscord .= '<a style="font-size: 3rem; color: white;">Message was send.</a>'; 
       }
       
       if($getChannel->type == 0) $classSelectByType = 'channelViewNameAndId';

@@ -1,9 +1,9 @@
 <?php
   //Not to be accessed
-  if(count(get_included_files()) ==1) { 
-    header('Location: https://artemis.rest/?message=403'); 
-    exit();
-  }
+  //if(count(get_included_files()) ==1) { 
+  //  header('Location: https://artemis.rest/?message=403'); 
+  //  exit();
+  //}
   
   //Timer to check page speed
   $starttime = microtime(true);
@@ -26,12 +26,12 @@
   //Check if table exists to hold guilds else create
   $guildTable = $startCon->query("SELECT * FROM guildStatus;");
   if(!$guildTable) $startCon->query("CREATE TABLE guildStatus (guildId varchar(100) NOT NULL, guildName varchar(255), guildIcon varchar(255), PRIMARY KEY (guildId))");
-  $startCon->query("TRUNCATE TABLE guildstatus;");
+  $startCon->query("TRUNCATE TABLE guildStatus;");
   
   //Get last update time
   $timerFetch = $startCon->query("SELECT timeGet FROM timeStatus limit 1;")->fetch_object()->timeGet;
   $calcTimeDiff = round($starttime - $timerFetch, 0);
-  if($calcTimeDiff <= 600) return;
+  if($calcTimeDiff <= 60) return;
   
   //Get request function
   function getRequest($url, $auth, $user) {
