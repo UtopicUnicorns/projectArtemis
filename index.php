@@ -287,10 +287,6 @@
 		
 		<!--Alerts-->
     <div class="alerts">
-      <div class="danger" onclick="this.style.display=\'none\';">
-        <span class="closebtn" onclick="this.parentElement.style.display=\'none\';">&times;</span>
-        <strong>MAINTENANCE NOTICE!</strong> 20th of March between 10PM UTC and 12PM UTC the server might be down for some time.
-      </div>
       <?php include './error/handleError.php'; ?>
     </div>
 
