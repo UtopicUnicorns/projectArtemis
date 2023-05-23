@@ -154,6 +154,8 @@
       $memberRoleSettings = $newConMake->query("SELECT value FROM Settings WHERE id = 'memberRoleSettings' limit 1;")->fetch_object()->value;
       $streamerChannelSettings = $newConMake->query("SELECT value FROM Settings WHERE id = 'streamerChannelSettings' limit 1;")->fetch_object()->value;
       $streamerRoleSettings = $newConMake->query("SELECT value FROM Settings WHERE id = 'streamerRoleSettings' limit 1;")->fetch_object()->value;  
+      $hiChanSettings = $newConMake->query("SELECT value FROM Settings WHERE id = 'hiChanSettings' limit 1;")->fetch_object()->value;
+      $hiMsgSettings = $newConMake->query("SELECT value FROM Settings WHERE id = 'hiMsgSettings' limit 1;")->fetch_object()->value;
       $joinEventLog = $newConMake->query("SELECT value FROM Logs WHERE id = 'joinEventLog' limit 1;")->fetch_object()->value;
       $leaveEventLog = $newConMake->query("SELECT value FROM Logs WHERE id = 'leaveEventLog' limit 1;")->fetch_object()->value;
       $userNameChangeEventLog = $newConMake->query("SELECT value FROM Logs WHERE id = 'userNameChangeEventLog' limit 1;")->fetch_object()->value;
@@ -170,6 +172,8 @@
       if(!$memberRoleSettings) $newConMake->query("INSERT INTO Settings (id, value) VALUES ('memberRoleSettings', 'NONE')");
       if(!$streamerChannelSettings) $newConMake->query("INSERT INTO Settings (id, value) VALUES ('streamerChannelSettings', 'NONE')");
       if(!$streamerRoleSettings) $newConMake->query("INSERT INTO Settings (id, value) VALUES ('streamerRoleSettings', 'NONE')");
+      if(!$hiChanSettings) $newConMake->query("INSERT INTO Settings (id, value) VALUES ('hiChanSettings', 'NONE')");
+      if(!$hiMsgSettings) $newConMake->query("INSERT INTO Settings (id, value) VALUES ('hiMsgSettings', 'NONE')");
       if(!$joinEventLog) $newConMake->query("INSERT INTO Logs (id, value) VALUES ('joinEventLog', 'NONE')");
       if(!$leaveEventLog) $newConMake->query("INSERT INTO Logs (id, value) VALUES ('leaveEventLog', 'NONE')");
       if(!$userNameChangeEventLog) $newConMake->query("INSERT INTO Logs (id, value) VALUES ('userNameChangeEventLog', 'NONE')");
