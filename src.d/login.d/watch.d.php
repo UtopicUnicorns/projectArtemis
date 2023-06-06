@@ -114,7 +114,7 @@
   } else {
     //If not index
     if(basename($_SERVER['PHP_SELF']) !== 'index.php') { 
-      header('Location: https://artemis.rest/?message=403'); 
+      header('Location: https://artemis.rest/oops.php'); 
       exit();
     }
     

@@ -1,6 +1,7 @@
 <?php
   session_start();
   include './login.d/flow.d.php';
+  include './login.d/index.d.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -71,8 +72,7 @@
       <div class="contentPane">
         <div class="cPaneMain" style="background: url('https://artemis.rest/img.d/tree5.png') no-repeat bottom right; background-size: contain;">
           <div class="wrapMainPanes">
-            <a style="background: url('https://artemis.rest/img.d/logo.png') no-repeat center; background-size: contain;"></a>
-            <a href="https://discord.com/api/v10/oauth2/authorize?client_id=440892659264126997&redirect_uri=https%3A%2F%2Fartemis.rest%2F&response_type=code&scope=identify%20guilds%20guilds.members.read" class="mainPane" style="background-color: rgba(255, 255, 255, 0.1); background: url('https://artemis.rest/img.d/user.svg') bottom left / cover;">login</a>
+            <?php echo $loginField ?>
             <a href="projects.php" class="mainPane" style="background-color: rgba(255, 0, 0, 0.1);">projects</a>
             <a href="about.php" class="mainPane" style="background-color: rgba(0, 0, 255, 0.1);">about</a>
             <a class="statPane" style="background-color: rgba(0, 255, 255, 0.1); display: flex;">
