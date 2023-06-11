@@ -98,7 +98,6 @@
         const mouseX = e.clientX / windowWidth;
         const mouseY = e.clientY / windowHeight;
         
-        //contentPane.style.transform = `translate3d(-${mouseY}%, -${mouseX}%, 0)`;
         backgroundPatt.style.transform = `translate3d(-${mouseY}%, -${mouseX}%, 0)`;
         backgroundWall.style.transform = `translate3d(-${mouseX}%, -${mouseY}%, 0)`;
       });

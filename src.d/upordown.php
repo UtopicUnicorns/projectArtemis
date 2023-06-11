@@ -64,7 +64,7 @@
     
     <!-- Content -->
     <div class="content">
-      <div class="contentPane" style="background: url('https://artemis.rest/img.d/creepHello.png') no-repeat bottom center; background-size: contain;">
+      <div class="contentPane" style="background: url('https://artemis.rest/img.d/creepHello.png') no-repeat bottom center; background-size: 10vh;">
         <div class="cPaneTop">
           <a href="index.php" style="width: 10vh; height: 10vh; background: url('https://artemis.rest/img.d/home.png') no-repeat center / contain;"><img style="width: 10vh; height: 10vh; opacity: 0;" /></a>
           <div style="display: flex; filter: grayscale(0%);">
@@ -74,7 +74,21 @@
         </div>
         <div class="cPaneMain">
           <h1>Don't ask me!</h1>
-          <?php echo $_GET['site'] ?> is maybe online.
+          
+          <?php
+            $site = $_GET['site'];
+            $validUrl = filter_var($site, FILTER_VALIDATE_URL);
+            
+            if ($validUrl) {
+                $parse = parse_url($validUrl);
+                $url = preg_replace('#^www\.(.+\.)#i', '$1', $parse['host']);
+                $output = shell_exec('ping -c1 '.escapeshellarg($url));
+                echo "<pre>$output</pre><br /><br /><br />$url";
+            } else {
+                echo "Invalid URL";
+            }
+          ?> 
+
           <br />
         </div>
       </div>
