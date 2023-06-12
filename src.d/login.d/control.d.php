@@ -13,8 +13,6 @@
     
     //Execute curl request
     $response = curl_exec($curl_h);
-    
-    //Expect json, decode
     $userGot = json_decode($response, false);
     
     //If not logged in, but token is set, or token is expired
@@ -64,7 +62,6 @@
       if($userGuilds[$_GET['guild']]){
         //If method is post
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-          
           if (!empty($_POST['guild'])) {
             $guildTemp = $_POST['guild'];
             if($userGuilds[$guildTemp]) {
@@ -78,7 +75,6 @@
               if (!empty($_POST['streamerRoleSettings'])) $makeTempConn->query("UPDATE Settings SET id='streamerRoleSettings', value='".$_POST['streamerRoleSettings']."' WHERE id = 'streamerRoleSettings';");
               if (!empty($_POST['verificationChannelSettings'])) $makeTempConn->query("UPDATE Settings SET id='verificationChannelSettings', value='".$_POST['verificationChannelSettings']."' WHERE id = 'verificationChannelSettings';");
               if (!empty($_POST['verificationMethodSettings'])) $makeTempConn->query("UPDATE Settings SET id='verificationMethodSettings', value='".$_POST['verificationMethodSettings']."' WHERE id = 'verificationMethodSettings';");
-              
               if (!empty($_POST['banEventLog'])) $makeTempConn->query("UPDATE Logs SET id='banEventLog', value='".$_POST['banEventLog']."' WHERE id = 'banEventLog';");
               if (!empty($_POST['kickEventLog'])) $makeTempConn->query("UPDATE Logs SET id='kickEventLog', value='".$_POST['kickEventLog']."' WHERE id = 'kickEventLog';");
               if (!empty($_POST['joinEventLog'])) $makeTempConn->query("UPDATE Logs SET id='joinEventLog', value='".$_POST['joinEventLog']."' WHERE id = 'joinEventLog';");
@@ -130,13 +126,6 @@
           }
         };
         
-        //echo json_encode($guildChannels);
-        //Content for page in state
-        //$controlContent = json_encode($getGuildInfo);
-        //roles {$getGuildInfo->roles}
-        //emotes {$getGuildInfo->emojis}
-        //stickers {$getGuildInfo->stickers}
-        //echo json_encode($getGuildInfo->roles);
         //Fetch information
         $controllingSql = new mysqli('localhost', $sqlUser, $sqlPass);
         $controlInfo = $controllingSql->query("USE g$getGuildInfo->id;");
@@ -216,10 +205,27 @@
         $controlContent = '
         <!-- stat panes -->
         <div class="conPaneHold">
-          <div class="conPane" style="background: url(\'https://artemis.rest/img.d/user.svg\') no-repeat bottom center / contain;">'.$getGuildInfo->name.'<br />'.$getGuildInfo->id.'</div>
-          <div class="conPane" style="background: url(\'https://cdn.discordapp.com/icons/' . $getGuildInfo->id . '/' .  $getGuildInfo->icon . '.png?size=1024\') no-repeat bottom center / contain;"></div>
-          <div class="conPane" style="background: url(\'https://artemis.rest/img.d/people.svg\') no-repeat bottom center / contain;">Users: '.$getGuildInfo->approximate_member_count.'<br />Online: '.$getGuildInfo->approximate_presence_count.'</div>
-          <div class="conPane" style="background: url(\'https://artemis.rest/img.d/channel.svg\') no-repeat bottom center / contain;">Channels:<br />'.count($guildChannels).'</div>
+          <div class="conPane" style="background: url(\'https://artemis.rest/img.d/user.svg\') no-repeat bottom center / contain;">
+            <div class="tooltip">'.$getGuildInfo->name.'<br />'.$getGuildInfo->id.' &#x1F6C8;
+              <span class="tooltiptext">Server name and server ID.</span>
+            </div>
+          </div>
+          <div class="conPane" style="background: url(\'https://cdn.discordapp.com/icons/' . $getGuildInfo->id . '/' .  $getGuildInfo->icon . '.png?size=1024\') no-repeat bottom center / contain;">
+            <div class="tooltip">&#x1F6C8;
+              <span class="tooltiptext">Server icon</span>
+            </div>
+          </div>
+          <div class="conPane" style="background: url(\'https://artemis.rest/img.d/people.svg\') no-repeat bottom center / contain;">
+            <div class="tooltip">
+              Users: '.$getGuildInfo->approximate_member_count.'<br />Online: '.$getGuildInfo->approximate_presence_count.' &#x1F6C8;
+              <span class="tooltiptext">Approximate online users and total users.</span>
+            </div>
+          </div>
+          <div class="conPane" style="background: url(\'https://artemis.rest/img.d/channel.svg\') no-repeat bottom center / contain;">
+            <div class="tooltip">Channels:<br />'.count($guildChannels).' &#x1F6C8;
+              <span class="tooltiptext" style="float:left;">Amount of channels, includes threads.</span>
+            </div>
+          </div>
         </div>
         
         '.$responseToPost.'
@@ -231,8 +237,7 @@
           <div class="conPane" style="border-radius: 0; margin: 0; width: 100%; height: 5%;">General settings</div>
           <p><div class="tooltip">Welcoming channel &#x1F6C8;
               <span class="tooltiptext">
-                Users will be greeted and identified by the bot when this channel is set.<br /><br />
-                <img src="https://artemis.rest/img.d/controller.d/welcomeChan.png" />
+                Users will be greeted and identified by the bot when this channel is set.
               </span>
             </div></p>
             <select name="hiChanSettings" id="hiChanSettings">
@@ -255,8 +260,7 @@
           
           <p><div class="tooltip">Welcoming message &#x1F6C8;
               <span class="tooltiptext">
-                When set to anything but NONE, a button will be attached to the greeting with the welcome text.<br /><br />
-                <img src="https://artemis.rest/img.d/controller.d/welcomeMsg.png" />
+                When set to anything but NONE, a button will be attached to the greeting with the welcome text.
               </span>
             </div></p>
             <textarea id="hiMsgSettings" name="hiMsgSettings" maxlength="1500" rows="5" cols="33">'.$parsedSqlSettings['hiMsgSettings'].'</textarea><br /><br />
@@ -277,7 +281,7 @@
             </select><br /><br />
           
           <p><div class="tooltip">Streamer channel &#x1F6C8;
-              <span class="tooltiptext">Tooltip text</span>
+              <span class="tooltiptext">When you have streamers in your server settings, then the bot will accounce it here when they go online.</span>
             </div></p>
             <select name="streamerChannelSettings" id="streamerChannelSettings">
               <optgroup label="Current">
@@ -298,7 +302,7 @@
             </select><br /><br />
           
           <p><div class="tooltip">Streaming ping role &#x1F6C8;
-              <span class="tooltiptext">Tooltip text</span>
+              <span class="tooltiptext">This role will be pinged when a streamer in your server goes online</span>
             </div></p>
             <select name="streamerRoleSettings" id="streamerRoleSettings">
               <optgroup label="Current">
@@ -313,7 +317,7 @@
             </select><br /><br />
           
           <p><div class="tooltip">Verification channel &#x1F6C8;
-              <span class="tooltiptext">Tooltip text</span>
+              <span class="tooltiptext">If you use either the Hello method or the Button method, then this channel will be used for verification</span>
             </div></p>
             <select name="verificationChannelSettings" id="verificationChannelSettings">
               <optgroup label="Current">
@@ -334,7 +338,11 @@
             </select><br /><br />
           
           <p><div class="tooltip">Verification method &#x1F6C8;
-              <span class="tooltiptext">Tooltip text</span>
+              <span class="tooltiptext">
+                Rules accept: User gets member role when user accepts discord\'s native rule gate.<br /><br />
+                Button: In the verification channel new users will need to press a button to get verified.<br /><br />
+                Hello Artemis: The classic Hello Artemis challenge, upon completion the user is verified.
+              </span>
             </div></p>
             <select name="verificationMethodSettings" id="verificationMethodSettings">
               <optgroup label="Current">
@@ -345,7 +353,6 @@
               </optgroup>
               <optgroup label="Method">
                 <option value="rules">Rules accept</option>
-                <option value="native">Discord native gating</option>
                 <option value="button">Button</option>
                 <option value="hello">Hello Artemis</option>
               </optgroup>
@@ -354,7 +361,7 @@
           <!-- Logs settings -->
           <div class="conPane" style="border-radius: 0; margin: 0; width: 100%; height: 5%;">Logs settings</div>
             <p><div class="tooltip">Ban event channel &#x1F6C8;
-              <span class="tooltiptext">Tooltip text</span>
+              <span class="tooltiptext">When a user gets banned it will be displayed in this channel.</span>
             </div></p>
             <select name="banEventLog" id="banEventLog">
               <optgroup label="Current">
@@ -375,7 +382,7 @@
             </select><br /><br />
             
             <p><div class="tooltip">Join event channel &#x1F6C8;
-              <span class="tooltiptext">Tooltip text</span>
+              <span class="tooltiptext">When a joins your server it will be displayed in this channel.</span>
             </div></p>
             <select name="joinEventLog" id="joinEventLog">
               <optgroup label="Current">
@@ -396,7 +403,7 @@
             </select><br /><br />
             
             <p><div class="tooltip">Kick event channel &#x1F6C8;
-              <span class="tooltiptext">Tooltip text</span>
+              <span class="tooltiptext">When a user gets kicked it will be displayed in this channel.</span>
             </div></p>
             <select name="kickEventLog" id="kickEventLog">
               <optgroup label="Current">
@@ -417,7 +424,7 @@
             </select><br /><br />
             
             <p><div class="tooltip">Leave event channel &#x1F6C8;
-              <span class="tooltiptext">Tooltip text</span>
+              <span class="tooltiptext">When an user leaves your server it will be displayed in this channel.</span>
             </div></p>
             <select name="leaveEventLog" id="leaveEventLog">
               <optgroup label="Current">
@@ -438,7 +445,7 @@
             </select><br /><br />
             
             <p><div class="tooltip">Message delete event channel &#x1F6C8;
-              <span class="tooltiptext">Tooltip text</span>
+              <span class="tooltiptext">When a message gets deleted it will be emit information about the message in this channel. (No message contents)</span>
             </div></p>
             <select name="messageDeleteEventLog" id="messageDeleteEventLog">
               <optgroup label="Current">
@@ -459,7 +466,7 @@
             </select><br /><br />
             
             <p><div class="tooltip">Message edit event channel &#x1F6C8;
-              <span class="tooltiptext">Tooltip text</span>
+              <span class="tooltiptext">Message edits will be displayed here.</span>
             </div></p>
             <select name="messageEditEventLog" id="messageEditEventLog">
               <optgroup label="Current">
@@ -480,7 +487,7 @@
             </select><br /><br />
             
             <p><div class="tooltip">Timeout event channel &#x1F6C8;
-              <span class="tooltiptext">Tooltip text</span>
+              <span class="tooltiptext">When a user gets timed-out it will be displayed in this channel.</span>
             </div></p>
             <select name="timeOutEventLog" id="timeOutEventLog">
               <optgroup label="Current">
@@ -501,7 +508,7 @@
             </select><br /><br />
             
             <p><div class="tooltip">Nickname change event channel &#x1F6C8;
-              <span class="tooltiptext">Tooltip text</span>
+              <span class="tooltiptext">When an user changed their nickname it will be displayed here.</span>
             </div></p>
             <select name="nickNameChangeEventLog" id="nickNameChangeEventLog">
               <optgroup label="Current">
