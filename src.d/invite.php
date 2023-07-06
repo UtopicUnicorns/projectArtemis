@@ -73,6 +73,9 @@
           <div style="font-size: 3em; place-items: center end; padding-right: 1vh;">Invitation</div>
         </div>
         <div class="cPaneMain">
+          <a class="conPane" href="https://discord.com/api/oauth2/authorize?client_id=440892659264126997&permissions=8&scope=applications.commands%20bot" style="background: url('https://artemis.rest/img.d/2.png') no-repeat center bottom; background-size: 20vh; width: 100%; height: 80vh; margin: 0;">
+          <h1>Click to invite bot</h1>
+          </a>
           <br />
         </div>
       </div>

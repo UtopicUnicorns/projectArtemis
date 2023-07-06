@@ -1,9 +1,9 @@
 <?php
   //Not to be accessed
-  if(count(get_included_files()) ==1) { 
-    header('Location: https://artemis.rest/oops.php'); 
-    exit();
-  }
+  //if(count(get_included_files()) ==1) { 
+  //  header('Location: https://artemis.rest/oops.php'); 
+  //  exit();
+  //}
   
   //Timer to check page speed
   $starttime = microtime(true);

@@ -327,6 +327,47 @@ a:hover, a:active {
   color: rgba(255, 255, 0, 0.9);
 }
 
+.detailsText {
+  opacity: 0;
+  height: 0px;
+  white-space: pre-wrap;
+  transition: 1000ms;
+}
+
+//details {
+//}
+
+//details[open] {
+//}
+
+details[open] .detailsText{
+  transition: 1000ms;
+  opacity: 1;
+  height: auto;
+}
+
+summary {
+  box-shadow: 0.3vw 0.3vw 5px 0.3vw rgba(0, 0, 0, 0.4);
+  background-color: rgba(255, 0, 255, 0.1);
+  padding: 1vh;
+  margin-bottom: 1vh;
+  transition: 200ms;
+  width: 100%;
+  cursor: pointer;
+}
+
+summary:hover, summary:focus, summary:active {
+  box-shadow: 0.3vw 0.3vw 5px 0.3vw rgba(0, 0, 0, 0.7);
+  background-color: rgba(255, 0, 255, 0.2);
+}
+
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
 .tooltip {
   position: relative;
   display: inline-block;
@@ -334,7 +375,7 @@ a:hover, a:active {
 
 .tooltip .tooltiptext {
   visibility: hidden;
-  width: 50vw;
+  width: 30vw;
   background-color: rgba(0, 0, 0, 0.9);
   box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0), 0.3vw 0.3vw 5px 0.3vw rgba(0, 0, 0, 0);
   text-align: left;

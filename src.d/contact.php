@@ -73,24 +73,20 @@
           <div style="font-size: 3em; place-items: center end; padding-right: 1vh;">Contact</div>
         </div>
         <div class="cPaneMain">
-          <?php  echo ( $msg ); ?>
-          <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
-            Name: <input type="text" name="fname">
-            <input type="submit">
-          </form>
+          <!-- stat panes -->
+        <div class="conPaneHold">
+          <a href="https://www.paypal.com/donate/?hosted_button_id=ULQ8N32CLXK4L" target="_blank" class="conPane" style="background: url('https://artemis.rest/img.d/paypal.svg') no-repeat bottom center / contain;">
+            <div class="tooltip">Donate &#x1F6C8;
+              <span class="tooltiptext" style="float:left;">Using Paypal to donate.<br />No refunds.</span>
+            </div>
+          </a>
+          <a href="mailto:dorrestijn.r@gmail.com" target="_blank" class="conPane" style="background: url('https://artemis.rest/img.d/user.svg') no-repeat bottom center / contain;">
+            <div class="tooltip">Send me an email &#x1F6C8;
+              <span class="tooltiptext" style="float:left;">Don't spam plox.</span>
+            </div>
+          </a>
           
-          <?php
-            if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                // collect value of input field
-                $name = $_POST['fname'];
-                if (empty($name)) {
-                    echo "Name is empty";
-                } else {
-                    echo $name;
-                }
-            }
-          ?>
-
+        </div>
           <br />
         </div>
       </div>

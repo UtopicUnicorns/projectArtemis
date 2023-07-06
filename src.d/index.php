@@ -74,7 +74,7 @@
           <div class="wrapMainPanes">
             <?php echo $loginField ?>
             <a href="projects.php" class="mainPane" style="background-color: rgba(255, 0, 0, 0.1);">projects</a>
-            <a href="about.php" class="mainPane" style="background-color: rgba(0, 0, 255, 0.1);">about</a>
+            <a href="board.php" class="mainPane" style="background-color: rgba(0, 0, 255, 0.1);">boards</a>
             <a class="statPane" style="background-color: rgba(0, 255, 255, 0.1); display: flex;">
               <?php
                 $getJson = file_get_contents('https://artemis.rest/getInfoOut.json');
@@ -98,7 +98,7 @@
                         System uptime: '.$decodeFetched->upTime.'<br />
                         System OS: '.$decodeFetched->fetchSpec.'<br />
                         Web server: '.$_SERVER['SERVER_SOFTWARE'].'<br />
-                        
+                        <br /><br />This site uses single cookie
                       </p>';
               ?>
             </a>
