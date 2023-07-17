@@ -24,14 +24,14 @@
     <meta property="og:url" content="https://artemis.rest/">
     <meta property="og:title" content="This page is not accessable.">
     <meta property="og:description" content="Error page.">
-    <meta property="og:image" content="https://artemis.rest/img.d/oopsBack.png">
+    <meta property="og:image" content="https://artemis.rest/img.d/back.d/oopsBack.png">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://artemis.rest/">
     <meta property="twitter:title" content="This page is not accessable.">
     <meta property="twitter:description" content="Error page.">
-    <meta property="twitter:image" content="https://artemis.rest/img.d/oopsBack.png">
+    <meta property="twitter:image" content="https://artemis.rest/img.d/back.d/oopsBack.png">
     
     <!-- Favicon, icons -->
     <link rel="apple-touch-icon" sizes="180x180" href="https://artemis.rest/img.d/fav.d/apple-touch-icon.png" />
@@ -56,7 +56,7 @@
       <div class="backgroundPatt"></div>
       
       <!-- Background wallpaper -->
-      <div class="backgroundWall" style="background: url('https://artemis.rest/img.d/cForestFive.png') no-repeat center / cover;"></div>
+      <div class="backgroundWall" style="background: url('https://artemis.rest/img.d//back.d/2.png') no-repeat center / cover;"></div>
       
       <!-- Background vignette -->
       <div class="backgroundVig"></div>
@@ -64,37 +64,32 @@
     
     <!-- Content -->
     <div class="content">
-      <div class="contentPane" style="background: url('https://artemis.rest/img.d/5.png') no-repeat bottom right; background-size: 30vh;">
-        <div class="cPaneMain" style="padding: 5vh;">
-            <h1>Oops!</h1>
-            <?php echo "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?> is either not here, or not for your eyes.<br />
-            Here are your options:<br />
-            <ol>
-              <li><a href="javascript:history.back()">Back to previous page</a></li>
-              <li><a href="https://artemis.rest/index.php">Back to homepage</a></li>
-            </ol>
+      <div class="contentPane">
+        <div class="cPaneMain in" style="background: url('https://artemis.rest/img.d/5.png') no-repeat bottom right; background-size: 30vh;">
+          <div class="wrapSecondPanes">
+            <a class="contentBoxed" style="padding: 1vh; background-color: rgba(255, 0, 0, 0.1);">
+              <h1>Oops!</h1>
+              <u style="text-decoration: underline;"><?php echo "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?></u> is either not here, or not for your eyes.<br />
+              <p>Here are your options:</p>
+              <ol>
+                <li><form action="javascript:history.back()"><input class="notALink" type="submit" value="Back to previous page"></form></li>
+                <li><form action="https://artemis.rest/index.php"><input class="notALink" type="submit" value="Go to home page"></form></li>
+              </ol>
+            </a>
+            <a class="foot" style="background-color: rgba(0, 255, 0, 0.1);">You have met with a terrible fate, haven't you?</a>
+            
+            <a class="secondPane" style="background-color: rgba(255, 0, 0, 0.1);"></a>
+            <a class="secondPane" style="background-color: rgba(0, 255, 0, 0.1);"></a>
+            <a class="secondPane" style="background-color: rgba(0, 0, 255, 0.1);"></a>
+            <a class="secondPane" style="background-color: rgba(0, 255, 255, 0.1);"></a>
+            <a class="secondPane" style="background-color: rgba(255, 0, 255, 0.1);"></a>
+            <a href="https://artemis.rest/index.php" class="secondPane" style="background-color: rgba(255, 255, 255, 0.1);">home</a>
+          </div>
         </div>
       </div>
     </div>
     
     <!-- Scripts -->
     <?php include './eyes.php'; ?>
-    <script>
-      const backgroundPatt = document.querySelector('.backgroundPatt');
-      const backgroundWall = document.querySelector('.backgroundWall');
-      const contentPane = document.querySelector('.contentPane');
-      const contentListen = document.querySelector('body');
-      const windowWidth = window.innerWidth / 2;
-      const windowHeight = window.innerHeight / 2;
-      
-      contentListen.addEventListener('mousemove', e => {
-        const mouseX = e.clientX / windowWidth;
-        const mouseY = e.clientY / windowHeight;
-        
-        //contentPane.style.transform = `translate3d(-${mouseY}%, -${mouseX}%, 0)`;
-        backgroundPatt.style.transform = `translate3d(-${mouseY}%, -${mouseX}%, 0)`;
-        backgroundWall.style.transform = `translate3d(-${mouseX}%, -${mouseY}%, 0)`;
-      });
-    </script>
   </body>
 </html>

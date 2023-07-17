@@ -29,14 +29,14 @@
     <meta property="og:url" content="https://artemis.rest/">
     <meta property="og:title" content="Project Artemis, Your World Depends On It.">
     <meta property="og:description" content="Home of the most clever Discord bot.">
-    <meta property="og:image" content="https://artemis.rest/img.d/homeBack.png">
+    <meta property="og:image" content="https://artemis.rest/img.d/back.d/homeBack.png">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://artemis.rest/">
     <meta property="twitter:title" content="Project Artemis, Your World Depends On It.">
     <meta property="twitter:description" content="Home of the most clever Discord bot.">
-    <meta property="twitter:image" content="https://artemis.rest/img.d/homeBack.png">
+    <meta property="twitter:image" content="https://artemis.rest/img.d/back.d/homeBack.png">
     
     <!-- Favicon, icons -->
     <link rel="apple-touch-icon" sizes="180x180" href="https://artemis.rest/img.d/fav.d/apple-touch-icon.png" />
@@ -61,7 +61,7 @@
       <div class="backgroundPatt"></div>
       
       <!-- Background wallpaper -->
-      <div class="backgroundWall" style="background: url('https://artemis.rest/img.d/cForestTwo.png') no-repeat center / cover;"></div>
+      <div class="backgroundWall" style="background: url('https://artemis.rest/img.d/back.d/1.png') no-repeat center / cover;"></div>
       
       <!-- Background vignette -->
       <div class="backgroundVig"></div>
@@ -70,11 +70,11 @@
     <!-- Content -->
     <div class="content">
       <div class="contentPane">
-        <div class="cPaneMain" style="background: url('https://artemis.rest/img.d/tree5.png') no-repeat bottom right; background-size: contain;">
+        <div class="cPaneMain" style="background: url('https://artemis.rest/img.d/tree.d/3.png') no-repeat bottom right; background-size: contain;">
           <div class="wrapMainPanes">
             <?php echo $loginField ?>
-            <a href="projects.php" class="mainPane" style="background-color: rgba(255, 0, 0, 0.1);">projects</a>
-            <a href="board.php" class="mainPane" style="background-color: rgba(0, 0, 255, 0.1);">boards</a>
+            <a href="https://artemis.rest/projects.php" style="background-color: rgba(255, 0, 0, 0.1);"><div class="imgBut" style="background-image: url('https://artemis.rest/img.d/icon.d/project.svg');"/>projects</div></a>
+            <a href="https://artemis.rest/board.php" style="background-color: rgba(0, 0, 255, 0.1);"><div class="imgBut" style="background-image: url('https://artemis.rest/img.d/icon.d/board.svg');"/>board</div></a>
             <a class="statPane" style="background-color: rgba(0, 255, 255, 0.1); display: flex;">
               <?php
                 $getJson = file_get_contents('https://artemis.rest/getInfoOut.json');
@@ -98,13 +98,13 @@
                         System uptime: '.$decodeFetched->upTime.'<br />
                         System OS: '.$decodeFetched->fetchSpec.'<br />
                         Web server: '.$_SERVER['SERVER_SOFTWARE'].'<br />
-                        <br /><br />This site uses single cookie
+                        <br /><br />This site uses a single cookie
                       </p>';
               ?>
             </a>
-            <a href="invite.php" class="mainPane" style="background-color: rgba(255, 255, 0, 0.1);">invite</a>
-            <a href="docs.php" class="mainPane" style="background-color: rgba(0, 255, 0, 0.1);">docs</a>
-            <a href="contact.php" class="mainPane" style="background-color: rgba(255, 0, 255, 0.1);">contact</a>
+            <a href="https://artemis.rest/invite.php" style="background-color: rgba(255, 255, 0, 0.1);"><div class="imgBut" style="background-image: url('https://artemis.rest/img.d/icon.d/invite.svg');"/>invite</div></a>
+            <a href="https://artemis.rest/docs.php" style="background-color: rgba(0, 255, 0, 0.1);"><div class="imgBut" style="background-image: url('https://artemis.rest/img.d/icon.d/docs.svg');"/>docs</div></a>
+            <a href="https://artemis.rest/contact.php" style="background-color: rgba(255, 0, 255, 0.1);"><div class="imgBut" style="background-image: url('https://artemis.rest/img.d/icon.d/contact.svg');"/>contact</div></a>
           </div>
         </div>
       </div>
@@ -112,46 +112,5 @@
     
     <!-- Scripts -->
     <?php include './eyes.php'; ?>
-    <script>
-      const backgroundPatt = document.querySelector('.backgroundPatt');
-      const backgroundWall = document.querySelector('.backgroundWall');
-      const contentPane = document.querySelector('.contentPane');
-      const contentListen = document.querySelector('body');
-      const windowWidth = window.innerWidth / 2;
-      const windowHeight = window.innerHeight / 2;
-      
-      contentListen.addEventListener('mousemove', e => {
-        const mouseX = e.clientX / windowWidth;
-        const mouseY = e.clientY / windowHeight;
-        
-        contentPane.style.transform = `translate3d(-${mouseY}%, -${mouseX}%, 0)`;
-        backgroundPatt.style.transform = `translate3d(-${mouseY}%, -${mouseX}%, 0)`;
-        backgroundWall.style.transform = `translate3d(-${mouseX}%, -${mouseY}%, 0)`;
-      });
-  
-      function goToSite(siteText, out, gId) {
-        let linkTo;
-        let outText = 'This link will open in the same tab/window';
-        if(out) outText = 'This link will open in a new tab/window';
-        if(siteText == 'controlPane') linkTo = `https://artemis.rest/control.d.php?guild=${gId}`;
-        if(siteText == 'logoutLink') linkTo = 'https://artemis.rest/login.d/logout.d.php';
-        if(siteText == 'patreon') linkTo = 'https://www.patreon.com/projectartemis';
-        if(siteText == 'paypal') linkTo = 'https://www.paypal.com/donate/?hosted_button_id=ULQ8N32CLXK4L';
-        if(siteText == 'loginLink') linkTo = 'https://discord.com/api/v10/oauth2/authorize?client_id=440892659264126997&redirect_uri=https%3A%2F%2Fartemis.rest%2F&response_type=code&scope=identify%20guilds%20guilds.members.read';
-        if(siteText == 'emailLink') linkTo = 'mailto:dorrestijn.r@gmail.com';
-        if(siteText == 'githubLink') linkTo = 'https://github.com/UtopicUnicorns/';
-        if(siteText == 'gitArtemis') linkTo = 'https://github.com/UtopicUnicorns/projectArtemis';
-        if(siteText == 'gitArrow') linkTo = 'https://github.com/UtopicUnicorns/projectArrow';
-        if(siteText == 'gitBow') linkTo = 'https://github.com/UtopicUnicorns/projectBow';
-        if(siteText == 'mintDiscord') linkTo = 'https://discord.com/invite/mint';
-        if(siteText == 'discordLink') linkTo = 'https://discord.com/invite/Y6f3XQyuTQ';
-        if(siteText == 'betaBotInvite') linkTo = 'https://discord.com/api/oauth2/authorize?client_id=654361253413781537&permissions=8&scope=applications.commands%20bot';
-        if(siteText == 'mainBotInvite') linkTo = 'https://discord.com/api/oauth2/authorize?client_id=440892659264126997&permissions=8&scope=applications.commands%20bot';
-        if(confirm(`${outText}:\n\n${linkTo}`)) {
-          if(out) window.open(linkTo, '_blank');
-          if(!out) location.href=linkTo;
-        }
-      }
-    </script>
   </body>
 </html>

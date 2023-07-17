@@ -23,15 +23,17 @@
       die();
     }
     
-    $loginField = ' <a href="control.d.php" class="mainPane" style="background-color: rgba(0, 255, 255, 0.2);">control</a>
-                    <a href="./login.d/logout.d.php" class="mainPane" style="font-size: 1em; background-color: rgba(255, 255, 255, 0.1); background: url(\'https://artemis.rest/img.d/user.svg\') bottom left / cover;">
-                      '.$userGot->username.'<br />
-                      ('.$userGot->id.')</br>
-                      Logout
+    $loginField = ' <a href="https://artemis.rest/control.d.php" style="background-color: rgba(0, 255, 255, 0.2);"><div class="imgBut" style="background-image: url(\'https://artemis.rest/img.d/icon.d/pulse.svg\');"/>control</div></a>
+                    <a href="https://artemis.rest//login.d/logout.d.php" style="font-size: 1em; background-color: rgba(255, 255, 255, 0.1);">
+                      <div class="imgBut" style="background-image: url(\'https://artemis.rest/img.d/icon.d/user.svg\'); font-size: 1em;"/>
+                        '.$userGot->username.'<br />
+                        ('.$userGot->id.')</br>
+                        Logout
+                      </div>
                     </a>';
   } else { 
     $loginField = '<a style="background: url(\'https://artemis.rest/img.d/logo.png\') no-repeat center; background-size: contain;"></a>
-                   <a href="https://discord.com/api/v10/oauth2/authorize?client_id=440892659264126997&redirect_uri=https%3A%2F%2Fartemis.rest%2F&response_type=code&scope=identify%20guilds%20guilds.members.read" class="mainPane" style="background-color: rgba(255, 255, 255, 0.1); background: url(\'https://artemis.rest/img.d/user.svg\') bottom left / cover;">login</a>';
+                   <a href="https://discord.com/api/v10/oauth2/authorize?client_id=440892659264126997&redirect_uri=https%3A%2F%2Fartemis.rest%2F&response_type=code&scope=identify%20guilds%20guilds.members.read"><div class="imgBut" style="background-image: url(\'https://artemis.rest/img.d/icon.d/user.svg\');"/>login</div></a>';
   }
 ?>
 

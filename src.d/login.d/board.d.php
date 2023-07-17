@@ -36,7 +36,7 @@
         $hugeDong .= '
           <details style="background-color: rgba(255,0,255, 0.1);">
             <summary>
-              <div style="display:flex; align-items: center; justify-content: center; width: 98%;">
+              <div style="display:flex; align-items: center; justify-content: center; width: 100%;">
                 <div style="text-align:left; width: 50%;">
                   '.$qSelected["username"].' 
                 </div>
@@ -55,7 +55,7 @@
         $hugeDong .= '
           <details style="background-color: rgba(0,255,255,0.1);">
             <summary>
-              <div style="display:flex; align-items: center; justify-content: center; width: 98%;">
+              <div style="display:flex; align-items: center; justify-content: center; width: 100%;">
                 <div style="text-align:left; width: 50%;">
                   '.$qSelected["username"].' 
                 </div>
@@ -77,23 +77,13 @@
     $moreInfo = $guildConn->query("USE artemis;");
     $selectStuffs = $guildConn->query("SELECT * FROM guildStatus WHERE guildId='{$_GET['guild']}'")->fetch_object();
 
-    $smollDong = '
-      <div style="display: flex; filter: grayscale(0%);">
-        '.$selectStuffs->guildId.'
-      </div>
-      <div style="filter: grayscale(0%); background: url(\'https://cdn.discordapp.com/icons/'.$selectStuffs->guildId.'/'.$selectStuffs->guildIcon.'.png?size=1024\') no-repeat center right / 50%; font-size: 3em; place-items: center end; padding-right: 1vh;">'.$selectStuffs->guildName.'</div>
-    ';
+    $smollDong = '<a class="foot" style="background-color: rgba(0, 255, 0, 0.1); background: url(\'https://cdn.discordapp.com/icons/'.$selectStuffs->guildId.'/'.$selectStuffs->guildIcon.'.png?size=1024\') no-repeat center right / contain;">'.$selectStuffs->guildName.'<br />'.$selectStuffs->guildId.'</a>';
   } else { //If guild not found
-    $smollDong = '
-    <div style="display: flex; filter: grayscale(0%);">
-      / <a href="index.php">home</a> / <a href="board.php" style="text-decoration: underline;">here</a>
-    </div>
-    <div style="font-size: 3em; place-items: center end; padding-right: 1vh;">Leaderboard</div>
-    ';
+    $smollDong = '<a class="foot" style="background-color: rgba(0, 255, 0, 0.1);"></a>';
     $hugeDong = '
-    <form action="'.$_SERVER['PHP_SELF'].'">
+    <form action="'.$_SERVER['PHP_SELF'].'" style="height: 100%; display: grid; align-content: center; place-items: center;">
       <p>Enter guild ID</p>
-      <input type="text" class="submit" placeholder="Guild ID here..." id="guild" name="guild"><br><br>
+      <input type="text" class="submit" placeholder="Guild ID here..." id="guild" name="guild">
       <input type="submit" class="submit" value="Search guild">
     </form>
     ';

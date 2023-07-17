@@ -5,8 +5,8 @@
     <meta charset="utf-8" />
     
     <!-- Primary Meta Tags -->
-    <meta name="title" content="Contact">
-    <meta name="description" content="Contact information.">
+    <meta name="title" content="Secondary title">
+    <meta name="description" content="Secondary">
     <meta name="keywords" content="Discord, Bot, Artemis, Javascript">
     <meta name="robots" content="index, follow">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -22,15 +22,15 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://artemis.rest/">
-    <meta property="og:title" content="Contact">
-    <meta property="og:description" content="Contact information.">
+    <meta property="og:title" content="Secondary title">
+    <meta property="og:description" content="Secondary">
     <meta property="og:image" content="https://artemis.rest/img.d/back.d/homeBack.png">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://artemis.rest/">
-    <meta property="twitter:title" content="Contact">
-    <meta property="twitter:description" content="Contact information.">
+    <meta property="twitter:title" content="Secondary title">
+    <meta property="twitter:description" content="Secondary">
     <meta property="twitter:image" content="https://artemis.rest/img.d/back.d/homeBack.png">
     
     <!-- Favicon, icons -->
@@ -46,7 +46,7 @@
     <link rel="stylesheet" href="https://artemis.rest/img.d/styleSheet.css" />
     
     <!-- Title -->
-    <title>Contact</title>
+    <title>Secondary title</title>
   </head>
   
   <body>
@@ -56,7 +56,7 @@
       <div class="backgroundPatt"></div>
       
       <!-- Background wallpaper -->
-      <div class="backgroundWall" style="background: url('https://artemis.rest/img.d/back.d/3.png') no-repeat center / cover;"></div>
+      <div class="backgroundWall" style="background: url('https://artemis.rest/img.d/back.d/7.png') no-repeat center / cover;"></div>
       
       <!-- Background vignette -->
       <div class="backgroundVig"></div>
@@ -65,15 +65,28 @@
     <!-- Content -->
     <div class="content">
       <div class="contentPane">
-        <div class="cPaneMain" style="background: url('https://artemis.rest/img.d/tree.d/5.png') no-repeat bottom right; background-size: contain;">
+        <div class="cPaneMain" style="background: url('https://artemis.rest/img.d/tree.d/3.png') no-repeat bottom right; background-size: contain;">
           <div class="wrapSecondPanes">
             <a class="contentBoxed" style="padding: 1vh; background-color: rgba(255, 0, 0, 0.1);">
-              .
+              <h1>Header 1</h1>
+              
+              <h2>Header 2</h2>
+              
+              <u>Underlined</u> regular text.<br />
+              
+              <i>Italics</i>
+              
+              <p>Paragraph:</p>
+              
+              <ol>
+                <li><form action="https://artemis.rest/index.php"><input class="notALink" type="submit" value="Link 1"></form></li>
+                <li><form action="https://artemis.rest/indexddd.php"><input class="notALink" type="submit" value="Error page"></form></li>
+              </ol>              
             </a>
-            <a class="foot" style="background-color: rgba(0, 255, 0, 0.1);">Toss a coin at your witcher</a>
+            <a class="foot" style="background-color: rgba(0, 255, 0, 0.1);">Footer</a>
             
-            <a class="secondPane" href="mailto:dorrestijn.r@gmail.com" target="_blank" style="background-color: rgba(255, 0, 0, 0.1);">E-mail</a>
-            <a class="secondPane" href="https://www.paypal.com/donate/?hosted_button_id=ULQ8N32CLXK4L" target="_blank" style="background-color: rgba(0, 255, 0, 0.1);">PayPal</a>
+            <a class="secondPane" style="background-color: rgba(255, 0, 0, 0.1);"></a>
+            <a class="secondPane" style="background-color: rgba(0, 255, 0, 0.1);"></a>
             <a class="secondPane" style="background-color: rgba(0, 0, 255, 0.1);"></a>
             <a class="secondPane" style="background-color: rgba(0, 255, 255, 0.1);"></a>
             <a class="secondPane" style="background-color: rgba(255, 0, 255, 0.1);"></a>

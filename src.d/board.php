@@ -27,14 +27,14 @@
     <meta property="og:url" content="https://artemis.rest/">
     <meta property="og:title" content="Leaderboard">
     <meta property="og:description" content="Guild leaderboards.">
-    <meta property="og:image" content="https://artemis.rest/img.d/homeBack.png">
+    <meta property="og:image" content="https://artemis.rest/img.d/back.d/homeBack.png">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://artemis.rest/">
     <meta property="twitter:title" content="Leaderboard">
     <meta property="twitter:description" content="Guild leaderboards.">
-    <meta property="twitter:image" content="https://artemis.rest/img.d/homeBack.png">
+    <meta property="twitter:image" content="https://artemis.rest/img.d/back.d/homeBack.png">
     
     <!-- Favicon, icons -->
     <link rel="apple-touch-icon" sizes="180x180" href="https://artemis.rest/img.d/fav.d/apple-touch-icon.png" />
@@ -59,7 +59,7 @@
       <div class="backgroundPatt"></div>
       
       <!-- Background wallpaper -->
-      <div class="backgroundWall" style="background: url('https://artemis.rest/img.d/cForestFive.png') no-repeat center / cover;"></div>
+      <div class="backgroundWall" style="background: url('https://artemis.rest/img.d/back.d/6.png') no-repeat center / cover;"></div>
       
       <!-- Background vignette -->
       <div class="backgroundVig"></div>
@@ -67,35 +67,24 @@
     
     <!-- Content -->
     <div class="content">
-      <div class="contentPane" style="background: url('https://artemis.rest/img.d/tree4t.png') no-repeat bottom right; background-size: 95vh;">
-        <div class="cPaneTop">
-          <a href="index.php" style="width: 10vh; height: 10vh; background: url('https://artemis.rest/img.d/home.png') no-repeat center / contain;"><img style="width: 10vh; height: 10vh; opacity: 0;" /></a>
-          <?php echo $smollDong ?>
+      <div class="contentPane">
+        <div class="cPaneMain" style="background: url('https://artemis.rest/img.d/tree.d/3.png') no-repeat bottom right; background-size: contain;">
+          <div class="wrapSecondPanes">
+            <a class="contentBoxed" style="background-color: rgba(255, 0, 0, 0.1);"><?php echo $hugeDong ?></a>
+            <?php echo $smollDong ?>
+            
+            <a class="secondPane" style="background-color: rgba(255, 0, 0, 0.1);"></a>
+            <a class="secondPane" style="background-color: rgba(0, 255, 0, 0.1);"></a>
+            <a class="secondPane" style="background-color: rgba(0, 0, 255, 0.1);"></a>
+            <a class="secondPane" style="background-color: rgba(0, 255, 255, 0.1);"></a>
+            <a class="secondPane" style="background-color: rgba(255, 0, 255, 0.1);"></a>
+            <a href="https://artemis.rest/index.php" class="secondPane" style="background-color: rgba(255, 255, 255, 0.1);">home</a>
+          </div>
         </div>
-        <div class="cPaneMain" style="height: 80vh;">
-          <?php echo $hugeDong ?>
-          <br /><br />     </div>
       </div>
     </div>
     
     <!-- Scripts -->
     <?php include './eyes.php'; ?>
-    <script>
-      const backgroundPatt = document.querySelector('.backgroundPatt');
-      const backgroundWall = document.querySelector('.backgroundWall');
-      const contentPane = document.querySelector('.contentPane');
-      const contentListen = document.querySelector('body');
-      const windowWidth = window.innerWidth / 2;
-      const windowHeight = window.innerHeight / 2;
-      
-      contentListen.addEventListener('mousemove', e => {
-        const mouseX = e.clientX / windowWidth;
-        const mouseY = e.clientY / windowHeight;
-        
-        //contentPane.style.transform = `translate3d(-${mouseY}%, -${mouseX}%, 0)`;
-        backgroundPatt.style.transform = `translate3d(-${mouseY}%, -${mouseX}%, 0)`;
-        backgroundWall.style.transform = `translate3d(-${mouseX}%, -${mouseY}%, 0)`;
-      });
-    </script>
   </body>
 </html>
