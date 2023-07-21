@@ -72,12 +72,12 @@
             </a>
             <a class="foot" style="background-color: rgba(0, 255, 0, 0.1);">Toss a coin at your witcher</a>
             
-            <a class="secondPane" href="mailto:dorrestijn.r@gmail.com" target="_blank" style="background-color: rgba(255, 0, 0, 0.1);">E-mail</a>
-            <a class="secondPane" href="https://www.paypal.com/donate/?hosted_button_id=ULQ8N32CLXK4L" target="_blank" style="background-color: rgba(0, 255, 0, 0.1);">PayPal</a>
+            <a href="mailto:dorrestijn.r@gmail.com" target="_blank" style="background-color: rgba(255, 0, 0, 0.1);"><div class="imgBut" style="background-image: url('https://artemis.rest/img.d/icon.d/mail.svg');"/>E-Mail</div></a>
+            <a href="https://www.paypal.com/donate/?hosted_button_id=ULQ8N32CLXK4L" target="_blank" style="background-color: rgba(0, 255, 0, 0.1);"><div class="imgBut" style="background-image: url('https://artemis.rest/img.d/icon.d/pay.svg');"/>PayPal</div></a>
             <a class="secondPane" style="background-color: rgba(0, 0, 255, 0.1);"></a>
             <a class="secondPane" style="background-color: rgba(0, 255, 255, 0.1);"></a>
             <a class="secondPane" style="background-color: rgba(255, 0, 255, 0.1);"></a>
-            <a href="https://artemis.rest/index.php" class="secondPane" style="background-color: rgba(255, 255, 255, 0.1);">home</a>
+            <a href="https://artemis.rest/index.php" style="background-color: rgba(255, 255, 255, 0.1);"><div class="imgBut" style="background-image: url('https://artemis.rest/img.d/icon.d/home.svg');"/>home</div></a>
           </div>
         </div>
       </div>

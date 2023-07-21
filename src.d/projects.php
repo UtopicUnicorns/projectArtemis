@@ -77,7 +77,7 @@
             <a class="secondPane" style="background-color: rgba(0, 0, 255, 0.1);"></a>
             <a class="secondPane" style="background-color: rgba(0, 255, 255, 0.1);"></a>
             <a class="secondPane" style="background-color: rgba(255, 0, 255, 0.1);"></a>
-            <a href="https://artemis.rest/index.php" class="secondPane" style="background-color: rgba(255, 255, 255, 0.1);">home</a>
+            <a href="https://artemis.rest/index.php" style="background-color: rgba(255, 255, 255, 0.1);"><div class="imgBut" style="background-image: url('https://artemis.rest/img.d/icon.d/home.svg');"/>home</div></a>
           </div>
         </div>
       </div>

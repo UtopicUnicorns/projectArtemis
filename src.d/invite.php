@@ -72,12 +72,12 @@
             </a>
             <a class="foot" style="background-color: rgba(0, 255, 0, 0.1);">Hit the invite button to add the bot.</a>
             
-            <a class="secondPane" href="https://discord.com/api/oauth2/authorize?client_id=440892659264126997&permissions=8&scope=applications.commands%20bot" target="_blank" style="background-color: rgba(255, 0, 0, 0.1);">Invite</a>
+            <a href="https://discord.com/api/oauth2/authorize?client_id=440892659264126997&permissions=8&scope=applications.commands%20bot" target="_blank" style="background-color: rgba(255, 0, 0, 0.1);"><div class="imgBut" style="background-image: url('https://artemis.rest/img.d/icon.d/invite.svg');"/>invite</div></a>
             <a class="secondPane" style="background-color: rgba(0, 255, 0, 0.1);"></a>
             <a class="secondPane" style="background-color: rgba(0, 0, 255, 0.1);"></a>
             <a class="secondPane" style="background-color: rgba(0, 255, 255, 0.1);"></a>
             <a class="secondPane" style="background-color: rgba(255, 0, 255, 0.1);"></a>
-            <a href="https://artemis.rest/index.php" class="secondPane" style="background-color: rgba(255, 255, 255, 0.1);">home</a>
+            <a href="https://artemis.rest/index.php" style="background-color: rgba(255, 255, 255, 0.1);"><div class="imgBut" style="background-image: url('https://artemis.rest/img.d/icon.d/home.svg');"/>home</div></a>
           </div>
         </div>
       </div>

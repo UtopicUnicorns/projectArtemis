@@ -509,12 +509,12 @@
           </a>
           <a href="https://artemis.rest/control.d.php" class="foot" style="background-color: rgba(0, 255, 0, 0.1);">Back to guild list</a>
           
-          <a class="foot" style="background-color: rgba(255, 0, 0, 0.1); background: url(\'https://artemis.rest/img.d/user.svg\') no-repeat bottom center / contain;">'.$getGuildInfo->name.'<br />'.$getGuildInfo->id.'</a>
+          <a style="background-color: rgba(255, 0, 0, 0.1);"><div class="imgBut" style="background-image: url(\'https://artemis.rest/img.d/icon.d/user.svg\');"/>'.$getGuildInfo->name.'<br />'.$getGuildInfo->id.'</div></a>
           <a class="foot" style="background-color: rgba(0, 255, 0, 0.1); background: url(\'https://cdn.discordapp.com/icons/' . $getGuildInfo->id . '/' .  $getGuildInfo->icon . '.png?size=1024\') no-repeat bottom center / contain;"></a>
-          <a class="foot" style="background-color: rgba(0, 0, 255, 0.1); background: url(\'https://artemis.rest/img.d/people.svg\') no-repeat bottom center / contain;">Users: '.$getGuildInfo->approximate_member_count.'<br />Online: '.$getGuildInfo->approximate_presence_count.'</a>
-          <a class="foot" style="background-color: rgba(0, 255, 255, 0.1); background: url(\'https://artemis.rest/img.d/channel.svg\') no-repeat bottom center / contain;">Channels:<br />'.count($guildChannels).'</a>
-          <a class="secondPane" style="background-color: rgba(255, 0, 255, 0.1);"><input type="submit" class="sepSave" form="guildStuff" value="Save"/></a>
-          <a href="https://artemis.rest/index.php" class="secondPane" style="background-color: rgba(255, 255, 255, 0.1);">home</a>';
+          <a style="background-color: rgba(0, 0, 255, 0.1);"><div class="imgBut" style="background-image: url(\'https://artemis.rest/img.d/icon.d/people.svg\');"/>Users: '.$getGuildInfo->approximate_member_count.'<br />Online: '.$getGuildInfo->approximate_presence_count.'</div></a>
+          <a style="background-color: rgba(0, 255, 255, 0.1);"><div class="imgBut" style="background-image: url(\'https://artemis.rest/img.d/icon.d/channel.svg\');"/>Channels:<br />'.count($guildChannels).'</div></a>
+          <a style="background-color: rgba(255, 0, 255, 0.1);"><input type="submit" class="sepSave" form="guildStuff" value="Save"/></a>
+          <a href="https://artemis.rest/index.php" style="background-color: rgba(255, 255, 255, 0.1);"><div class="imgBut" style="background-image: url(\'https://artemis.rest/img.d/icon.d/home.svg\');"/>home</div></a>';
       } else {
         //Content for page in state
         $controlContent = 'Bye';
@@ -536,7 +536,7 @@
         <a class="secondPane" style="background-color: rgba(0, 0, 255, 0.1);"></a>
         <a class="secondPane" style="background-color: rgba(0, 255, 255, 0.1);"></a>
         <a class="secondPane" style="background-color: rgba(255, 0, 255, 0.1);"></a>
-        <a href="https://artemis.rest/index.php" class="secondPane" style="background-color: rgba(255, 255, 255, 0.1);">home</a>';
+        <a href="https://artemis.rest/index.php" style="background-color: rgba(255, 255, 255, 0.1);"><div class="imgBut" style="background-image: url(\'https://artemis.rest/img.d/icon.d/home.svg\');"/>home</div></a>';
     }
     
   } else {
