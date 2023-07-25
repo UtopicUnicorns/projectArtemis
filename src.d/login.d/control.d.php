@@ -28,9 +28,9 @@
       global $sysGuilds;
       
       //Set values
-      $sysGuilds[$guild[guildId]]['id'] = $guild[guildId];
-      $sysGuilds[$guild[guildId]]['name'] = $guild[guildName];
-      $sysGuilds[$guild[guildId]]['icon'] = $guild[guildIcon];
+      $sysGuilds[$guild['guildId']]['id'] = $guild['guildId'];
+      $sysGuilds[$guild['guildId']]['name'] = $guild['guildName'];
+      $sysGuilds[$guild['guildId']]['icon'] = $guild['guildIcon'];
     }
     
     //Get user guilds
@@ -67,9 +67,9 @@
             if($userGuilds[$guildTemp]) {
               $makeTempConn = new mysqli('localhost', $sqlUser, $sqlPass);
               $makeTempConn->query("USE g$guildTemp;");
-              $makeTempConn->query("UPDATE Settings SET id='', value='".$_POST['']."' WHERE id = '';");
+              //$makeTempConn->query("UPDATE Settings SET id='', value='".$_POST['']."' WHERE id = '';");
               if (!empty($_POST['hiChanSettings'])) $makeTempConn->query("UPDATE Settings SET id='hiChanSettings', value='".$_POST['hiChanSettings']."' WHERE id = 'hiChanSettings';");
-              if (!empty($_POST['hiMsgSettings'])) $makeTempConn->query("UPDATE Settings SET id='hiMsgSettings', value='".$_POST['hiMsgSettings']."' WHERE id = 'hiMsgSettings';");
+              if (!empty($_POST['hiMsgSettings'])) $makeTempConn->query("UPDATE Settings SET id='hiMsgSettings', value='".$makeTempConn -> real_escape_string($_POST['hiMsgSettings'])."' WHERE id = 'hiMsgSettings';");
               if (!empty($_POST['memberRoleSettings'])) $makeTempConn->query("UPDATE Settings SET id='memberRoleSettings', value='".$_POST['memberRoleSettings']."' WHERE id = 'memberRoleSettings';");
               if (!empty($_POST['streamerChannelSettings'])) $makeTempConn->query("UPDATE Settings SET id='streamerChannelSettings', value='".$_POST['streamerChannelSettings']."' WHERE id = 'streamerChannelSettings';");
               if (!empty($_POST['streamerRoleSettings'])) $makeTempConn->query("UPDATE Settings SET id='streamerRoleSettings', value='".$_POST['streamerRoleSettings']."' WHERE id = 'streamerRoleSettings';");
@@ -129,11 +129,11 @@
         //Fetch information
         $controllingSql = new mysqli('localhost', $sqlUser, $sqlPass);
         $controlInfo = $controllingSql->query("USE g$getGuildInfo->id;");
-        if(!$controlInfo) die("control.d #\107");
+        if(!$controlInfo) die("control.d # 107<br />Guild was not found, or not yet made in database.<br /><a href=\"https://artemis.rest\">Go back to home page</a>");
         $settingsQuery = $controllingSql->query("SELECT * FROM Settings;");
-        if(!$settingsQuery) die("control.d #\109");
+        if(!$settingsQuery) die("control.d # 109");
         $logQuery = $controllingSql->query("SELECT * FROM Logs;");
-        if(!$logQuery) die("control.d #\111");
+        if(!$logQuery) die("control.d # 111");
         
         //Parse information
         $parsedSqlSettings = [];
@@ -143,9 +143,13 @@
         $threadsSelect = '';
         $rolesParsed = [];
         $rolesSelect = '';
+        $chanAutocomplete = [];
+        $roleAutocomplete = [];
         
         foreach($getGuildInfo->roles as $role) {
           global $rolesParsed;
+          global $roleAutocomplete;
+          array_push($roleAutocomplete, array('id' => $role->id, 'name' => $role->name));
           $rolesParsed[$role->id]['id'] = $role->id;
           $rolesParsed[$role->id]['name'] = $role->name;
           $rolesSelect .= '<option value="'.$role->id.'">'.$role->name.'</option>';
@@ -153,6 +157,8 @@
         
         foreach($guildChannels as $channels) {
           global $channelsSelect;
+          global $chanAutocomplete;
+          array_push($chanAutocomplete, array('id' => $channels['id'], 'name' => $channels['name']));
           if($channels['type'] == 'channel') $channelsSelect .= '<option value="'.$channels['id'].'">'.$channels['name'].'</option>';
           if($channels['type'] == 'voice') $voiceSelect .= '<option value="'.$channels['id'].'">'.$channels['name'].'</option>';
           if($channels['type'] == 'thread') $threadsSelect .= '<option value="'.$channels['id'].'">'.$channels['name'].'</option>';
@@ -161,8 +167,8 @@
         foreach($settingsQuery as $sq) { 
           global $parsedSqlSettings;
           if($sq['id'] == 'hiChanSettings') {
-            if($guildChannels[$sq['value']]['name']) $parsedSqlSettings[$sq['id']] = '<option value="'.$sq['value'].'" selected>'.$guildChannels[$sq['value']]['name'].'</option>';
-            if(!$guildChannels[$sq['value']]['name']) $parsedSqlSettings[$sq['id']] = '<option value="NONE" selected>Not set</option>';
+            if($sq['value'] !== 'NONE') if($guildChannels[$sq['value']]['name']) $parsedSqlSettings[$sq['id']] = '<option value="'.$sq['value'].'" selected>'.$guildChannels[$sq['value']]['name'].'</option>';
+            if($sq['value'] == 'NONE') $parsedSqlSettings[$sq['id']] = '<option value="NONE" selected>Not set</option>';
           }
           
           if($sq['id'] == 'hiMsgSettings') {
@@ -170,23 +176,23 @@
           }
           
           if($sq['id'] == 'memberRoleSettings') {
-            if($rolesParsed[$sq['value']]['name']) $parsedSqlSettings[$sq['id']] = '<option value="'.$sq['value'].'" selected>'.$rolesParsed[$sq['value']]['name'].'</option>';
-            if(!$rolesParsed[$sq['value']]['name']) $parsedSqlSettings[$sq['id']] = '<option value="NONE" selected>Not set</option>';
+            if($sq['value'] !== 'NONE') if($rolesParsed[$sq['value']]['name']) $parsedSqlSettings[$sq['id']] = '<option value="'.$sq['value'].'" selected>'.$rolesParsed[$sq['value']]['name'].'</option>';
+            if($sq['value'] == 'NONE') $parsedSqlSettings[$sq['id']] = '<option value="NONE" selected>Not set</option>';
           }
           
           if($sq['id'] == 'streamerChannelSettings') {
-            if($guildChannels[$sq['value']]['name']) $parsedSqlSettings[$sq['id']] = '<option value="'.$sq['value'].'" selected>'.$guildChannels[$sq['value']]['name'].'</option>';
-            if(!$guildChannels[$sq['value']]['name']) $parsedSqlSettings[$sq['id']] = '<option value="NONE" selected>Not set</option>';
+            if($sq['value'] !== 'NONE') if($guildChannels[$sq['value']]['name']) $parsedSqlSettings[$sq['id']] = '<option value="'.$sq['value'].'" selected>'.$guildChannels[$sq['value']]['name'].'</option>';
+            if($sq['value'] == 'NONE') $parsedSqlSettings[$sq['id']] = '<option value="NONE" selected>Not set</option>';
           }
           
           if($sq['id'] == 'streamerRoleSettings') {
-            if($rolesParsed[$sq['value']]['name']) $parsedSqlSettings[$sq['id']] = '<option value="'.$sq['value'].'" selected>'.$rolesParsed[$sq['value']]['name'].'</option>';
-            if(!$rolesParsed[$sq['value']]['name']) $parsedSqlSettings[$sq['id']] = '<option value="NONE" selected>Not set</option>';
+            if($sq['value'] !== 'NONE') if($rolesParsed[$sq['value']]['name']) $parsedSqlSettings[$sq['id']] = '<option value="'.$sq['value'].'" selected>'.$rolesParsed[$sq['value']]['name'].'</option>';
+            if($sq['value'] == 'NONE') $parsedSqlSettings[$sq['id']] = '<option value="NONE" selected>Not set</option>';
           }
           
           if($sq['id'] == 'verificationChannelSettings') {
-            if($guildChannels[$sq['value']]['name']) $parsedSqlSettings[$sq['id']] = '<option value="'.$sq['value'].'" selected>'.$guildChannels[$sq['value']]['name'].'</option>';
-            if(!$guildChannels[$sq['value']]['name']) $parsedSqlSettings[$sq['id']] = '<option value="NONE" selected>Not set</option>';
+            if($sq['value'] !== 'NONE') if($guildChannels[$sq['value']]['name']) $parsedSqlSettings[$sq['id']] = '<option value="'.$sq['value'].'" selected>'.$guildChannels[$sq['value']]['name'].'</option>';
+            if($sq['value'] == 'NONE') $parsedSqlSettings[$sq['id']] = '<option value="NONE" selected>Not set</option>';
           }
           
           if($sq['id'] == 'verificationMethodSettings') {
@@ -197,8 +203,8 @@
         
         foreach($logQuery as $lq) {
           global $parsedSqlLogs;
-          if($guildChannels[$lq['value']]['name']) $parsedSqlLogs[$lq['id']] = '<option value="'.$lq['value'].'" selected>'.$guildChannels[$lq['value']]['name'].'</option>';
-          if(!$guildChannels[$lq['value']]['name']) $parsedSqlLogs[$lq['id']] = '<option value="NONE" selected>Not set</option>';
+          if($lq['value'] !== 'NONE') if($guildChannels[$lq['value']]['name']) $parsedSqlLogs[$lq['id']] = '<option value="'.$lq['value'].'" selected>'.$guildChannels[$lq['value']]['name'].'</option>';
+          if($lq['value'] == 'NONE') $parsedSqlLogs[$lq['id']] = '<option value="NONE" selected>Not set</option>';
         };
         
         //Output information
@@ -239,8 +245,9 @@
                     When set to anything but NONE, a button will be attached to the greeting with the welcome text.
                   </span>
                 </div></p>
-                <textarea id="hiMsgSettings" name="hiMsgSettings" maxlength="1500" rows="5" cols="33">'.$parsedSqlSettings['hiMsgSettings'].'</textarea><br /><br />
-              
+                <textarea id="hiMsgSettings" name="hiMsgSettings" maxlength="1500" rows="5" cols="33">'.$parsedSqlSettings['hiMsgSettings'].'</textarea>
+                <script>let autoChan = '.JSON_encode($chanAutocomplete).'; let autoRole = '.JSON_encode($roleAutocomplete).';</script>
+                <div class="stickToText" id="complete"></div>
               <p><div class="tooltip">Member role &#x1F6C8;
                   <span class="tooltiptext">This role will be given to users when they join the server, when they get it depends on the verification method.</span>
                 </div></p>

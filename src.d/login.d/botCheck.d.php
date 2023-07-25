@@ -21,17 +21,17 @@
   
   //Check if timer exists
   $timerGet = $startCon->query("SELECT * FROM timeStatus;");
-  if(!$timerGet) $startCon->query("CREATE TABLE timeStatus (timeUnique varchar(100) NOT NULL, timeGet varchar(255), PRIMARY KEY (timeUnique))");
+  if(!$timerGet) $startCon->query("CREATE TABLE timeStatus (timeUnique varchar(100) NOT NULL, timeGet text, PRIMARY KEY (timeUnique))");
   
   //Check if table exists to hold guilds else create
   $guildTable = $startCon->query("SELECT * FROM guildStatus;");
-  if(!$guildTable) $startCon->query("CREATE TABLE guildStatus (guildId varchar(100) NOT NULL, guildName varchar(255), guildIcon varchar(255), PRIMARY KEY (guildId))");
+  if(!$guildTable) $startCon->query("CREATE TABLE guildStatus (guildId varchar(100) NOT NULL, guildName text, guildIcon text, PRIMARY KEY (guildId))");
   $startCon->query("TRUNCATE TABLE guildStatus;");
   
   //Get last update time
   $timerFetch = $startCon->query("SELECT timeGet FROM timeStatus limit 1;")->fetch_object()->timeGet;
   $calcTimeDiff = round($starttime - $timerFetch, 0);
-  if($calcTimeDiff <= 60) return;
+  //if($calcTimeDiff <= 60) return;
   
   //Get request function
   function getRequest($url, $auth, $user) {
@@ -109,47 +109,47 @@
       
       //Check Logs table
       $logTable = $newConMake->query("SELECT * FROM Logs;");
-      if(!$logTable) $newConMake->query("CREATE TABLE Logs (id varchar(100) NOT NULL, value varchar(255), PRIMARY KEY (id))");
-      
+      if(!$logTable) $newConMake->query("CREATE TABLE Logs (id varchar(100) NOT NULL, value text, PRIMARY KEY (id))");
+      echo JSON_encode($logTable);
       //Check Settings Table
       $settingsTable = $newConMake->query("SELECT * FROM Settings;");
-      if(!$settingsTable) $newConMake->query("CREATE TABLE Settings (id varchar(100) NOT NULL, value varchar(255), PRIMARY KEY (id))");
+      if(!$settingsTable) $newConMake->query("CREATE TABLE Settings (id varchar(100) NOT NULL, value text, PRIMARY KEY (id))");
       
       //Check User table
       $usersTable = $newConMake->query("SELECT * FROM User;");
-      if(!$usersTable) $newConMake->query("CREATE TABLE User (id varchar(100) NOT NULL, username varchar(255), discriminator varchar(255), avatar varchar(255), points int, PRIMARY KEY (id))");
+      if(!$usersTable) $newConMake->query("CREATE TABLE User (id varchar(100) NOT NULL, username text, discriminator text, avatar text, points int, PRIMARY KEY (id))");
       
       //Check Streamers Table
       $streamersTable = $newConMake->query("SELECT * FROM Streamers;");
-      if(!$streamersTable) $newConMake->query("CREATE TABLE Streamers (id varchar(100) NOT NULL, value varchar(255), PRIMARY KEY (id))");
+      if(!$streamersTable) $newConMake->query("CREATE TABLE Streamers (id varchar(100) NOT NULL, value text, PRIMARY KEY (id))");
       
       //Check Support table
       $supportTable = $newConMake->query("SELECT * FROM Support;");
-      if(!$supportTable) $newConMake->query("CREATE TABLE Support (id varchar(100) NOT NULL, value varchar(255), PRIMARY KEY (id))");
+      if(!$supportTable) $newConMake->query("CREATE TABLE Support (id varchar(100) NOT NULL, value text, PRIMARY KEY (id))");
       
       //Check Topics Table
       $topicsTable = $newConMake->query("SELECT * FROM Topics;");
-      if(!$topicsTable) $newConMake->query("CREATE TABLE Topics (id varchar(100) NOT NULL, value varchar(255), PRIMARY KEY (id))");
+      if(!$topicsTable) $newConMake->query("CREATE TABLE Topics (id varchar(100) NOT NULL, value text, PRIMARY KEY (id))");
       
       //Check joinlog Table
       $joinlogTable = $newConMake->query("SELECT * FROM joinLog;");
-      if(!$joinlogTable) $newConMake->query("CREATE TABLE joinLog (id varchar(100) NOT NULL, username varchar(255), discriminator varchar(255), avatar varchar(255), timeStamp varchar(255), PRIMARY KEY (id))");
+      if(!$joinlogTable) $newConMake->query("CREATE TABLE joinLog (id varchar(100) NOT NULL, username text, discriminator text, avatar text, timeStamp text, PRIMARY KEY (id))");
       
       //Check roles table
       $rolesTable = $newConMake->query("SELECT * FROM roles;");
-      if(!$rolesTable) $newConMake->query("CREATE TABLE roles (id varchar(100) NOT NULL, rolename varchar(255), description varchar(255), emote varchar(255), slot varchar(255), PRIMARY KEY (id))");
+      if(!$rolesTable) $newConMake->query("CREATE TABLE roles (id varchar(100) NOT NULL, rolename text, description text, emote text, slot text, PRIMARY KEY (id))");
       
       //Check actionlog table
       $actionlogTable = $newConMake->query("SELECT * FROM actionLog;");
-      if(!$actionlogTable) $newConMake->query("CREATE TABLE actionLog (id varchar(100) NOT NULL, timeStamp varchar(255), takenBy varchar(255), issuedTo varchar(255), actionType varchar(255), actionNotes varchar(255), PRIMARY KEY (id))");
+      if(!$actionlogTable) $newConMake->query("CREATE TABLE actionLog (id varchar(100) NOT NULL, timeStamp text, takenBy text, issuedTo text, actionType text, actionNotes text, PRIMARY KEY (id))");
       
       //Check customCommands table
       $customcommandsTable = $newConMake->query("SELECT * FROM customCommands;");
-      if(!$customcommandsTable) $newConMake->query("CREATE TABLE customCommands (id varchar(100) NOT NULL, triggerWord varchar(255), reply varchar(255), actiontype varchar(255), actiondo varchar(255), placement varchar(255), PRIMARY KEY (id))");
+      if(!$customcommandsTable) $newConMake->query("CREATE TABLE customCommands (id varchar(100) NOT NULL, triggerWord text, reply text, actiontype text, actiondo text, placement text, PRIMARY KEY (id))");
       
       //Populate tables
       //Check if values are selectable or valid
-      $verificationMethodSettings = $newConMake->query("SELECT value FROM Settings WHERE id = 'verificationMethodSettings' limit 1;")->fetch_object()->value;
+      $verificationMethodSettings = $newConMake->query("SELECT value FROM Settings WHERE id = 'verificationMethodSettings' limit 1;")->fetch_object()->value;      
       $verificationChannelSettings = $newConMake->query("SELECT value FROM Settings WHERE id = 'verificationChannelSettings' limit 1;")->fetch_object()->value;
       $memberRoleSettings = $newConMake->query("SELECT value FROM Settings WHERE id = 'memberRoleSettings' limit 1;")->fetch_object()->value;
       $streamerChannelSettings = $newConMake->query("SELECT value FROM Settings WHERE id = 'streamerChannelSettings' limit 1;")->fetch_object()->value;

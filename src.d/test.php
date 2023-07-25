@@ -68,6 +68,10 @@
         <div class="cPaneMain" style="background: url('https://artemis.rest/img.d/tree.d/3.png') no-repeat bottom right; background-size: contain;">
           <div class="wrapSecondPanes">
             <a class="contentBoxed" style="padding: 1vh; background-color: rgba(255, 0, 0, 0.1);">
+          
+              <textarea maxlength="1500" id="input"></textarea>
+              <div class="stickToText" id="complete">fddsdfs</div>
+              
               <h1>Header 1</h1>
               
               <h2>Header 2</h2>

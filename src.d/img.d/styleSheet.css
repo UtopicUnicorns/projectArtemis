@@ -275,6 +275,40 @@ body { background-color: black; overflow: hidden; overflow-y: auto; }
   background-color: rgba(255, 0, 255, 0.2);
 }
 
+.stickToText {
+  width: 100%;
+  height: 0vh;
+  overflow: auto;
+  border: none;
+  transition: 200ms;
+}
+
+.roleAutoSel {
+  padding-left: 4vh;
+  height: 3vh;
+  margin: 0vh;
+  border-radius: 1vh 0 1vh 0;
+  border: 1px solid black;
+  background: url('https://artemis.rest/img.d/icon.d/user.svg') no-repeat center left / 2em;
+  background-color: rgba(255, 255, 0, 0.2);
+  transition: 200ms;
+}
+
+.chanAutoSel {
+  padding-left: 4vh;
+  height: 3vh;
+  margin: 0vh;
+  border-radius: 1vh 0 1vh 0;
+  border: 1px solid black;
+  background: url('https://artemis.rest/img.d/icon.d/channel.svg') no-repeat center left / 2em;
+  background-color: rgba(0, 255, 255, 0.2);
+  transition: 200ms;
+}
+
+.chanAutoSel:hover, .chanAutoSel:focus, .chanAutoSel:active, .roleAutoSel:hover, .roleAutoSel:active, .roleAutoSel:focus {
+  background-color: rgba(255, 0, 0, 0.2);
+}
+
 /* HTML rules */
 select {
   width: 95%;
