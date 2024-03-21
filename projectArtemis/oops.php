@@ -4,6 +4,23 @@
     <meta charset="UTF-8"><!-- standard characterset -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- standard viewport -->
     <title>Error</title><!-- set title -->
+    <meta name="description" content="Welcome to Project Artemis - an innovative suite of projects centered around enhancing Discord experiences. Explore Project Bow, our custom Discord API library; Project Arrow, the powerful bot leveraging Project Bow's capabilities; and Project Artemis, the hub where you'll find our website and more. Join us in revolutionizing Discord interactions with cutting-edge technology.">
+    <meta name="keywords" content="Project Artemis, Discord bot, Project Bow, Project Arrow, Discord API library, Website development, Discord development, Technology innovation, Chatbot development, Gaming community, Communication platform, Programming projects, Software development, Bot creation, Discord experiences">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@initrd2">
+    <meta name="twitter:domain" content="artemis.rest">
+    <meta name="twitter:title" content="Project Artemis">
+    <meta name="twitter:description" content="Welcome to Project Artemis - an innovative suite of projects centered around enhancing Discord experiences. Explore Project Bow, our custom Discord API library; Project Arrow, the powerful bot leveraging Project Bow's capabilities; and Project Artemis, the hub where you'll find our website and more. Join us in revolutionizing Discord interactions with cutting-edge technology.">
+    <meta name="twitter:image" content="https://artemis.rest/include.d/img.d/imageFileHalf.png">
+    <meta name="twitter:creator" content="@initrd2">
+
+    <meta property="og:title" content="Project Artemis">
+    <meta property="og:description" content="Welcome to Project Artemis - an innovative suite of projects centered around enhancing Discord experiences. Explore Project Bow, our custom Discord API library; Project Arrow, the powerful bot leveraging Project Bow's capabilities; and Project Artemis, the hub where you'll find our website and more. Join us in revolutionizing Discord interactions with cutting-edge technology.">
+    <meta property="og:image" content="https://artemis.rest/include.d/img.d/imageFileHalf.png">
+    <meta property="og:url" content="https://artemis.rest">
+    <meta property="og:site_name" content="Project Artemis">
+    <meta property="og:type" content="website">
     <link rel="shortcut icon" type="image/jpg" href="https://artemis.rest/include.d/icon.d/favicon.png"/> <!-- favicon icon -->
     <link rel="stylesheet" href="https://artemis.rest/include.d/primary.css"><!-- load css -->
     <link rel="stylesheet" href="https://artemis.rest/include.d/secondary.css"><!-- phone css -->
