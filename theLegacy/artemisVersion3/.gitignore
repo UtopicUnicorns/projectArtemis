@@ -1,0 +1,9 @@
+
+*.sqlite*
+node_modules/*
+modules/CONFIG.js
+content/MUSIC/*
+content/speen/*
+content/*.pem
+KEY/*
+generatedCommands.txt

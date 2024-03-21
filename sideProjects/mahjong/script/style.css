@@ -1,0 +1,241 @@
+@keyframes byeTile {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes wrongMove {
+  0% {
+    box-shadow: inset 0 0 10px 0 rgba(0, 0, 0, 0);
+  }
+  50% {
+    box-shadow: inset 0 0 10px 0 rgba(255, 0, 0, 1);
+  }
+  100% {
+    box-shadow: inset 0 0 10px 0 rgba(0, 0, 0, 0);
+  }
+}
+
+@keyframes rightMove {
+  0% {
+    box-shadow: inset 0 0 10px 0 rgba(0, 0, 0, 0);
+  }
+  50% {
+    box-shadow: inset 0 0 10px 0 rgba(0, 255, 0, 1);
+  }
+  100% {
+    box-shadow: inset 0 0 10px 0 rgba(0, 0, 0, 0);
+  }
+}
+
+@keyframes selectMove {
+  0% {
+    box-shadow: inset 0 0 10px 0 rgba(0, 0, 0, 0);
+  }
+  50% {
+    box-shadow: inset 0 0 10px 0 rgba(255, 255, 255, 1);
+  }
+  100% {
+    box-shadow: inset 0 0 10px 0 rgba(0, 0, 0, 0);
+  }
+}
+
+@keyframes m {
+  0% {
+   background-position: 
+    calc( .9*var(--s)) calc( .9*var(--s)),
+    calc(-.1*var(--s)) calc(-.1*var(--s)),
+    calc( .7*var(--s)) calc( .7*var(--s)),
+    calc(-.3*var(--s)) calc(-.3*var(--s)),0 0
+  }
+  25% {
+   background-position: 
+    calc(1.9*var(--s)) calc( .9*var(--s)),
+    calc(-1.1*var(--s)) calc(-.1*var(--s)),
+    calc(1.7*var(--s)) calc( .7*var(--s)),
+    calc(-1.3*var(--s)) calc(-.3*var(--s)),0 0
+  }
+  50% {
+   background-position: 
+    calc(1.9*var(--s)) calc(-.1*var(--s)),
+    calc(-1.1*var(--s)) calc( .9*var(--s)),
+    calc(1.7*var(--s)) calc(-.3*var(--s)),
+    calc(-1.3*var(--s)) calc( .7*var(--s)),0 0
+  }
+  75% {
+   background-position: 
+    calc(2.9*var(--s)) calc(-.1*var(--s)),
+    calc(-2.1*var(--s)) calc( .9*var(--s)),
+    calc(2.7*var(--s)) calc(-.3*var(--s)),
+    calc(-2.3*var(--s)) calc( .7*var(--s)),0 0
+  }
+  100% {
+   background-position: 
+    calc(2.9*var(--s)) calc(-1.1*var(--s)),
+    calc(-2.1*var(--s)) calc(1.9*var(--s)),
+    calc(2.7*var(--s)) calc(-1.3*var(--s)),
+    calc(-2.3*var(--s)) calc(1.7*var(--s)),0 0
+  }
+}
+
+@keyframes flip {
+  0%,80% {
+    transform: rotateY(360deg) 
+  }
+}
+
+body {
+  overflow: hidden;
+}
+
+.tile {
+  width: 90%;
+  height: 90%;
+  border-radius: 30% 0 30% 0;
+  margin: 0;
+  background: 
+    radial-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(0, 0, 0, 0.5)
+    );
+  background-size: 200% 200%;
+  background-position: 80% 70%;
+  z-index: 10;
+  position: relative;
+  transition: 0.1s;
+}
+
+.tile:hover {
+  animation: selectMove 1s ease-out 0s infinite;
+  transition: 0.1s;
+}
+
+.tileSelected {
+  width: 100%;
+  height: 100%;
+  border-radius: 30% 0 30% 0;
+  margin: 0;
+  background-size: 200% 200%;
+  background-position: 80% 70%;
+  z-index: 10;
+  position: relative;
+  animation: wrongMove 1s ease-out 0s infinite;
+  transition: 0.1s;
+}
+
+.tileMatched {
+  opacity: 0;
+}
+
+.bg {
+  display: grid;
+  place-items: center;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  transform: scale(1.2);
+  filter: blur(4px);
+}
+
+.bgTwo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  --s: 100px; /* control the size */
+  --c1: rgba(255, 0, 255, 0);
+  --c2: rgba(255, 255, 255, 0.1);
+  
+  --_s: calc(2*var(--s)) calc(2*var(--s));
+  --_g: var(--_s) conic-gradient(at 40% 40%, rgba(0, 0, 0, 0) 75%,var(--c1) 0);
+  --_p: var(--_s) conic-gradient(at 20% 20%, rgba(0, 0, 0, 0) 75%,var(--c2) 0);
+  background:
+    calc( .9*var(--s)) calc( .9*var(--s))/var(--_p),
+    calc(-.1*var(--s)) calc(-.1*var(--s))/var(--_p),
+    calc( .7*var(--s)) calc( .7*var(--s))/var(--_g),
+    calc(-.3*var(--s)) calc(-.3*var(--s))/var(--_g),
+    conic-gradient(from 90deg at 20% 20%,var(--c2) 25%,var(--c1) 0) 
+     0 0/var(--s) var(--s);
+  animation: m 3s infinite;
+}
+
+.field {
+  display: grid;
+  place-items: center;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 0 100px 0 rgba(0, 0, 0, 0);
+  transition: .2s;
+}
+
+.board {
+  display: grid;
+  place-items: center;
+  width: 100vh;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.drawField {
+  display: grid;
+  place-items: center;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  transition: .2s;
+}
+
+.drawSpace {
+  width: 100vh;
+  height: 100vh;
+  z-index: 998;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+
+.waviy {
+  position: relative;
+  text-align: center;
+}
+
+.waviy span {
+  position: relative;
+  display: inline-block;
+  font-size: 5em;
+  text-shadow: 5px 5px 5px rgba(0, 0, 0, 1);
+  color: #fff;
+  text-transform: uppercase;
+  animation: flip 3s infinite;
+  animation-delay: calc(.2s * var(--i))
+}
+
+.theButton {
+  border: none;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 1);
+  width: auto;
+  padding: 0 150px 0 150px;
+  font-size: 2em;
+  border-radius: 50px 0 50px 0;
+  outline: inset 5px rgba(0,0,0,0.5);
+  background-color: rgba(255, 0, 255, 0.1);
+  transition: all 0.1s;
+  color: #fff;
+}
+
+.theButton:hover {
+  outline: inset 5px rgba(255,0,255,0.5);
+}
+
+

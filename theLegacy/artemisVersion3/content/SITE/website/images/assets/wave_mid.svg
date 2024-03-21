@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="677.249mm"
+   height="58.9065mm"
+   viewBox="0 0 1920 167"
+   version="1.1"
+   id="svg3"
+   sodipodi:docname="wave_mid.svg"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs7">
+    <filter
+       style="color-interpolation-filters:sRGB;"
+       inkscape:label="Drop Shadow"
+       id="filter960"
+       x="-0.00125"
+       y="-0.049333333"
+       width="1.0025"
+       height="1.0653333">
+      <feFlood
+         flood-opacity="1"
+         flood-color="rgb(0,0,0)"
+         result="flood"
+         id="feFlood950" />
+      <feComposite
+         in="flood"
+         in2="SourceGraphic"
+         operator="in"
+         result="composite1"
+         id="feComposite952" />
+      <feGaussianBlur
+         in="composite1"
+         stdDeviation="1"
+         result="blur"
+         id="feGaussianBlur954" />
+      <feOffset
+         dx="0"
+         dy="-5"
+         result="offset"
+         id="feOffset956" />
+      <feComposite
+         in="SourceGraphic"
+         in2="offset"
+         operator="over"
+         result="composite2"
+         id="feComposite958" />
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     id="namedview5"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.4621669"
+     inkscape:cx="1267.9402"
+     inkscape:cy="111.43161"
+     inkscape:window-width="1920"
+     inkscape:window-height="1080"
+     inkscape:window-x="1920"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg3" />
+  <path
+     id="Selection"
+     fill="none"
+     stroke="black"
+     stroke-width="1"
+     d="M 0.00,17.00            C 0.00,17.00 24.00,18.00 24.00,18.00              38.07,18.17 65.08,23.23 79.00,26.88              131.85,40.76 180.88,65.78 233.00,81.98              261.26,90.76 290.47,96.93 320.00,99.09              320.00,99.09 332.00,100.16 332.00,100.16              332.00,100.16 353.00,100.16 353.00,100.16              353.00,100.16 371.00,100.16 371.00,100.16              371.00,100.16 381.00,99.09 381.00,99.09              418.89,96.32 455.85,86.26 492.00,75.02              556.56,54.96 613.03,32.53 681.00,22.73              681.00,22.73 716.00,18.91 716.00,18.91              716.00,18.91 726.00,18.00 726.00,18.00              726.00,18.00 736.00,18.00 736.00,18.00              736.00,18.00 755.00,17.00 755.00,17.00              755.00,17.00 772.00,18.00 772.00,18.00              772.00,18.00 784.00,18.91 784.00,18.91              823.79,21.82 865.30,34.03 902.00,49.42              902.00,49.42 998.00,94.31 998.00,94.31              1024.55,106.50 1051.07,118.35 1080.00,123.74              1080.00,123.74 1103.00,126.09 1103.00,126.09              1103.00,126.09 1109.00,126.66 1109.00,126.66              1109.00,126.66 1123.00,126.00 1123.00,126.00              1140.71,125.79 1186.57,119.07 1206.00,116.27              1206.00,116.27 1351.00,93.08 1351.00,93.08              1351.00,93.08 1553.00,59.58 1553.00,59.58              1553.00,59.58 1698.00,37.72 1698.00,37.72              1698.00,37.72 1799.00,25.17 1799.00,25.17              1799.00,25.17 1836.00,21.83 1836.00,21.83              1836.00,21.83 1862.00,19.91 1862.00,19.91              1862.00,19.91 1873.00,19.00 1873.00,19.00              1873.00,19.00 1889.00,18.00 1889.00,18.00              1889.00,18.00 1904.00,18.00 1904.00,18.00              1904.00,18.00 1920.00,17.00 1920.00,17.00              1920.00,17.00 1920.00,167.00 1920.00,167.00              1920.00,167.00 0.00,167.00 0.00,167.00              0.00,167.00 0.00,17.00 0.00,17.00 Z"
+     style="fill:#008000;stroke:none;filter:url(#filter960)" />
+</svg>

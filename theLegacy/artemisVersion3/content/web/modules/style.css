@@ -1,0 +1,49 @@
+@import url("https://fonts.googleapis.com/css?family=Quicksand:300&display=swap");
+
+@font-face {
+  font-family: "zelda";
+  src: url("../fonts/zelda_regular-webfont.woff2") format("woff2"),
+    url("../fonts/zelda_regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  /*  Background fallback in case of IE8 & down, or in case video doens't load, such as with slower connections  */
+  background: #333;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.bg {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  background: url("/home/librorum/Documents/Art-re/content/bg.gif") no-repeat
+    center center;
+  background-size: cover;
+  z-index: -3;
+  -webkit-transform: scale(2);
+  transform: scale(2);
+}
+
+.bg2 {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  background-color: rgba(60, 255, 0, 0.1);
+  background-size: cover;
+  z-index: -2;
+}

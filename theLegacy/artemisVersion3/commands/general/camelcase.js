@@ -1,0 +1,52 @@
+////////////////////////////////////
+//We define Category name, Command name, Description
+//Permission level and full explanation here
+////////////////////////////////////
+module.exports = {
+  category: "general",
+  name: "camelcase",
+  description: "Convert text to camelcase.",
+  permission: "0",
+  explain: `Convert text to camelcase.
+
+Example usage: (PREFIX)camelcase Welcome to the jungle!`,
+
+  ////////////////////////////////////
+  //We pass trough some predefined things
+  //Within this command we can work with Client, raw content and a config file
+  ////////////////////////////////////
+  async execute(msg, client, CONFIG, npm, mmbr) {
+    ////////////////////////////////////
+    //We fetch the channel here
+    //We can easely send with this const
+    ////////////////////////////////////
+    const snd = await client.channels.cache.get(msg.channel_id);
+
+    ////////////////////////////////////
+    //Defining the arguments here
+    //Splits can happen later if needed
+    ////////////////////////////////////
+    const prefix = await CONFIG.PREFIX("PREFIX", msg.guild_id);
+    const comName = module.exports.name;
+    const arguments = await msg.content.slice(
+      prefix.length + comName.length + 1
+    );
+
+    ////////////////////////////////////
+    //Main command starts here
+    //Comments might get smaller here
+    ////////////////////////////////////
+    if (!arguments) return snd.send("Please type some text.");
+    v = arguments.toLowerCase();
+
+    function firstLetterUppercase(input) {
+      var res = "";
+      for (i = 0; i < input.length; i++) {
+        res += i % 2 == 0 ? input.charAt(i).toUpperCase() : input.charAt(i);
+      }
+      return res;
+    }
+
+    snd.send(firstLetterUppercase(v));
+  },
+};

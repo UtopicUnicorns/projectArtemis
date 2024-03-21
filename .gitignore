@@ -1,9 +1,3 @@
-tmp.d
-*config*
+*.json
 *codes*
-*sub
-*stats
-*data.js
-.jshintrc
-.prettierrc
-robots.txt
+*config*

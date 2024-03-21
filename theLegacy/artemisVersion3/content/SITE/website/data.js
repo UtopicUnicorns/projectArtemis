@@ -1,0 +1,1 @@
+let os_data = {"guild_count":3,"time":"19:14:41","date":"2022/6/4","os_cpu":"Intel(R) Core(TM) i7-4790 CPU @ 3.60GHz","os_cpuavg":[0.65,0.56,0.51],"os_plat":"linux","os_rel":"5.18.1-arch1-1","uptime":{"hour":"00","minute":"10","second":"00"},"os_memtotal":15947,"os_memfree":11999,"os_meminuse":3948,"os_up":{"hour":"12","minute":"42","second":"26"},"bot_mem":10}

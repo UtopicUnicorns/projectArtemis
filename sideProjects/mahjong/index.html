@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8"><!-- standard characterset -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- standard viewport -->
+  <title>Mahjong</title><!-- set title -->
+  <link rel="shortcut icon" type="image/jpg" href="./tiles/16.png"/> <!-- favicon icon -->
+  <link rel="stylesheet" href="./script/style.css"><!-- load css -->
+</head>
+<body>
+  <div id="menu" style="display: none; position: absolute; top: 0; left: 0; width: 100%; z-index: 999;"> <!-- Debug menu -->
+    <button class="theButton" onclick="gameOver()">Give up</button>
+    <button class="theButton" onclick="shuffleBoard('all')">Shuffle</button>
+    <button class="theButton" id="pauseButton" onclick="pauseMe()">Pause</button>
+    <!--
+    <button onclick="startLevel(2, 1)">1</button>
+    
+    <button onclick="startLevel(8, 1)">1</button>
+    <button onclick="startLevel(8, 2)">2</button>
+    <button onclick="startLevel(8, 3)">3</button>
+    <button onclick="startLevel(8, 4)">4</button>
+    <button onclick="startLevel(10, 5)">5</button>
+    <button onclick="startLevel(10, 6)">6</button>
+    <button onclick="startLevel(10, 7)">7</button>
+    <button onclick="startLevel(10, 8)">8</button>
+    <button onclick="startLevel(10, 9)">9</button>
+    <button onclick="startLevel(10, 10)">10</button>
+    
+    <button onclick="startLevel(12, 11)">11</button>
+    <button onclick="startLevel(12, 12)">12</button>
+    <button onclick="startLevel(12, 13)">13</button>
+    <button onclick="startLevel(12, 14)">14</button>
+    <button onclick="startLevel(14, 15)">15</button> -->
+    
+  </div>
+  
+  <div id="scoreCounter" style="display: none; pointer-events: none; text-shadow: 5px 5px 5px rgba(0, 0, 0, 1); position: absolute; top: 0; right: 0; width: 100%; z-index: 999; text-align: right; color: white; font-size: 2em; padding: 1vh 1vh 0 0;"><!-- Scores -->
+    Time: <span id="timeCount">0s</span><br />
+    Score: <span id="scoreCount">0</span><br />
+    Moves left: <span id="movesLeft">0</span><br />
+    Level: <span id="levelField">0</span><br />
+  </div>
+
+  <div id="gameBackground" class="bg" style="background: center / cover no-repeat url('./back/16.jpg');"></div> <!-- background -->
+  <div class="bgTwo"></div> <!-- background -->
+  
+  <div class="field" id="field"> <!-- Container -->
+    <div class="board" id="board"> <!-- container to draw in -->
+      <div id="game">
+        <div class="waviy">
+          <span style="--i:1">m</span>
+          <span style="--i:2">a</span>
+          <span style="--i:3">h</span>
+          <span style="--i:4">j</span>
+          <span style="--i:5">o</span>
+          <span style="--i:6">n</span>
+          <span style="--i:7">g</span><br /><hr />
+          <button class="theButton" onclick="startLevel(8, 1)">Start Game</button>
+        </div>
+        
+        <!--<button onclick="writeTest()"> </button>-->
+        <script>
+        function writeTest() {
+          let nameStuff = window.prompt("Insert name", "");
+          if(!nameStuff) nameStuff = "Anonymous";
+          console.log(nameStuff);
+        }
+        
+        fetch('score.json')
+          .then(response => response.json())
+          .then(jsonResponse => console.log(jsonResponse));
+        </script>
+      </div> <!-- The game -->
+    </div>
+    
+    <div class="drawField" id="drawField"> <!-- Drawing field -->
+      <canvas id="drawCanvas" class="drawSpace" width="1000" height="1000"></canvas> <!-- Drawing space -->
+    </div>
+    
+    <div class="drawField" id="drawField"> <!-- Drawing field -->
+      <div id="noticeField" class="drawSpace"></div> <!-- Drawing space -->
+    </div>
+  </div>
+  
+  <script src="./script/time.js"></script> <!-- Include Time -->
+  <script src="./script/easyStar.js"></script> <!-- Include easyStar -->
+  <script src="./script/mahjong.js"></script> <!-- Include Mahjong -->
+</body>
+

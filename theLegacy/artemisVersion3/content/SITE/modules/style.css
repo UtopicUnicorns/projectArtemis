@@ -1,0 +1,569 @@
+@import url("https://fonts.googleapis.com/css?family=Quicksand:300&display=swap");
+
+@font-face {
+  font-family: "zelda";
+  src: url("../fonts/zelda_regular-webfont.woff2") format("woff2"),
+    url("../fonts/zelda_regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.5);
+}
+
+body {
+  color: aliceblue;
+  font-size: 20px;
+  font-family: "Quicksand";
+  text-shadow: 2px 2px 2px black;
+  background-color: #000;
+}
+
+a {
+  color: bisque;
+  font-size: 22px;
+  text-decoration: none;
+  font-family: "Quicksand";
+  text-shadow: 2px 2px 2px black;
+}
+
+a:hover {
+  color: bisque;
+  font-size: 22px;
+  font-family: "Quicksand";
+  text-shadow: 2px 2px 2px rgb(255, 255, 255);
+}
+
+.wrap {
+  height: 100%;
+  position: relative;
+}
+
+.wrap .bg {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+}
+
+canvas {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.bg2 {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  background-size: 100px 100px;
+  background-image: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.02) 5px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 5px, transparent 1px);
+}
+
+#container {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+}
+
+#logobox {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes textdec {
+  1% {
+    font-size: 100px;
+  }
+  50% {
+    font-size: 95px;
+  }
+
+  100% {
+    font-size: 100px;
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+h2 {
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 20px;
+  font-family: zelda;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+  color: rgba(0, 255, 255, 0.5);
+}
+
+h2:hover {
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 20px;
+  font-family: zelda;
+  text-shadow: rgba(0, 255, 255, 0.2) 5px 5px 5px;
+  color: rgba(0, 255, 255, 0.5);
+}
+
+#logodiv {
+  width: 1000px;
+  height: 250px;
+  display: flex;
+  border: none;
+  justify-content: center;
+  align-items: center;
+  transform: skewX(10deg);
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 100px;
+  font-family: zelda;
+  text-shadow: rgba(0, 255, 255, 0.2) 5px 5px 5px;
+  color: rgba(0, 255, 255, 0.05);
+  animation: textdec 10s infinite;
+}
+
+#content {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+#box {
+  width: 250px;
+  height: 500px;
+  border: none;
+  transform: skewX(10deg);
+  margin-left: 10px;
+  margin-right: 10px;
+  z-index: 2;
+  animation: fade 2s 1;
+}
+
+.menu {
+  width: 100px;
+  height: 100px;
+  border: none;
+  margin: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px 0px 10px 0px;
+  border-style: outset;
+  border-width: 10px;
+  border-color: rgba(70, 83, 119, 0.5);
+  box-shadow: rgba(70, 83, 119, 0.5) 5px 5px 5px;
+  z-index: 3;
+}
+
+.menu:hover {
+  width: 100px;
+  height: 100px;
+  border: none;
+  margin: 10px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 10px 0px 10px 0px;
+  border-style: outset;
+  border-width: 10px;
+  border-color: rgba(70, 83, 119, 0.5);
+  box-shadow: rgba(70, 83, 119, 0.7) 5px 5px 5px;
+  z-index: 4;
+}
+
+.menu:active,
+.menu:focus {
+  width: 100px;
+  height: 100px;
+  border: none;
+  margin: 10px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 10px 0px 10px 0px;
+  border-style: outset;
+  border-width: 10px;
+  border-color: rgba(70, 83, 119, 0.8);
+  box-shadow: rgba(70, 83, 119, 0.7) 5px 5px 5px;
+  z-index: 5;
+}
+
+#box2 {
+  width: 500px;
+  height: 500px;
+  display: flex;
+  border-radius: 10px 0px 10px 0px;
+  border-style: outset;
+  border-width: 10px;
+  border-color: rgba(70, 83, 119, 0.5);
+  background-color: rgba(255, 255, 255, 0.1);
+  justify-content: center;
+  align-items: center;
+  transform: skewX(10deg);
+  margin-left: 10px;
+  margin-right: 10px;
+  box-shadow: rgba(70, 83, 119, 0.5) 5px 5px 5px;
+  z-index: 6;
+  animation: fade 3s 1;
+}
+
+#box2:hover {
+  width: 500px;
+  height: 500px;
+  display: flex;
+  border-radius: 10px 0px 10px 0px;
+  border-style: outset;
+  border-width: 10px;
+  border-color: rgba(70, 83, 119, 0.8);
+  background-color: rgba(255, 255, 255, 0.1);
+  justify-content: center;
+  align-items: center;
+  transform: skewX(10deg);
+  margin-left: 10px;
+  margin-right: 10px;
+  box-shadow: rgba(70, 83, 119, 0.5) 5px 5px 5px;
+  z-index: 7;
+}
+
+#textbox {
+  width: 460px;
+  height: 460px;
+  margin: 10px;
+  overflow: auto;
+  scrollbar-color: #0a837d black;
+  scrollbar-width: thin;
+  scroll-behavior: smooth;
+  z-index: 8;
+}
+
+.board {
+  width: 410px;
+  max-width: 410px;
+  border-radius: 0 25px 0 25px;
+  margin-top: 10px;
+  background-color: rgba(0, 255, 221, 0.05);
+  position: relative;
+  display: inline-block;
+  padding-left: 30px;
+  border-style: outset;
+  border-width: 5px;
+  border-color: rgba(70, 83, 119, 0);
+}
+
+.board:hover {
+  position: relative;
+  display: inline-block;
+  padding-left: 10px;
+  border-style: outset;
+  border-width: 5px;
+  border-color: rgba(70, 83, 119, 0.5);
+}
+
+.board2 {
+  width: 410px;
+  max-width: 410px;
+  border-radius: 0 25px 0 25px;
+  margin-top: 10px;
+  background-color: rgba(0, 81, 255, 0.05);
+  position: relative;
+  display: inline-block;
+  padding-left: 30px;
+  border-style: outset;
+  border-width: 5px;
+  border-color: rgba(70, 83, 119, 0);
+}
+
+.board2:hover {
+  position: relative;
+  display: inline-block;
+  padding-left: 10px;
+  border-style: outset;
+  border-width: 5px;
+  border-color: rgba(70, 83, 119, 0.5);
+}
+
+.aBox {
+  position: fixed;
+  bottom: 50px;
+  left: 50px;
+  width: 200px;
+  min-height: 25px;
+  text-align: right;
+  padding-right: 5px;
+  border-radius: 10px 100px 10px 10px;
+  border-style: outset;
+  border-width: 10px;
+  color: aliceblue;
+  font-family: "Quicksand";
+  text-shadow: 2px 2px 2px black;
+  border-color: rgba(70, 83, 119, 0.5);
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: skewX(10deg);
+  box-shadow: rgba(70, 83, 119, 0.5) 5px 5px 5px;
+  z-index: 6;
+  animation: fade 3s 1;
+}
+
+.aBox:hover {
+  position: fixed;
+  width: 200px;
+  min-height: 25px;
+  text-align: right;
+  border-radius: 10px 100px 10px 10px;
+  border-style: outset;
+  border-width: 10px;
+  border-color: rgba(70, 83, 119, 0.8);
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: skewX(10deg);
+  box-shadow: rgba(70, 83, 119, 0.5) 5px 5px 5px;
+  z-index: 6;
+  animation: fade 3s 1;
+}
+
+.dc {
+  opacity: 0;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 5px;
+  width: 200px;
+  height: 0px;
+  overflow: auto;
+  text-align: center;
+  bottom: 35px;
+  right: -15px;
+  border-radius: 10px 0px 10px 0px;
+  border-style: outset;
+  border-width: 10px;
+  border-color: rgba(70, 83, 119, 0.5);
+  z-index: 10;
+}
+
+.aBox:hover .dc {
+  opacity: 1;
+  height: 100px;
+  transition: 1000ms;
+}
+
+.aBoxButton {
+  width: 175px;
+  height: 25px;
+  margin-bottom: 15px;
+  color: aliceblue;
+  font-family: "Quicksand";
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px 0px 10px 0px;
+  border-style: outset;
+  border-width: 2px;
+  border-color: rgba(70, 83, 119, 0.5);
+  box-shadow: rgba(70, 83, 119, 0.5) 5px 5px 5px;
+}
+
+.aBoxButton:hover {
+  width: 175px;
+  height: 25px;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: yellow;
+  border-radius: 10px 0px 10px 0px;
+  border-style: outset;
+  border-width: 2px;
+  border-color: rgba(70, 83, 119, 0.5);
+  box-shadow: rgba(70, 83, 119, 0.7) 5px 5px 5px;
+}
+
+input[type="text"] {
+  padding-left: 5px;
+  color: aliceblue;
+  font-size: 20px;
+  font-family: "Quicksand";
+  text-shadow: 2px 2px 2px black;
+  border-radius: 10px 0px 10px 0px;
+  border-style: outset;
+  border-width: 10px;
+  border-color: rgba(70, 83, 119, 0.5);
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: rgba(70, 83, 119, 0.2) 5px 5px 5px;
+}
+
+input[type="text"]:hover,
+input[type="text"]:focus {
+  color: aliceblue;
+  font-size: 20px;
+  font-family: "Quicksand";
+  text-shadow: 2px 2px 2px black;
+  border-radius: 10px 0px 10px 0px;
+  border-style: outset;
+  border-width: 10px;
+  border-color: rgba(70, 83, 119, 0.8);
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: rgba(70, 83, 119, 0.5) 5px 5px 5px;
+}
+
+select {
+  padding-left: 5px;
+  color: aliceblue;
+  font-size: 20px;
+  font-family: "Quicksand";
+  text-shadow: 2px 2px 2px black;
+  border-radius: 10px 0px 10px 0px;
+  border-style: outset;
+  border-width: 10px;
+  border-color: rgba(70, 83, 119, 0.5);
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: rgba(70, 83, 119, 0.2) 5px 5px 5px;
+}
+
+select:hover,
+select:focus {
+  padding-left: 5px;
+  color: darkblue;
+  font-size: 20px;
+  font-family: "Quicksand";
+  text-shadow: 2px 2px 2px black;
+  border-radius: 10px 0px 10px 0px;
+  border-style: outset;
+  border-width: 10px;
+  border-color: rgba(70, 83, 119, 0.5);
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: rgba(70, 83, 119, 0.2) 5px 5px 5px;
+}
+
+.buttonmod {
+  color: aliceblue;
+  font-size: 20px;
+  font-family: "Quicksand";
+  text-shadow: 2px 2px 2px black;
+  border-radius: 10px 0px 10px 0px;
+  border-style: outset;
+  border-width: 10px;
+  border-color: rgba(70, 83, 119, 0.5);
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: rgba(70, 83, 119, 0.2) 5px 5px 5px;
+}
+
+.buttonmod:hover {
+  color: aliceblue;
+  font-size: 25px;
+  font-family: "Quicksand";
+  text-shadow: 2px 2px 2px black;
+  border-radius: 10px 0px 10px 0px;
+  border-style: outset;
+  border-width: 10px;
+  border-color: rgba(119, 70, 70, 0.8);
+  background-color: rgba(255, 0, 0, 0.1);
+  box-shadow: rgba(70, 83, 119, 0.5) 5px 5px 5px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  box-shadow: rgba(70, 83, 119, 0.2) 5px 5px 5px;
+  border-radius: 34px;
+}
+
+.switch:hover {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  box-shadow: rgba(70, 83, 119, 0.5) 5px 5px 5px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.1);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: rgba(146, 146, 146, 0.5);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: rgba(70, 83, 119, 0.8);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+  background-color: rgba(0, 255, 242, 0.5);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+* {
+  transition: 250ms !important;
+}

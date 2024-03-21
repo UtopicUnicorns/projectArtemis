@@ -1,0 +1,387 @@
+body { /* main rules to follow */
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.1);
+  color: rgba(255, 255, 255, 1);
+  text-decoration: none; 
+  scroll-behavior: smooth; 
+  font-size: 1em;
+  transition: 0.1s;
+}
+
+.eHold { /* main full hold */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.bgImage { /* background image */
+  filter: blur(5px) brightness(50%);
+  z-index: -3;
+  transform: scale(1.2);
+}
+
+.bgPattern { /* background pattern */
+  background: url('./back.d/pattern.png') no-repeat center center fixed;
+  background-size: cover;
+  animation: breath 6s infinite; 
+  z-index: -2;
+  transform: scale(1.2);
+}
+
+.bgGradient { /* background vignette */
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.0) 0%, rgba(0, 0, 0, 1) 100%);
+  z-index: -1;
+  transform: scale(1.2);
+}
+
+.mPanes { /* main panes */
+  display: grid; 
+  grid-template-columns: repeat(4, 1fr); 
+  grid-template-rows: repeat(3, 1fr); 
+  gap: 0;
+  place-items: center;
+}
+
+.mPane { /* main pane */
+  display: grid;
+  place-items: center;
+  box-shadow: inset 0 0 10px 10px rgba(0, 0, 0, 0.7);
+  transition: 0.1s;
+  outline: rgba(0, 0, 0, 0) solid 5px;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.mPane:hover { /* main pane hover */
+  box-shadow: inset 0 0 20px 20px rgba(0, 0, 0, 1);
+}
+
+.mpOne { /* main pane one */
+  grid-area: 1 / 1 / 3 / 3;
+  opacity: 0;
+  animation: enter 1s ease 1.8s 1 normal forwards;
+}
+
+.mpTwo { /* main pane two */
+  grid-area: 1 / 3 / 2 / 4;
+  opacity: 0;
+  animation: enter 1s ease 0s 1 normal forwards;
+}
+
+.mpThree { /* main pane three */
+  grid-area: 2 / 3 / 4 / 4;
+  opacity: 0;
+  animation: enter 1s ease 0.8s 1 normal forwards;
+}
+
+.mpFour { /* main pane four */
+  grid-area: 1 / 4 / 3 / 5;
+  opacity: 0;
+  animation: enter 1s ease 1s 1 normal forwards;
+}
+
+.mpFive { /* main pane five */
+  grid-area: 3 / 4 / 4 / 5;
+  opacity: 0;
+  animation: enter 1s ease 1.2s 1 normal forwards;
+}
+
+.mpSix { /* main pane six */
+  grid-area: 3 / 1 / 4 / 2;
+  opacity: 0;
+  animation: enter 1s ease 0.6s 1 normal forwards;
+}
+
+.mpSeven { /* main pane seven */
+  grid-area: 3 / 2 / 4 / 3;
+  opacity: 0;
+  animation: enter 1s ease 1.4s 1 normal forwards;
+}
+
+.mContent { /* main content */
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  
+}
+
+.mHead { /* main header */
+  width: 100%;
+  height: 10%;
+  display: grid;
+  place-items: center;
+  box-shadow: inset 0 0 10px 10px rgba(0, 0, 0, 0.7);
+  font-size: 1.5em;
+}
+
+.mType { /* main text */
+  margin: 0;
+  padding: 10px;
+}
+
+.mUl { /* main unordered list */
+  margin: 0;
+  list-style-type: circle;
+}
+
+.mOl { /* main ordered list */
+  margin: 0;
+}
+
+.dPanes { /* display panes */
+  display: grid; 
+  grid-template-columns: repeat(4, 1fr); 
+  grid-template-rows: repeat(3, 1fr); 
+  gap: 0;
+  place-items: center;
+}
+
+.dPane { /* display pane */
+  display: grid;
+  place-items: center;
+  box-shadow: inset 0 0 10px 10px rgba(0, 0, 0, 0.7);
+  transition: 0.1s;
+  outline: rgba(0, 0, 0, 0) solid 5px;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.dPane:hover { /* display pane hover */
+  box-shadow: inset 0 0 20px 20px rgba(0, 0, 0, 1);
+}
+
+.dpOne { /* display pane one */
+  grid-area: 1 / 1 / 4 / 4;
+  opacity: 0;
+  animation: enter 1s ease 0.6s 1 normal forwards;
+}
+
+.dpTwo { /* display pane two */
+  grid-area: 1 / 4 / 3 / 4;
+  opacity: 0;
+  animation: enter 1s ease 0s 1 normal forwards;
+}
+
+.dpThree { /* display pane three */
+  grid-area: 3 / 4 / 3 / 4;
+  opacity: 0;
+  animation: enter 1s ease 0.2s 1 normal forwards;
+}
+
+.oPanes { /* other panes */
+  display: grid; 
+  grid-template-columns: repeat(1, 1fr); 
+  grid-template-rows: repeat(1, 1fr); 
+  gap: 0;
+  place-items: center;
+}
+
+.oPane { /* other pane */
+  display: grid;
+  place-items: center;
+  box-shadow: inset 0 0 10px 10px rgba(0, 0, 0, 0.7);
+  transition: 0.1s;
+  outline: rgba(0, 0, 0, 0) solid 5px;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.oPane:hover { /* other pane hover */
+  box-shadow: inset 0 0 20px 20px rgba(0, 0, 0, 1);
+}
+
+.oOne { /* other pane one */
+  grid-area: 1 / 1 / 4 / 4;
+  opacity: 0;
+  animation: enter 1s ease 0.6s 1 normal forwards;
+}
+
+.cmP { /* control pane */
+  display: grid; 
+  grid-template-columns: repeat(2, 1fr); 
+  grid-template-rows: repeat(2, 1fr);
+  width: 100%;
+  height: 100%;
+  gap: 0;
+  overflow: auto;
+}
+
+.cO { /* control one */
+  grid-area: 1 / 1 / 2 / 2; 
+  overflow: auto; 
+} 
+
+.cT { /* control two */ 
+  grid-area: 1 / 2 / 2 / 3; 
+  overflow: auto; 
+} 
+
+.cTh { /* control three */
+  grid-area: 2 / 1 / 3 / 2; 
+  overflow: auto; 
+} 
+
+.cF { /* control four */
+  grid-area: 2 / 2 / 3 / 3; 
+  overflow: auto; 
+} 
+
+.filePane { /* file pane list */
+  text-align: left;
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 20px;
+}
+
+.fileLink { /* link styling for file pane */
+  text-decoration: none;
+  color: rgba(255, 255, 255, 1);
+  transition: 0.1s;
+}
+
+.fileLink:hover, .fileLink:active { /* link styling for file pane hover */
+  color: rgba(0, 255, 255, 1);
+  padding-left: 20px;
+}
+
+.dropTarget { /* main pane drop target */
+  box-shadow: inset 0 0 5px 5px rgba(0, 255, 0, 0.3);
+}
+
+.dragging { /* main pane dragging */
+  cursor: move;
+}
+
+.pLink { /* pane link */
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 2em;
+  transition: 0.1s;
+  text-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
+  
+}
+
+.pLink:hover { /* pane link hover */
+  font-size: 2.5em;
+  color: rgba(0, 255, 255, 0.8);
+  text-shadow: 0px 0px 2px rgba(0, 0, 0, 1);
+}
+
+.switch { /* Checkbox change */
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input { /* Checkbox change */
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider { /* Checkbox to slide */
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 0, 0, 0.5);
+  -webkit-transition: .4s;
+  border-radius: 5px;
+  transition: .1s;
+}
+
+.slider:before { /* Checkbox to slide */
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  border-radius: 5px;
+  transition: .1s;
+}
+
+h1 { /* Header 1 */
+  font-size: 5em;
+}
+
+h2 { /* Header 2 */
+  font-size: 4em;
+}
+
+h3 { /* Header 3 */
+  font-size: 3em;
+}
+
+h4 { /* Header 4 */
+  font-size: 2em;
+}
+
+h5 { /* Header 5 */
+  font-size: 1.6em;
+}
+
+h6 { /* Header 6 */
+  font-size: 1.3em;
+}
+
+a { /* Main links */
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.8);
+  transition: 0.1s;
+  text-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
+}
+
+a:hover { /* Main links */
+  color: rgba(0, 255, 255, 1);
+}
+
+input:checked + .slider { /* Checkbox to slide */
+  background-color: rgba(0, 255, 0, 0.5);
+}
+
+input:focus + .slider { /* Checkbox to slide */
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before { /* Checkbox to slide */
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+button { /* Main buttons */
+  background-color: rgba(255, 255, 0, 0.1);
+  border: none;
+  height: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  font-size: 1em;
+  cursor: pointer;
+  width: 100%;
+  transition: 0.5s;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
+}
+
+button:hover { /* Button to animation */
+  animation: buttonStuff 0.5s ease 0s 1 normal forwards;c
+}
+
+@keyframes breath { 0% { opacity: 0.5; } 50% { opacity: 0.1; } 100% { opacity: 0.5; } } /* set opacity 0.1-0.5 */
+@keyframes enter { 0% { opacity: 0; } 100% { opacity: 1; } } /* set opacity 0-1 */
+@keyframes buttonStuff { 0% { background-color: rgba(255, 255, 0, 0.1); box-shadow: 0px 0px 5px rgba(0, 0, 0, 1); } 100% { background-color: rgba(255, 0, 255, 0.1); box-shadow: 5px 5px 5px rgba(0, 0, 0, 1); } } /* set colors */
+

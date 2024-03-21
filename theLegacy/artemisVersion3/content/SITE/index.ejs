@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--Meta data-->
+    <meta charset="utf-8" />
+    <meta
+      name="description"
+      content="Project Artemis main website. Invite Artemis to your Discord server today!"
+    />
+    <meta
+      property="og:image"
+      content="https://artemis.rest/images/icons/artColor.png"
+    />
+
+    <!--Title-->
+    <title>Index | Project Artemis</title>
+
+    <!--favicon-->
+    <link
+      rel="shortcut icon"
+      href="https://artemis.rest/images/icons/artColor.png"
+      type="image/x-icon"
+    />
+    <link
+      rel="icon"
+      href="https://artemis.rest/images/icons/artColor.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" id="stylesheet" type="text/css" href="./modules/style.css" />
+    <link rel="stylesheet" type="text/css" href="./modules/jqs.css" />
+  </head>
+  <body onload="checkCookie()">
+    <div class="wrap">
+      <div class="bg">
+        <canvas id="bg"></canvas>
+        <div class="bg2"></div>
+        <!--LOGO-->
+        <div id="logobox">
+          <div id="logodiv">PROJECT ARTEMIS</div>
+        </div>
+      </div>
+    </div>
+
+    <!--CONTENT-->
+    <div id="content">
+      <!--Account Box-->
+      <%- logged %>
+
+      <!--menu box-->
+      <div id="box">
+        <button onclick="window.location.href='/'" class="menu">
+          <img
+            alt="Welcome" id="hom"
+            src="./images/icons/art.png"
+            style="width: 75px; height: 75px"
+          />
+        </button>
+
+        <button
+          onclick="window.open('https://discord.gg/Y6f3XQyuTQ','_blank')"
+          class="menu"
+        >
+          <img
+            alt="Join the Discord" id="dis"
+            src="./images/icons/discord.png"
+            style="width: 75px; height: 75px"
+          /></button
+        ><br />
+
+        <button
+          onclick="window.open('https://discordapp.com/api/oauth2/authorize?client_id=440892659264126997&permissions=8&scope=bot','_blank')"
+          class="menu"
+        >
+          <img
+            alt="Add my bot to your server" id="add"
+            src="./images/icons/add.png"
+            style="width: 75px; height: 75px"
+          />
+        </button>
+
+        <button
+          onclick="window.open('https://github.com/UtopicUnicorns/ArtemisV3','_blank')"
+          class="menu"
+        >
+          <img
+            alt="Visit my GitHub" id="git"
+            src="./images/icons/github.png"
+            style="width: 75px; height: 75px"
+          /></button
+        ><br />
+        <button
+          onclick="window.open('https://www.paypal.com/donate?hosted_button_id=ULQ8N32CLXK4L','_blank')"
+          class="menu"
+        >
+          <img
+            alt="Go to my paypal" id="pay"
+            src="./images/icons/paypal.png"
+            style="width: 75px; height: 75px"
+          />
+        </button>
+        <button onclick="window.location.href='/commands'" class="menu">
+          <img
+            alt="Show commands" id="com"
+            src="./images/icons/command.png"
+            style="width: 75px; height: 75px"
+          /></button
+        ><br />
+        <button
+          onclick="window.open('https://www.patreon.com/initrd','_blank')"
+          class="menu"
+        >
+          <img
+            alt="Go to my patreon" id="pay"
+            src="./images/icons/patreon.png"
+            style="width: 75px; height: 75px"
+          />
+        </button>
+        <button
+          onclick="setStyleSheet('./modules/vapor.css')"
+          class="menu"
+          id="stylechange"
+          style="width: 230px"
+        >
+          <img
+            alt="Artemis G enable"
+            src="./images/icons/enableg.png"
+            style="width: 200px; height: 75px"
+          /></button
+        ><br />
+      </div>
+
+      <!--content box-->
+      <div id="box2">
+        <div id="textbox">
+          <h2>Project Artemis</h2>
+          Artemis is an all-round Discord bot, who's purpose is to provide your
+          server with a powerful moderation and support bot! <br /><br />
+          <h2>Features</h2>
+          <li>Admin Cases</li>
+          <li>Music commands</li>
+          <li>Support Tickets</li>
+          <li>Cleverbot integration</li>
+          <li>Moderation commands</li>
+          <li>Custom Commands</li>
+        </div>
+      </div>
+
+      <div style="position: fixed; text-align: center; bottom: 10px; width: 50%; height: 100px; -webkit-mask: linear-gradient(0deg, rgba(0,0,0,0) 1%, rgba(0,0,0,1) 20%);">
+        <h2>
+          Artemis is seen in these servers
+        </h2>
+        <small>
+          <%- include ("guild.ejs") %>
+        </small>
+      </div>
+
+      <!--JS-->
+      <script src="./modules/jq.js"></script>
+      <script src="./modules/jqui.js"></script>
+      <script src="./modules/style.js"></script>
+      <script src="./modules/ac.js"></script>
+      <script src="./modules/noise.min.js"></script>
+      <script src="./modules/util.js"></script>
+      <script src="./modules/pipeline.js"></script>
+      <script src="./modules/bg.js"></script>
+    </div>
+  </body>
+</html>
