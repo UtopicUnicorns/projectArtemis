@@ -1,3 +1,0 @@
-<?php
-  include "./adminer.php";
-?>
