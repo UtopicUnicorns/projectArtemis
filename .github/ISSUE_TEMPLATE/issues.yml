@@ -54,7 +54,6 @@ body:
       label: Tell us what you need
       description: Describe your issue, bug or suggestion.
       placeholder: The more details the better.
-      value: ""
     validations:
       required: true
 
