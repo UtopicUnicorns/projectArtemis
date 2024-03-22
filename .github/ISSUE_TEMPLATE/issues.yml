@@ -1,0 +1,61 @@
+name: Bug, issue or suggestion
+description: Please fill out the form.
+title: ""
+assignees:
+  - UtopicUnicorns
+body:
+  - type: dropdown
+    id: whatDo
+    attributes:
+      label: Purpose
+      description: In the dropdown select if you want to fill out a bug, issue or suggestion
+      options:
+        - File a bug
+        - File an issue
+        - File a suggestion
+      default: 1
+    validations:
+      required: true
+  - type: dropdown
+    id: isNew
+    attributes:
+      label: Is this new?
+      description: Is this a reoccuring issue, bug or suggestion?
+      options:
+        - Yes
+        - No
+      default: 0
+    validations:
+      required: true
+  - type: dropdown
+    id: whereIsIssue
+    attributes:
+      label: Which Project
+      description: Select what project you are targetting
+      options:
+        - Project Artemis
+        - Project Bow
+        - Project Arrow
+        - Side Project(s)
+        - Other(Explain this if possible below)
+      default: 0
+    validations:
+      required: true
+  - type: input
+    id: explainOther
+    attributes:
+      label: Other selected
+      description: If you selected other, please give a small summary or title for it.
+      placeholder: Other...
+    validations:
+      required: false
+  - type: textarea
+    id: description
+    attributes:
+      label: Tell us what you need
+      description: Describe your issue, bug or suggestion.
+      placeholder: The more details the better.
+      value: ""
+    validations:
+      required: true
+
