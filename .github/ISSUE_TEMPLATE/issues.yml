@@ -1,6 +1,5 @@
 name: Bug, issue or suggestion
 description: Please fill out the form.
-title: ""
 assignees:
   - UtopicUnicorns
 body:
@@ -22,8 +21,8 @@ body:
       label: Is this new?
       description: Is this a reoccuring issue, bug or suggestion?
       options:
-        - Yes
-        - No
+        - This is new
+        - This is not new
       default: 0
     validations:
       required: true
