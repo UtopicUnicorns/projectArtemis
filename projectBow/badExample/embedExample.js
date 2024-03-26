@@ -33,47 +33,49 @@
       .author()
         Author needs a JSON object such as {}
         Object entry 'name' has a maximum of 256 characters.
-        Object entry 'url' 
-        Object entry 'iconUrl' 
-        Object entry 'proxyIconUrl' 
+        Object entry 'url' Is for a hyperlink.
+        Object entry 'iconUrl' either direct url or attachment.
+        Object entry 'proxyIconUrl' either direct url or attachment.
         
       .image()
         Image needs a JSON object such as {}
-        Object entry '' 
-        Object entry '' 
-        Object entry '' 
-        Object entry '' 
+        Object entry 'url' either direct url or attachment.
+        Object entry 'proxyUrl' either direct url or attachment.
+        Object entry 'height' height of the image.
+        Object entry 'width' width of the image.
         
       .thumbnail()
         Thumbnail needs a JSON object such as {}
-        Object entry '' 
-        Object entry '' 
-        Object entry '' 
-        Object entry '' 
+        Object entry 'url' either direct url or attachment.
+        Object entry 'proxyUrl' either direct url or attachment.
+        Object entry 'height' height of the image.
+        Object entry 'width' width of the image.
         
       .video()
         Video needs a JSON object such as {}
-        Object entry '' 
-        Object entry '' 
-        Object entry '' 
-        Object entry '' 
+        Object entry 'url' either direct url or attachment.
+        Object entry 'proxyUrl' either direct url or attachment.
+        Object entry 'height' height of the video.
+        Object entry 'width' width of the video.
         
       .provider()
         Provider needs a JSON object such as {}
-        Object entry '' 
-        Object entry '' 
+        Object entry 'name' string.
+        Object entry 'url' string.
         
       .footer()
         Footer needs a JSON object such as {}
         Object entry 'text' has a maximum of 2048 characters. 
-        Object entry '' 
-        Object entry '' 
+        Object entry 'iconUrl' either direct url or attachment.
+        Object entry 'proxyIconUrl' either direct url or attachment. 
       
       .timestamp()
         ISO8601 timestamp or leave empty for current time.
-  
+    
+    The combined character limit is 6000 characters.
 */
-new embed()
+
+new embed() /* First example empty. */
   .title()
   .description()
   .url()
@@ -85,5 +87,35 @@ new embed()
   .video({})
   .provider({})
   .footer()
-  .timestamp()
+  .timestamp();
 
+new embed() /* Second example full. */
+  .title('This is a title')
+  .description('This is a description')
+  .url('https://artemis.rest?what=ThisUrl')
+  .color('FF00FF')
+  .field({ name: 'Field name', value: 'Field content', inline: true })
+  .field({ name: 'Field2 name', value: 'Field2 content', inline: false })
+  .author({name: 'Author name', url: 'https://artemis.rest', iconUrl: 'https://artemis.rest/image.png', proxyIconUrl: 'https://cdn.artemis.rest/image.png'})
+  .image({ url: 'https://artemis.rest/image.png', proxyUrl: 'https://cdn.artemis.rest/image.png', width: 100, height: 100 })
+  .thumbnail({ url: 'https://artemis.rest/thumbImage.png', proxyUrl: 'https://cdn.artemis.rest/thumbImage.png', width: 100, height: 100 })
+  .video({ url: 'https://artemis.rest/video.mov', proxyUrl: 'https://cdn.artemis.rest/video.mov', width: 100, height: 100 })
+  .provider({ name: 'Your name', url: 'https://artemis.rest' })
+  .footer({ text: 'A side note', iconUrl: 'https://artemis.rest/footer.png', proxyIconUrl: 'https://cdn.artemis.rest/footer.png' })
+  .timestamp('04 September 1992 13:48 UTC');
+
+new embed() /* Third example partial. */
+  .title('This is a title')
+  .description('This is a description')
+  .url('https://artemis.rest?what=ThisUrl')
+  .color('00FF00')
+  .field({ name: 'Field name', value: 'Field content', inline: true })
+  .field({ name: 'Field2 name', value: 'Field2 content'})
+  .author({name: 'Author name', url: 'https://artemis.rest', iconUrl: 'https://artemis.rest/image.png', proxyIconUrl: 'https://cdn.artemis.rest/image.png'})
+  .image({ url: 'https://artemis.rest/image.png', proxyUrl: 'https://cdn.artemis.rest/image.png' })
+  .thumbnail({ url: 'https://artemis.rest/thumbImage.png' })
+  .video({ url: 'https://artemis.rest/video.mov', width: 100, height: 100 })
+  .provider({ name: 'Your name', url: 'https://artemis.rest' })
+  .footer({ text: 'A side note', iconUrl: 'https://artemis.rest/footer.png' })
+  .timestamp();
+  

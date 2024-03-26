@@ -126,7 +126,7 @@ class embedCreate { /* Embed class maker to export. */
     if(!value) return this; /* Return current structure. */
     if(value) this.embedObject['video'] = {}; /* Create object. */
     
-    if(value.url) this.embedObject['video'].url = value.url; /* source url of video (only supports http(s) and attachments). */
+    if(value.url) this.embedObject['video'].url = value.url; /* source url of video. */
     if(value.proxyUrl) this.embedObject['video'].proxy_url = value.proxyUrl; /* a proxied url of the video. */
     if(value.height) this.embedObject['video'].height = value.height; /* height of video. */
     if(value.width) this.embedObject['video'].width = value.width; /* width of video. */
