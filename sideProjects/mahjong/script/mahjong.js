@@ -962,7 +962,7 @@ function checkGameCompletion() { /* Trigger on succesful and valid match */
     gridContainer.style.display = "grid"; /* Redefine grid */
     gridContainer.style.placeItems = "center"; /* Redefine item placement */
     let levelSelect = [8, 8, 8, 8, 10, 10, 10, 10, 10, 10, 10, 12, 12, 12, 12, 14];
-    if(actualLevel === 10) {
+    if(actualLevel === 15) {
       gridContainer.innerHTML = `<div class="waviy">
             <span style="--i:1">G</span>
             <span style="--i:2">a</span>
@@ -1035,7 +1035,6 @@ function gameOver() { /* gameover screen */
           <span style="--i:8">e</span>
           <span style="--i:9">r</span><br /><hr />
           <button class="theButton" onclick="startLevel(8, 1)">Start Again</button><br /><br />
-          <span style="font-size: 2em;">Time's up, you suck.</span><br />
           <span style="font-size: 2em;">Score: ${currentScore}</span>
         </div>`; /* Be a sore loser */
     let updateScore = document.getElementById('scoreCount'); /* Grab element */
