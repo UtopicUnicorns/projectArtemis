@@ -39,15 +39,7 @@ class bow { /* Main class to export for the app. */
   }
 
   async libraryStart( inc ) { /* Function to start the application, needs path to main config file. */
-    try { /* Using try .. catch method because in case any part fails it needs to exit the app. */
-    
-      await import('./treeRoots/buildUp/dataHandle.js'); /* Import https request handler. */
-      await import('./endPoints/endPoints.js'); /* Import all available endPoints. */
-      await import('./treeRoots/buildUp/mimes.js'); /* Import mimetypes. */
-      await import('./treeRoots/buildUp/embeds.js'); /* Import embeds maker. */  
-      await import('./treeRoots/gateWay.js'); /* new gateWay() used to load a new instance of the gateWay. */
-      await import('./treeRoots/cache.js'); /* Import caching mechanism. */
-      
+    try { /* Using try .. catch method because in case any part fails it needs to exit the app. */      
       this.bootCore.resolve(); /* After loading needed modules resolve the promise. */
       this.configContent = await fs.promises.readFile(`${process.cwd()}/${inc}`, 'utf8'); /* Loading the configFile supplied. */
       global.configContent = JSON.parse(this.configContent); /* Parsing the configFile. */

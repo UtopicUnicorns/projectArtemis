@@ -16,7 +16,8 @@
         .resolve() If defined as a variable available option.
         .reject() If defined as a variable available option.
     We also import a gateway parser for use in the gateWay.
-    A subSet of variables are stored in a json, we also globalise that.  */
+    After importing the core modules we import the secondary cores.
+      */
     
 import { EventEmitter } from 'events'; /* Import specific emitter module from events module. */
 import fs from 'fs'; /* Import native fs module. */
@@ -33,7 +34,12 @@ global.https = https; /* Make native module global as 'https'. */
 global.os = os; /* Make native module global as 'os'. */
 global.ws = ws; /* Make webSocket global as 'ws'. */
 
-global.globalsJSON = JSON.parse(await fs.promises.readFile('./libraryRoots/treeRoots/globals.json', 'utf8')); /* Reading globals JSON and globalise it to use in other files. */
+global.globalsJSON = { /* Set JSON object to use in core. */
+  socketSuffix: "/?v=10&encoding=json",
+  botUrl: "/api/v10/gateway/bot",
+  discordCdn: "https://cdn.discordapp.com/",
+  discordUrl: "discord.com" };
+  
 global.parseMe = await import('../gatewayEvents/gateParser.js'); /* Global function to parse incoming events. */
 
 global.treeBranch = new EventEmitter(); /* Attaching a new emitter to the global treeBranch. */
@@ -57,4 +63,11 @@ global.snapString = function() { /* Global promise function to delay pieces of c
   promise.reject = rej;
   return promise;
 };
+
+await import('./buildUp/dataHandle.js'); /* Import https request handler. */
+await import('../endPoints/endPoints.js'); /* Import all available endPoints. */
+await import('./buildUp/mimes.js'); /* Import mimetypes. */
+await import('./buildUp/embeds.js'); /* Import embeds maker. */  
+await import('./gateWay.js'); /* new gateWay() used to load a new instance of the gateWay. */
+await import('./cache.js'); /* Import caching mechanism. */
 
